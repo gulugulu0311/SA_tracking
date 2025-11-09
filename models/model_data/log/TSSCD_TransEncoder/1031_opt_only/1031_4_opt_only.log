@@ -1,0 +1,2052 @@
+2025-10-16 18:03:45,162 - INFO - Epoch 0, Train loss: 2.268338902791341
+2025-10-16 18:03:45,929 - INFO - mIoU: 0.0411; OA: 0.0353; AA: 0.2857; F1: 0.118; Kappa: 0.018;
+2025-10-16 18:03:45,929 - INFO - spatial_LccAccuracy: 0.0; spatial_PA: 0.5395; spatial_UA: 0.7465; spatial_F1: 0.6263
+2025-10-16 18:03:45,930 - INFO - temporal_CdAccuracy: 0.0291; temporal_PA: 0.643; temporal_UA: 0.5347; temporal_F1: 0.5838
+2025-10-16 18:03:45,931 - INFO - Confusion Matrix
+ [    0.	    0.	37563.	22661.	 7691.]
+ [    0.	    0.	10757.	42166.	   68.]
+ [    0.	    0.	  222.	 2087.	    0.]
+ [    0.	    0.	    0.	 1327.	    0.]
+ [    0.	    0.	   27.	 6352.	 3179.]
+2025-10-16 18:03:45,971 - INFO - Epoch 0 saved.
+2025-10-16 18:03:45,972 - INFO - model saved 1 times, last saved epoch: 0.
+
+2025-10-16 18:03:48,869 - INFO - Epoch 1, Train loss: 2.1293935662224177
+2025-10-16 18:03:49,731 - INFO - mIoU: 0.1403; OA: 0.2687; AA: 0.4073; F1: 0.2141; Kappa: 0.0859;
+2025-10-16 18:03:49,732 - INFO - spatial_LccAccuracy: 0.0197; spatial_PA: 0.5459; spatial_UA: 0.8984; spatial_F1: 0.6791
+2025-10-16 18:03:49,732 - INFO - temporal_CdAccuracy: 0.0201; temporal_PA: 0.6511; temporal_UA: 0.5253; temporal_F1: 0.5815
+2025-10-16 18:03:49,733 - INFO - Confusion Matrix
+ [  271.	33017.	18959.	 2841.	12827.]
+ [  698.	26588.	 3979.	21155.	  571.]
+ [  257.	  250.	  163.	 1638.	    1.]
+ [    0.	  506.	    1.	  797.	   23.]
+ [    0.	  356.	   14.	  972.	 8216.]
+2025-10-16 18:03:49,773 - INFO - Epoch 1 saved.
+2025-10-16 18:03:49,773 - INFO - model saved 2 times, last saved epoch: 1.
+
+2025-10-16 18:03:52,526 - INFO - Epoch 2, Train loss: 1.9340885082880657
+2025-10-16 18:03:53,397 - INFO - mIoU: 0.2136; OA: 0.671; AA: 0.2901; F1: 0.695; Kappa: 0.3747;
+2025-10-16 18:03:53,397 - INFO - spatial_LccAccuracy: 0.0407; spatial_PA: 0.5505; spatial_UA: 0.5374; spatial_F1: 0.5439
+2025-10-16 18:03:53,397 - INFO - temporal_CdAccuracy: 0.0966; temporal_PA: 0.5959; temporal_UA: 0.5309; temporal_F1: 0.5616
+2025-10-16 18:03:53,398 - INFO - Confusion Matrix
+ [59700.	 8215.	    0.	    0.	    0.]
+ [22713.	30278.	    0.	    0.	    0.]
+ [ 1741.	  568.	    0.	    0.	    0.]
+ [ 1280.	   47.	    0.	    0.	    0.]
+ [ 9378.	  180.	    0.	    0.	    0.]
+2025-10-16 18:03:53,438 - INFO - Epoch 2 saved.
+2025-10-16 18:03:53,439 - INFO - model saved 3 times, last saved epoch: 2.
+
+2025-10-16 18:03:56,097 - INFO - Epoch 3, Train loss: 1.638726830482483
+2025-10-16 18:03:56,982 - INFO - mIoU: 0.1598; OA: 0.592; AA: 0.2456; F1: 0.5554; Kappa: 0.1969;
+2025-10-16 18:03:56,982 - INFO - spatial_LccAccuracy: 0.0971; spatial_PA: 0.5019; spatial_UA: 0.5018; spatial_F1: 0.5018
+2025-10-16 18:03:56,982 - INFO - temporal_CdAccuracy: 0.1655; temporal_PA: 0.5175; temporal_UA: 0.5194; temporal_F1: 0.5184
+2025-10-16 18:03:56,983 - INFO - Confusion Matrix
+ [65102.	 2813.	    0.	    0.	    0.]
+ [38710.	14281.	    0.	    0.	    0.]
+ [ 1930.	  379.	    0.	    0.	    0.]
+ [ 1325.	    2.	    0.	    0.	    0.]
+ [ 9551.	    7.	    0.	    0.	    0.]
+2025-10-16 18:03:56,984 - INFO - model saved 3 times, last saved epoch: 2.
+
+2025-10-16 18:03:59,687 - INFO - Epoch 4, Train loss: 1.4471196878524053
+2025-10-16 18:04:00,579 - INFO - mIoU: 0.2011; OA: 0.6503; AA: 0.2792; F1: 0.6665; Kappa: 0.3317;
+2025-10-16 18:04:00,579 - INFO - spatial_LccAccuracy: 0.1494; spatial_PA: 0.6127; spatial_UA: 0.5877; spatial_F1: 0.6
+2025-10-16 18:04:00,580 - INFO - temporal_CdAccuracy: 0.1861; temporal_PA: 0.5504; temporal_UA: 0.5454; temporal_F1: 0.5479
+2025-10-16 18:04:00,580 - INFO - Confusion Matrix
+ [60175.	 7740.	    0.	    0.	    0.]
+ [25957.	27034.	    0.	    0.	    0.]
+ [ 1395.	  914.	    0.	    0.	    0.]
+ [ 1317.	   10.	    0.	    0.	    0.]
+ [ 9475.	   83.	    0.	    0.	    0.]
+2025-10-16 18:04:00,581 - INFO - model saved 3 times, last saved epoch: 2.
+
+2025-10-16 18:04:03,355 - INFO - Epoch 5, Train loss: 1.2794113431658063
+2025-10-16 18:04:04,133 - INFO - mIoU: 0.2445; OA: 0.7212; AA: 0.3183; F1: 0.5058; Kappa: 0.4816;
+2025-10-16 18:04:04,134 - INFO - spatial_LccAccuracy: 0.1951; spatial_PA: 0.6981; spatial_UA: 0.6432; spatial_F1: 0.6695
+2025-10-16 18:04:04,134 - INFO - temporal_CdAccuracy: 0.2103; temporal_PA: 0.5971; temporal_UA: 0.5844; temporal_F1: 0.5906
+2025-10-16 18:04:04,135 - INFO - Confusion Matrix
+ [56365.	11550.	    0.	    0.	    0.]
+ [12640.	40351.	    0.	    0.	    0.]
+ [ 1152.	 1157.	    0.	    0.	    0.]
+ [ 1310.	   17.	    0.	    0.	    0.]
+ [ 9337.	  220.	    0.	    0.	    1.]
+2025-10-16 18:04:04,176 - INFO - Epoch 5 saved.
+2025-10-16 18:04:04,176 - INFO - model saved 4 times, last saved epoch: 5.
+
+2025-10-16 18:04:06,945 - INFO - Epoch 6, Train loss: 1.122091669695718
+2025-10-16 18:04:07,767 - INFO - mIoU: 0.4573; OA: 0.8186; AA: 0.5141; F1: 0.8616; Kappa: 0.681;
+2025-10-16 18:04:07,767 - INFO - spatial_LccAccuracy: 0.3096; spatial_PA: 0.8344; spatial_UA: 0.7302; spatial_F1: 0.7788
+2025-10-16 18:04:07,767 - INFO - temporal_CdAccuracy: 0.2434; temporal_PA: 0.6649; temporal_UA: 0.6103; temporal_F1: 0.6364
+2025-10-16 18:04:07,768 - INFO - Confusion Matrix
+ [57069.	10846.	    0.	    0.	    0.]
+ [ 8874.	44117.	    0.	    0.	    0.]
+ [  422.	 1887.	    0.	    0.	    0.]
+ [ 1301.	   26.	    0.	    0.	    0.]
+ [  739.	  237.	    0.	    0.	 8582.]
+2025-10-16 18:04:07,810 - INFO - Epoch 6 saved.
+2025-10-16 18:04:07,811 - INFO - model saved 5 times, last saved epoch: 6.
+
+2025-10-16 18:04:10,512 - INFO - Epoch 7, Train loss: 0.9190990731829689
+2025-10-16 18:04:11,309 - INFO - mIoU: 0.4796; OA: 0.8519; AA: 0.5301; F1: 0.8866; Kappa: 0.7401;
+2025-10-16 18:04:11,310 - INFO - spatial_LccAccuracy: 0.3673; spatial_PA: 0.9153; spatial_UA: 0.8307; spatial_F1: 0.871
+2025-10-16 18:04:11,310 - INFO - temporal_CdAccuracy: 0.2922; temporal_PA: 0.7241; temporal_UA: 0.6221; temporal_F1: 0.6693
+2025-10-16 18:04:11,311 - INFO - Confusion Matrix
+ [58811.	 9104.	    0.	    0.	    0.]
+ [ 6176.	46815.	    0.	    0.	    0.]
+ [   81.	 2228.	    0.	    0.	    0.]
+ [ 1305.	   22.	    0.	    0.	    0.]
+ [  742.	  203.	    0.	    0.	 8613.]
+2025-10-16 18:04:11,350 - INFO - Epoch 7 saved.
+2025-10-16 18:04:11,351 - INFO - model saved 6 times, last saved epoch: 7.
+
+2025-10-16 18:04:14,029 - INFO - Epoch 8, Train loss: 0.8167697792961484
+2025-10-16 18:04:14,831 - INFO - mIoU: 0.488; OA: 0.8637; AA: 0.5355; F1: 0.8956; Kappa: 0.7606;
+2025-10-16 18:04:14,831 - INFO - spatial_LccAccuracy: 0.3776; spatial_PA: 0.9261; spatial_UA: 0.8741; spatial_F1: 0.8993
+2025-10-16 18:04:14,831 - INFO - temporal_CdAccuracy: 0.3034; temporal_PA: 0.7356; temporal_UA: 0.6213; temporal_F1: 0.6737
+2025-10-16 18:04:14,832 - INFO - Confusion Matrix
+ [60063.	 7852.	    0.	    0.	    0.]
+ [ 5866.	47125.	    0.	    0.	    0.]
+ [  104.	 2205.	    0.	    0.	    0.]
+ [ 1314.	   13.	    0.	    0.	    0.]
+ [  758.	  160.	    0.	    0.	 8640.]
+2025-10-16 18:04:14,877 - INFO - Epoch 8 saved.
+2025-10-16 18:04:14,877 - INFO - model saved 7 times, last saved epoch: 8.
+
+2025-10-16 18:04:17,593 - INFO - Epoch 9, Train loss: 0.7772979162988208
+2025-10-16 18:04:18,397 - INFO - mIoU: 0.5037; OA: 0.874; AA: 0.5487; F1: 0.6983; Kappa: 0.7787;
+2025-10-16 18:04:18,398 - INFO - spatial_LccAccuracy: 0.3924; spatial_PA: 0.9211; spatial_UA: 0.8839; spatial_F1: 0.9021
+2025-10-16 18:04:18,398 - INFO - temporal_CdAccuracy: 0.3083; temporal_PA: 0.7457; temporal_UA: 0.6277; temporal_F1: 0.6816
+2025-10-16 18:04:18,399 - INFO - Confusion Matrix
+ [60666.	 7249.	    0.	    0.	    0.]
+ [ 5197.	47786.	    8.	    0.	    0.]
+ [  141.	 2066.	  102.	    0.	    0.]
+ [ 1312.	   15.	    0.	    0.	    0.]
+ [  758.	  157.	    0.	    0.	 8643.]
+2025-10-16 18:04:18,439 - INFO - Epoch 9 saved.
+2025-10-16 18:04:18,440 - INFO - model saved 8 times, last saved epoch: 9.
+
+2025-10-16 18:04:21,177 - INFO - Epoch 10, Train loss: 0.7490912471498762
+2025-10-16 18:04:22,061 - INFO - mIoU: 0.5448; OA: 0.8851; AA: 0.5873; F1: 0.771; Kappa: 0.7987;
+2025-10-16 18:04:22,062 - INFO - spatial_LccAccuracy: 0.4318; spatial_PA: 0.9243; spatial_UA: 0.8877; spatial_F1: 0.9056
+2025-10-16 18:04:22,062 - INFO - temporal_CdAccuracy: 0.3186; temporal_PA: 0.7578; temporal_UA: 0.6395; temporal_F1: 0.6937
+2025-10-16 18:04:22,063 - INFO - Confusion Matrix
+ [61138.	 6773.	    4.	    0.	    0.]
+ [ 4569.	48392.	   30.	    0.	    0.]
+ [   93.	 1713.	  503.	    0.	    0.]
+ [ 1305.	   22.	    0.	    0.	    0.]
+ [  744.	  160.	    0.	    0.	 8654.]
+2025-10-16 18:04:22,107 - INFO - Epoch 10 saved.
+2025-10-16 18:04:22,108 - INFO - model saved 9 times, last saved epoch: 10.
+
+2025-10-16 18:04:24,823 - INFO - Epoch 11, Train loss: 0.7272859789076306
+2025-10-16 18:04:25,605 - INFO - mIoU: 0.5822; OA: 0.8939; AA: 0.6241; F1: 0.8229; Kappa: 0.8147;
+2025-10-16 18:04:25,606 - INFO - spatial_LccAccuracy: 0.4546; spatial_PA: 0.9323; spatial_UA: 0.8932; spatial_F1: 0.9123
+2025-10-16 18:04:25,606 - INFO - temporal_CdAccuracy: 0.3481; temporal_PA: 0.768; temporal_UA: 0.6524; temporal_F1: 0.7055
+2025-10-16 18:04:25,607 - INFO - Confusion Matrix
+ [61459.	 6448.	    7.	    1.	    0.]
+ [ 4061.	48860.	   70.	    0.	    0.]
+ [  107.	 1308.	  894.	    0.	    0.]
+ [ 1289.	   33.	    5.	    0.	    0.]
+ [  723.	  171.	    1.	    0.	 8663.]
+2025-10-16 18:04:25,647 - INFO - Epoch 11 saved.
+2025-10-16 18:04:25,647 - INFO - model saved 10 times, last saved epoch: 11.
+
+2025-10-16 18:04:28,522 - INFO - Epoch 12, Train loss: 0.7045871348608108
+2025-10-16 18:04:29,454 - INFO - mIoU: 0.6061; OA: 0.8994; AA: 0.6491; F1: 0.8507; Kappa: 0.824;
+2025-10-16 18:04:29,454 - INFO - spatial_LccAccuracy: 0.4747; spatial_PA: 0.9261; spatial_UA: 0.8879; spatial_F1: 0.9066
+2025-10-16 18:04:29,455 - INFO - temporal_CdAccuracy: 0.3593; temporal_PA: 0.76; temporal_UA: 0.6552; temporal_F1: 0.7037
+2025-10-16 18:04:29,456 - INFO - Confusion Matrix
+ [63046.	 4855.	   11.	    2.	    1.]
+ [ 5127.	47719.	  144.	    0.	    1.]
+ [   87.	 1047.	 1175.	    0.	    0.]
+ [ 1303.	   21.	    3.	    0.	    0.]
+ [  738.	  143.	    1.	    0.	 8676.]
+2025-10-16 18:04:29,497 - INFO - Epoch 12 saved.
+2025-10-16 18:04:29,497 - INFO - model saved 11 times, last saved epoch: 12.
+
+2025-10-16 18:04:32,292 - INFO - Epoch 13, Train loss: 0.685682719662076
+2025-10-16 18:04:33,056 - INFO - mIoU: 0.6301; OA: 0.9101; AA: 0.6731; F1: 0.7036; Kappa: 0.8432;
+2025-10-16 18:04:33,056 - INFO - spatial_LccAccuracy: 0.5105; spatial_PA: 0.9291; spatial_UA: 0.8935; spatial_F1: 0.911
+2025-10-16 18:04:33,056 - INFO - temporal_CdAccuracy: 0.4049; temporal_PA: 0.7858; temporal_UA: 0.681; temporal_F1: 0.7297
+2025-10-16 18:04:33,057 - INFO - Confusion Matrix
+ [62953.	 4917.	   18.	   26.	    1.]
+ [ 3775.	49042.	  174.	    0.	    0.]
+ [   20.	  933.	 1356.	    0.	    0.]
+ [ 1196.	  100.	    6.	   25.	    0.]
+ [  700.	  189.	    1.	    0.	 8668.]
+2025-10-16 18:04:33,098 - INFO - Epoch 13 saved.
+2025-10-16 18:04:33,098 - INFO - model saved 12 times, last saved epoch: 13.
+
+2025-10-16 18:04:35,807 - INFO - Epoch 14, Train loss: 0.6674598353249687
+2025-10-16 18:04:36,604 - INFO - mIoU: 0.6579; OA: 0.9196; AA: 0.6995; F1: 0.7331; Kappa: 0.8597;
+2025-10-16 18:04:36,604 - INFO - spatial_LccAccuracy: 0.5539; spatial_PA: 0.9307; spatial_UA: 0.8912; spatial_F1: 0.9106
+2025-10-16 18:04:36,604 - INFO - temporal_CdAccuracy: 0.4367; temporal_PA: 0.7885; temporal_UA: 0.6987; temporal_F1: 0.7409
+2025-10-16 18:04:36,605 - INFO - Confusion Matrix
+ [63958.	 3924.	   15.	   13.	    5.]
+ [ 3723.	49070.	  198.	    0.	    0.]
+ [   11.	  771.	 1527.	    0.	    0.]
+ [ 1131.	  114.	    2.	   80.	    0.]
+ [  660.	  216.	    0.	    0.	 8682.]
+2025-10-16 18:04:36,647 - INFO - Epoch 14 saved.
+2025-10-16 18:04:36,647 - INFO - model saved 13 times, last saved epoch: 14.
+
+2025-10-16 18:04:39,411 - INFO - Epoch 15, Train loss: 0.6437871881893703
+2025-10-16 18:04:40,213 - INFO - mIoU: 0.6882; OA: 0.9271; AA: 0.7256; F1: 0.7725; Kappa: 0.8728;
+2025-10-16 18:04:40,214 - INFO - spatial_LccAccuracy: 0.5942; spatial_PA: 0.9325; spatial_UA: 0.8915; spatial_F1: 0.9115
+2025-10-16 18:04:40,214 - INFO - temporal_CdAccuracy: 0.4635; temporal_PA: 0.7881; temporal_UA: 0.712; temporal_F1: 0.7481
+2025-10-16 18:04:40,215 - INFO - Confusion Matrix
+ [64790.	 3094.	   15.	   10.	    6.]
+ [ 3757.	49076.	  153.	    4.	    1.]
+ [   12.	  729.	 1568.	    0.	    0.]
+ [  923.	  190.	    1.	  213.	    0.]
+ [  650.	  228.	    0.	    0.	 8680.]
+2025-10-16 18:04:40,256 - INFO - Epoch 15 saved.
+2025-10-16 18:04:40,256 - INFO - model saved 14 times, last saved epoch: 15.
+
+2025-10-16 18:04:42,919 - INFO - Epoch 16, Train loss: 0.6247344766344343
+2025-10-16 18:04:43,744 - INFO - mIoU: 0.7111; OA: 0.9337; AA: 0.742; F1: 0.799; Kappa: 0.8845;
+2025-10-16 18:04:43,744 - INFO - spatial_LccAccuracy: 0.643; spatial_PA: 0.9367; spatial_UA: 0.8957; spatial_F1: 0.9158
+2025-10-16 18:04:43,744 - INFO - temporal_CdAccuracy: 0.5132; temporal_PA: 0.7967; temporal_UA: 0.7364; temporal_F1: 0.7653
+2025-10-16 18:04:43,745 - INFO - Confusion Matrix
+ [64880.	 3003.	    8.	   11.	   13.]
+ [ 3142.	49776.	   65.	    4.	    4.]
+ [   11.	  763.	 1535.	    0.	    0.]
+ [  760.	  248.	    0.	  319.	    0.]
+ [  599.	  260.	    0.	    0.	 8699.]
+2025-10-16 18:04:43,790 - INFO - Epoch 16 saved.
+2025-10-16 18:04:43,790 - INFO - model saved 15 times, last saved epoch: 16.
+
+2025-10-16 18:04:46,578 - INFO - Epoch 17, Train loss: 0.6142417393979572
+2025-10-16 18:04:47,387 - INFO - mIoU: 0.7505; OA: 0.9403; AA: 0.7838; F1: 0.8371; Kappa: 0.8962;
+2025-10-16 18:04:47,388 - INFO - spatial_LccAccuracy: 0.6729; spatial_PA: 0.933; spatial_UA: 0.8971; spatial_F1: 0.9147
+2025-10-16 18:04:47,388 - INFO - temporal_CdAccuracy: 0.5432; temporal_PA: 0.8143; temporal_UA: 0.761; temporal_F1: 0.7868
+2025-10-16 18:04:47,389 - INFO - Confusion Matrix
+ [65200.	 2653.	   20.	   26.	   16.]
+ [ 2881.	49988.	  105.	   10.	    7.]
+ [    6.	  579.	 1724.	    0.	    0.]
+ [  549.	  303.	    0.	  475.	    0.]
+ [  555.	  293.	    0.	    0.	 8710.]
+2025-10-16 18:04:47,434 - INFO - Epoch 17 saved.
+2025-10-16 18:04:47,434 - INFO - model saved 16 times, last saved epoch: 17.
+
+2025-10-16 18:04:50,246 - INFO - Epoch 18, Train loss: 0.6050875868116107
+2025-10-16 18:04:51,102 - INFO - mIoU: 0.7657; OA: 0.943; AA: 0.7969; F1: 0.8507; Kappa: 0.9008;
+2025-10-16 18:04:51,102 - INFO - spatial_LccAccuracy: 0.694; spatial_PA: 0.9405; spatial_UA: 0.8969; spatial_F1: 0.9182
+2025-10-16 18:04:51,102 - INFO - temporal_CdAccuracy: 0.5584; temporal_PA: 0.8126; temporal_UA: 0.7766; temporal_F1: 0.7942
+2025-10-16 18:04:51,103 - INFO - Confusion Matrix
+ [65558.	 2313.	   24.	   13.	    7.]
+ [ 2983.	49905.	   87.	   14.	    2.]
+ [    5.	  529.	 1775.	    0.	    0.]
+ [  540.	  256.	    0.	  531.	    0.]
+ [  593.	  281.	    0.	    0.	 8684.]
+2025-10-16 18:04:51,163 - INFO - Epoch 18 saved.
+2025-10-16 18:04:51,163 - INFO - model saved 17 times, last saved epoch: 18.
+
+2025-10-16 18:04:53,876 - INFO - Epoch 19, Train loss: 0.5954534837177822
+2025-10-16 18:04:54,733 - INFO - mIoU: 0.7885; OA: 0.9441; AA: 0.8232; F1: 0.8697; Kappa: 0.9027;
+2025-10-16 18:04:54,733 - INFO - spatial_LccAccuracy: 0.7043; spatial_PA: 0.9346; spatial_UA: 0.8948; spatial_F1: 0.9143
+2025-10-16 18:04:54,733 - INFO - temporal_CdAccuracy: 0.553; temporal_PA: 0.8059; temporal_UA: 0.7791; temporal_F1: 0.7923
+2025-10-16 18:04:54,734 - INFO - Confusion Matrix
+ [66302.	 1569.	   25.	    9.	   10.]
+ [ 3781.	49041.	  124.	   38.	    7.]
+ [   10.	  383.	 1916.	    0.	    0.]
+ [  580.	  120.	    0.	  627.	    0.]
+ [  642.	  200.	    0.	    0.	 8716.]
+2025-10-16 18:04:54,794 - INFO - Epoch 19 saved.
+2025-10-16 18:04:54,795 - INFO - model saved 18 times, last saved epoch: 19.
+
+2025-10-16 18:04:57,693 - INFO - Epoch 20, Train loss: 0.5827036724204109
+2025-10-16 18:04:58,522 - INFO - mIoU: 0.7894; OA: 0.9476; AA: 0.822; F1: 0.8697; Kappa: 0.9092;
+2025-10-16 18:04:58,522 - INFO - spatial_LccAccuracy: 0.7128; spatial_PA: 0.9399; spatial_UA: 0.911; spatial_F1: 0.9252
+2025-10-16 18:04:58,523 - INFO - temporal_CdAccuracy: 0.5893; temporal_PA: 0.835; temporal_UA: 0.7941; temporal_F1: 0.8141
+2025-10-16 18:04:58,523 - INFO - Confusion Matrix
+ [65257.	 2589.	   23.	   30.	   16.]
+ [ 2276.	50594.	   80.	   35.	    6.]
+ [    5.	  442.	 1862.	    0.	    0.]
+ [  465.	  233.	    0.	  629.	    0.]
+ [  562.	  260.	    0.	    0.	 8736.]
+2025-10-16 18:04:58,564 - INFO - Epoch 20 saved.
+2025-10-16 18:04:58,565 - INFO - model saved 19 times, last saved epoch: 20.
+
+2025-10-16 18:05:01,266 - INFO - Epoch 21, Train loss: 0.5722611064002627
+2025-10-16 18:05:02,066 - INFO - mIoU: 0.8124; OA: 0.9504; AA: 0.8501; F1: 0.889; Kappa: 0.9142;
+2025-10-16 18:05:02,067 - INFO - spatial_LccAccuracy: 0.7351; spatial_PA: 0.9452; spatial_UA: 0.9485; spatial_F1: 0.9469
+2025-10-16 18:05:02,067 - INFO - temporal_CdAccuracy: 0.6098; temporal_PA: 0.8462; temporal_UA: 0.7978; temporal_F1: 0.8213
+2025-10-16 18:05:02,068 - INFO - Confusion Matrix
+ [65039.	 2728.	   21.	   57.	   70.]
+ [ 1929.	50905.	   63.	   72.	   22.]
+ [    2.	  449.	 1858.	    0.	    0.]
+ [  343.	  185.	    0.	  799.	    0.]
+ [  465.	  247.	    0.	    0.	 8846.]
+2025-10-16 18:05:02,108 - INFO - Epoch 21 saved.
+2025-10-16 18:05:02,109 - INFO - model saved 20 times, last saved epoch: 21.
+
+2025-10-16 18:05:04,901 - INFO - Epoch 22, Train loss: 0.5585320753710611
+2025-10-16 18:05:05,741 - INFO - mIoU: 0.8266; OA: 0.9541; AA: 0.8642; F1: 0.8981; Kappa: 0.9206;
+2025-10-16 18:05:05,742 - INFO - spatial_LccAccuracy: 0.7521; spatial_PA: 0.9482; spatial_UA: 0.9405; spatial_F1: 0.9443
+2025-10-16 18:05:05,742 - INFO - temporal_CdAccuracy: 0.6166; temporal_PA: 0.8482; temporal_UA: 0.8104; temporal_F1: 0.8289
+2025-10-16 18:05:05,743 - INFO - Confusion Matrix
+ [65874.	 1943.	   26.	   29.	   43.]
+ [ 2394.	50389.	  110.	   77.	   21.]
+ [    3.	  311.	 1995.	    0.	    0.]
+ [  385.	  137.	    0.	  805.	    0.]
+ [  473.	  201.	    0.	    0.	 8884.]
+2025-10-16 18:05:05,783 - INFO - Epoch 22 saved.
+2025-10-16 18:05:05,784 - INFO - model saved 21 times, last saved epoch: 22.
+
+2025-10-16 18:05:08,624 - INFO - Epoch 23, Train loss: 0.5463684399922689
+2025-10-16 18:05:09,445 - INFO - mIoU: 0.825; OA: 0.9549; AA: 0.858; F1: 0.8977; Kappa: 0.922;
+2025-10-16 18:05:09,445 - INFO - spatial_LccAccuracy: 0.7602; spatial_PA: 0.9542; spatial_UA: 0.9396; spatial_F1: 0.9469
+2025-10-16 18:05:09,445 - INFO - temporal_CdAccuracy: 0.6322; temporal_PA: 0.85; temporal_UA: 0.8149; temporal_F1: 0.8321
+2025-10-16 18:05:09,446 - INFO - Confusion Matrix
+ [65647.	 2110.	   15.	   19.	  124.]
+ [ 2105.	50715.	   44.	   72.	   55.]
+ [    2.	  451.	 1856.	    0.	    0.]
+ [  359.	  145.	    0.	  823.	    0.]
+ [  361.	  189.	    0.	    0.	 9008.]
+2025-10-16 18:05:09,447 - INFO - model saved 21 times, last saved epoch: 22.
+
+2025-10-16 18:05:12,240 - INFO - Epoch 24, Train loss: 0.5336224192664737
+2025-10-16 18:05:13,054 - INFO - mIoU: 0.8531; OA: 0.9588; AA: 0.8904; F1: 0.9172; Kappa: 0.9289;
+2025-10-16 18:05:13,054 - INFO - spatial_LccAccuracy: 0.7861; spatial_PA: 0.9548; spatial_UA: 0.9687; spatial_F1: 0.9617
+2025-10-16 18:05:13,054 - INFO - temporal_CdAccuracy: 0.6626; temporal_PA: 0.8734; temporal_UA: 0.8302; temporal_F1: 0.8512
+2025-10-16 18:05:13,055 - INFO - Confusion Matrix
+ [65675.	 2106.	   18.	   27.	   89.]
+ [ 1903.	50869.	   52.	  104.	   63.]
+ [    3.	  385.	 1921.	    0.	    0.]
+ [  210.	  138.	    0.	  979.	    0.]
+ [  256.	  170.	    0.	    0.	 9132.]
+2025-10-16 18:05:13,106 - INFO - Epoch 24 saved.
+2025-10-16 18:05:13,107 - INFO - model saved 22 times, last saved epoch: 24.
+
+2025-10-16 18:05:15,960 - INFO - Epoch 25, Train loss: 0.5220865002700261
+2025-10-16 18:05:16,849 - INFO - mIoU: 0.8606; OA: 0.9597; AA: 0.8955; F1: 0.9221; Kappa: 0.9304;
+2025-10-16 18:05:16,850 - INFO - spatial_LccAccuracy: 0.7933; spatial_PA: 0.9588; spatial_UA: 0.9601; spatial_F1: 0.9594
+2025-10-16 18:05:16,850 - INFO - temporal_CdAccuracy: 0.6631; temporal_PA: 0.8677; temporal_UA: 0.8364; temporal_F1: 0.8518
+2025-10-16 18:05:16,851 - INFO - Confusion Matrix
+ [66101.	 1748.	   19.	   10.	   37.]
+ [ 2215.	50558.	   56.	  105.	   57.]
+ [    5.	  339.	 1965.	    0.	    0.]
+ [  239.	   94.	    0.	  994.	    0.]
+ [  321.	  157.	    0.	    0.	 9080.]
+2025-10-16 18:05:16,891 - INFO - Epoch 25 saved.
+2025-10-16 18:05:16,892 - INFO - model saved 23 times, last saved epoch: 25.
+
+2025-10-16 18:05:19,610 - INFO - Epoch 26, Train loss: 0.5114876165276482
+2025-10-16 18:05:20,478 - INFO - mIoU: 0.8567; OA: 0.9577; AA: 0.8884; F1: 0.92; Kappa: 0.9266;
+2025-10-16 18:05:20,478 - INFO - spatial_LccAccuracy: 0.7951; spatial_PA: 0.9496; spatial_UA: 0.957; spatial_F1: 0.9533
+2025-10-16 18:05:20,478 - INFO - temporal_CdAccuracy: 0.6591; temporal_PA: 0.8685; temporal_UA: 0.8426; temporal_F1: 0.8553
+2025-10-16 18:05:20,479 - INFO - Confusion Matrix
+ [66774.	 1117.	   16.	    2.	    6.]
+ [ 2969.	49858.	   51.	   97.	   16.]
+ [    7.	  324.	 1978.	    0.	    0.]
+ [  245.	  105.	    0.	  977.	    0.]
+ [  576.	  140.	    0.	    0.	 8842.]
+2025-10-16 18:05:20,480 - INFO - model saved 23 times, last saved epoch: 25.
+
+2025-10-16 18:05:23,178 - INFO - Epoch 27, Train loss: 0.5059890715848832
+2025-10-16 18:05:23,975 - INFO - mIoU: 0.8803; OA: 0.9631; AA: 0.9174; F1: 0.9347; Kappa: 0.9363;
+2025-10-16 18:05:23,975 - INFO - spatial_LccAccuracy: 0.8215; spatial_PA: 0.9546; spatial_UA: 0.9783; spatial_F1: 0.9663
+2025-10-16 18:05:23,976 - INFO - temporal_CdAccuracy: 0.6832; temporal_PA: 0.8844; temporal_UA: 0.8504; temporal_F1: 0.8671
+2025-10-16 18:05:23,976 - INFO - Confusion Matrix
+ [66286.	 1554.	   17.	   23.	   35.]
+ [ 2112.	50653.	   51.	  117.	   58.]
+ [    6.	  302.	 2001.	    0.	    0.]
+ [  124.	   93.	    0.	 1110.	    0.]
+ [  297.	  160.	    0.	    0.	 9101.]
+2025-10-16 18:05:24,016 - INFO - Epoch 27 saved.
+2025-10-16 18:05:24,017 - INFO - model saved 24 times, last saved epoch: 27.
+
+2025-10-16 18:05:26,802 - INFO - Epoch 28, Train loss: 0.49959392065093633
+2025-10-16 18:05:27,600 - INFO - mIoU: 0.8833; OA: 0.9635; AA: 0.9192; F1: 0.9368; Kappa: 0.937;
+2025-10-16 18:05:27,600 - INFO - spatial_LccAccuracy: 0.8201; spatial_PA: 0.9557; spatial_UA: 0.9757; spatial_F1: 0.9656
+2025-10-16 18:05:27,601 - INFO - temporal_CdAccuracy: 0.6846; temporal_PA: 0.8888; temporal_UA: 0.8542; temporal_F1: 0.8711
+2025-10-16 18:05:27,601 - INFO - Confusion Matrix
+ [66367.	 1490.	   12.	   11.	   35.]
+ [ 2069.	50694.	   55.	  117.	   56.]
+ [    7.	  291.	 2011.	    0.	    0.]
+ [  126.	   75.	    0.	 1126.	    0.]
+ [  397.	  153.	    0.	    0.	 9008.]
+2025-10-16 18:05:27,643 - INFO - Epoch 28 saved.
+2025-10-16 18:05:27,644 - INFO - model saved 25 times, last saved epoch: 28.
+
+2025-10-16 18:05:30,336 - INFO - Epoch 29, Train loss: 0.49519409508932205
+2025-10-16 18:05:31,155 - INFO - mIoU: 0.8853; OA: 0.964; AA: 0.9193; F1: 0.9379; Kappa: 0.9378;
+2025-10-16 18:05:31,155 - INFO - spatial_LccAccuracy: 0.8255; spatial_PA: 0.9559; spatial_UA: 0.9797; spatial_F1: 0.9676
+2025-10-16 18:05:31,155 - INFO - temporal_CdAccuracy: 0.6855; temporal_PA: 0.8895; temporal_UA: 0.8587; temporal_F1: 0.8739
+2025-10-16 18:05:31,156 - INFO - Confusion Matrix
+ [66504.	 1377.	    8.	   14.	   12.]
+ [ 2123.	50664.	   38.	  118.	   48.]
+ [    7.	  295.	 2007.	    0.	    0.]
+ [  110.	   84.	    0.	 1133.	    0.]
+ [  453.	  136.	    0.	    0.	 8969.]
+2025-10-16 18:05:31,196 - INFO - Epoch 29 saved.
+2025-10-16 18:05:31,197 - INFO - model saved 26 times, last saved epoch: 29.
+
+2025-10-16 18:05:33,907 - INFO - Epoch 30, Train loss: 0.4906028897989364
+2025-10-16 18:05:34,720 - INFO - mIoU: 0.8921; OA: 0.9649; AA: 0.9309; F1: 0.942; Kappa: 0.9395;
+2025-10-16 18:05:34,720 - INFO - spatial_LccAccuracy: 0.8242; spatial_PA: 0.9642; spatial_UA: 0.9726; spatial_F1: 0.9684
+2025-10-16 18:05:34,720 - INFO - temporal_CdAccuracy: 0.6872; temporal_PA: 0.8893; temporal_UA: 0.8629; temporal_F1: 0.8759
+2025-10-16 18:05:34,721 - INFO - Confusion Matrix
+ [66305.	 1577.	    8.	    6.	   19.]
+ [ 1871.	50843.	   82.	  136.	   59.]
+ [    7.	  217.	 2085.	    0.	    0.]
+ [  122.	   45.	    0.	 1160.	    0.]
+ [  419.	  137.	    0.	    0.	 9002.]
+2025-10-16 18:05:34,764 - INFO - Epoch 30 saved.
+2025-10-16 18:05:34,765 - INFO - model saved 27 times, last saved epoch: 30.
+
+2025-10-16 18:05:37,544 - INFO - Epoch 31, Train loss: 0.4851361575580779
+2025-10-16 18:05:38,473 - INFO - mIoU: 0.883; OA: 0.9646; AA: 0.9117; F1: 0.9366; Kappa: 0.9389;
+2025-10-16 18:05:38,473 - INFO - spatial_LccAccuracy: 0.8228; spatial_PA: 0.9702; spatial_UA: 0.9773; spatial_F1: 0.9737
+2025-10-16 18:05:38,473 - INFO - temporal_CdAccuracy: 0.6908; temporal_PA: 0.8871; temporal_UA: 0.8592; temporal_F1: 0.8729
+2025-10-16 18:05:38,475 - INFO - Confusion Matrix
+ [65837.	 2048.	    3.	    5.	   22.]
+ [ 1380.	51456.	   23.	   88.	   44.]
+ [    7.	  362.	 1940.	    0.	    0.]
+ [  102.	  117.	    0.	 1108.	    0.]
+ [  380.	  166.	    0.	    0.	 9012.]
+2025-10-16 18:05:38,475 - INFO - model saved 27 times, last saved epoch: 30.
+
+2025-10-16 18:05:41,169 - INFO - Epoch 32, Train loss: 0.48722722899346127
+2025-10-16 18:05:41,986 - INFO - mIoU: 0.8942; OA: 0.9622; AA: 0.9318; F1: 0.9433; Kappa: 0.9347;
+2025-10-16 18:05:41,987 - INFO - spatial_LccAccuracy: 0.8309; spatial_PA: 0.9531; spatial_UA: 0.973; spatial_F1: 0.963
+2025-10-16 18:05:41,987 - INFO - temporal_CdAccuracy: 0.6711; temporal_PA: 0.8799; temporal_UA: 0.8514; temporal_F1: 0.8654
+2025-10-16 18:05:41,988 - INFO - Confusion Matrix
+ [67123.	  756.	    3.	    6.	   27.]
+ [ 3179.	49520.	   52.	  135.	  105.]
+ [   10.	  236.	 2063.	    0.	    0.]
+ [  123.	   30.	    0.	 1174.	    0.]
+ [  344.	   57.	    0.	    0.	 9157.]
+2025-10-16 18:05:42,045 - INFO - Epoch 32 saved.
+2025-10-16 18:05:42,046 - INFO - model saved 28 times, last saved epoch: 32.
+
+2025-10-16 18:05:44,786 - INFO - Epoch 33, Train loss: 0.4823865654922667
+2025-10-16 18:05:45,724 - INFO - mIoU: 0.902; OA: 0.9674; AA: 0.9409; F1: 0.9476; Kappa: 0.9439;
+2025-10-16 18:05:45,725 - INFO - spatial_LccAccuracy: 0.8394; spatial_PA: 0.9705; spatial_UA: 0.9783; spatial_F1: 0.9744
+2025-10-16 18:05:45,725 - INFO - temporal_CdAccuracy: 0.6953; temporal_PA: 0.902; temporal_UA: 0.8671; temporal_F1: 0.8842
+2025-10-16 18:05:45,726 - INFO - Confusion Matrix
+ [66350.	 1532.	    5.	   10.	   18.]
+ [ 1743.	50947.	   72.	  141.	   88.]
+ [    8.	  198.	 2103.	    0.	    0.]
+ [  106.	   28.	    0.	 1193.	    0.]
+ [  337.	   82.	    0.	    0.	 9139.]
+2025-10-16 18:05:45,793 - INFO - Epoch 33 saved.
+2025-10-16 18:05:45,793 - INFO - model saved 29 times, last saved epoch: 33.
+
+2025-10-16 18:05:48,509 - INFO - Epoch 34, Train loss: 0.4781299571196238
+2025-10-16 18:05:49,367 - INFO - mIoU: 0.9037; OA: 0.9673; AA: 0.9337; F1: 0.9486; Kappa: 0.9437;
+2025-10-16 18:05:49,367 - INFO - spatial_LccAccuracy: 0.8251; spatial_PA: 0.9667; spatial_UA: 0.9781; spatial_F1: 0.9723
+2025-10-16 18:05:49,367 - INFO - temporal_CdAccuracy: 0.6837; temporal_PA: 0.8941; temporal_UA: 0.8624; temporal_F1: 0.878
+2025-10-16 18:05:49,368 - INFO - Confusion Matrix
+ [65543.	 2265.	    5.	    5.	   97.]
+ [ 1103.	51682.	   52.	   66.	   88.]
+ [    7.	  237.	 2065.	    0.	    0.]
+ [   65.	  116.	    0.	 1146.	    0.]
+ [  167.	  116.	    0.	    0.	 9275.]
+2025-10-16 18:05:49,424 - INFO - Epoch 34 saved.
+2025-10-16 18:05:49,425 - INFO - model saved 30 times, last saved epoch: 34.
+
+2025-10-16 18:05:52,194 - INFO - Epoch 35, Train loss: 0.4761023092837561
+2025-10-16 18:05:53,010 - INFO - mIoU: 0.905; OA: 0.9694; AA: 0.9338; F1: 0.9493; Kappa: 0.9472;
+2025-10-16 18:05:53,010 - INFO - spatial_LccAccuracy: 0.8523; spatial_PA: 0.9706; spatial_UA: 0.9821; spatial_F1: 0.9763
+2025-10-16 18:05:53,010 - INFO - temporal_CdAccuracy: 0.702; temporal_PA: 0.9057; temporal_UA: 0.8742; temporal_F1: 0.8897
+2025-10-16 18:05:53,011 - INFO - Confusion Matrix
+ [66457.	 1432.	    3.	    6.	   17.]
+ [ 1624.	51170.	   46.	   85.	   66.]
+ [    8.	  218.	 2083.	    0.	    0.]
+ [   92.	   85.	    0.	 1150.	    0.]
+ [  308.	  114.	    0.	    0.	 9136.]
+2025-10-16 18:05:53,052 - INFO - Epoch 35 saved.
+2025-10-16 18:05:53,053 - INFO - model saved 31 times, last saved epoch: 35.
+
+2025-10-16 18:05:55,865 - INFO - Epoch 36, Train loss: 0.4700524049145835
+2025-10-16 18:05:56,637 - INFO - mIoU: 0.9085; OA: 0.9692; AA: 0.941; F1: 0.9514; Kappa: 0.9469;
+2025-10-16 18:05:56,637 - INFO - spatial_LccAccuracy: 0.8443; spatial_PA: 0.9632; spatial_UA: 0.9723; spatial_F1: 0.9677
+2025-10-16 18:05:56,637 - INFO - temporal_CdAccuracy: 0.6962; temporal_PA: 0.9041; temporal_UA: 0.8758; temporal_F1: 0.8897
+2025-10-16 18:05:56,638 - INFO - Confusion Matrix
+ [66989.	  895.	    4.	    4.	   23.]
+ [ 2248.	50490.	   54.	  110.	   89.]
+ [    8.	  200.	 2101.	    0.	    0.]
+ [  114.	   29.	    0.	 1184.	    0.]
+ [  271.	   78.	    0.	    0.	 9209.]
+2025-10-16 18:05:56,678 - INFO - Epoch 36 saved.
+2025-10-16 18:05:56,679 - INFO - model saved 32 times, last saved epoch: 36.
+
+2025-10-16 18:05:59,372 - INFO - Epoch 37, Train loss: 0.46992590370632353
+2025-10-16 18:06:00,199 - INFO - mIoU: 0.9127; OA: 0.9706; AA: 0.9471; F1: 0.9537; Kappa: 0.9494;
+2025-10-16 18:06:00,200 - INFO - spatial_LccAccuracy: 0.8519; spatial_PA: 0.9726; spatial_UA: 0.9827; spatial_F1: 0.9776
+2025-10-16 18:06:00,200 - INFO - temporal_CdAccuracy: 0.7007; temporal_PA: 0.9145; temporal_UA: 0.8812; temporal_F1: 0.8975
+2025-10-16 18:06:00,201 - INFO - Confusion Matrix
+ [66344.	 1532.	    4.	   20.	   15.]
+ [ 1472.	51277.	   49.	  114.	   79.]
+ [    8.	  213.	 2088.	    0.	    0.]
+ [   68.	   36.	    0.	 1223.	    0.]
+ [  239.	   94.	    0.	    0.	 9225.]
+2025-10-16 18:06:00,242 - INFO - Epoch 37 saved.
+2025-10-16 18:06:00,242 - INFO - model saved 33 times, last saved epoch: 37.
+
+2025-10-16 18:06:02,940 - INFO - Epoch 38, Train loss: 0.46927401366687954
+2025-10-16 18:06:03,808 - INFO - mIoU: 0.9111; OA: 0.9697; AA: 0.9418; F1: 0.9529; Kappa: 0.9479;
+2025-10-16 18:06:03,808 - INFO - spatial_LccAccuracy: 0.8376; spatial_PA: 0.9613; spatial_UA: 0.9823; spatial_F1: 0.9716
+2025-10-16 18:06:03,808 - INFO - temporal_CdAccuracy: 0.6908; temporal_PA: 0.903; temporal_UA: 0.8759; temporal_F1: 0.8893
+2025-10-16 18:06:03,809 - INFO - Confusion Matrix
+ [65756.	 2026.	    6.	    8.	  119.]
+ [ 1078.	51685.	   47.	   71.	  110.]
+ [    6.	  237.	 2066.	    0.	    0.]
+ [   50.	   92.	    0.	 1185.	    0.]
+ [  112.	  101.	    0.	    0.	 9345.]
+2025-10-16 18:06:03,810 - INFO - model saved 33 times, last saved epoch: 37.
+
+2025-10-16 18:06:06,508 - INFO - Epoch 39, Train loss: 0.4691896799064818
+2025-10-16 18:06:07,402 - INFO - mIoU: 0.9142; OA: 0.9708; AA: 0.9439; F1: 0.9547; Kappa: 0.9496;
+2025-10-16 18:06:07,403 - INFO - spatial_LccAccuracy: 0.8595; spatial_PA: 0.9757; spatial_UA: 0.9836; spatial_F1: 0.9796
+2025-10-16 18:06:07,403 - INFO - temporal_CdAccuracy: 0.7038; temporal_PA: 0.9119; temporal_UA: 0.8803; temporal_F1: 0.8958
+2025-10-16 18:06:07,404 - INFO - Confusion Matrix
+ [66401.	 1493.	    4.	    7.	   10.]
+ [ 1436.	51370.	   45.	   95.	   45.]
+ [    8.	  221.	 2080.	    0.	    0.]
+ [   65.	   43.	    0.	 1219.	    0.]
+ [  330.	  119.	    0.	    0.	 9109.]
+2025-10-16 18:06:07,454 - INFO - Epoch 39 saved.
+2025-10-16 18:06:07,454 - INFO - model saved 34 times, last saved epoch: 39.
+
+2025-10-16 18:06:10,202 - INFO - Epoch 40, Train loss: 0.4657697510151636
+2025-10-16 18:06:11,054 - INFO - mIoU: 0.9145; OA: 0.9702; AA: 0.9459; F1: 0.9549; Kappa: 0.9487;
+2025-10-16 18:06:11,054 - INFO - spatial_LccAccuracy: 0.8447; spatial_PA: 0.9725; spatial_UA: 0.9789; spatial_F1: 0.9757
+2025-10-16 18:06:11,054 - INFO - temporal_CdAccuracy: 0.6904; temporal_PA: 0.911; temporal_UA: 0.8776; temporal_F1: 0.894
+2025-10-16 18:06:11,055 - INFO - Confusion Matrix
+ [65910.	 1979.	    5.	    9.	   12.]
+ [ 1064.	51716.	   50.	   95.	   66.]
+ [    7.	  215.	 2087.	    0.	    0.]
+ [   54.	   52.	    0.	 1221.	    0.]
+ [  288.	  105.	    0.	    0.	 9165.]
+2025-10-16 18:06:11,096 - INFO - Epoch 40 saved.
+2025-10-16 18:06:11,096 - INFO - model saved 35 times, last saved epoch: 40.
+
+2025-10-16 18:06:14,053 - INFO - Epoch 41, Train loss: 0.4631399977774847
+2025-10-16 18:06:14,904 - INFO - mIoU: 0.9153; OA: 0.9729; AA: 0.9394; F1: 0.9551; Kappa: 0.9534;
+2025-10-16 18:06:14,905 - INFO - spatial_LccAccuracy: 0.8609; spatial_PA: 0.9704; spatial_UA: 0.9849; spatial_F1: 0.9776
+2025-10-16 18:06:14,905 - INFO - temporal_CdAccuracy: 0.7105; temporal_PA: 0.9137; temporal_UA: 0.8948; temporal_F1: 0.9042
+2025-10-16 18:06:14,906 - INFO - Confusion Matrix
+ [66301.	 1562.	    1.	    9.	   42.]
+ [ 1208.	51589.	   29.	   51.	  114.]
+ [    7.	  278.	 2024.	    0.	    0.]
+ [   51.	   94.	    0.	 1181.	    1.]
+ [  111.	   73.	    0.	    0.	 9374.]
+2025-10-16 18:06:14,947 - INFO - Epoch 41 saved.
+2025-10-16 18:06:14,947 - INFO - model saved 36 times, last saved epoch: 41.
+
+2025-10-16 18:06:17,647 - INFO - Epoch 42, Train loss: 0.46134515347934907
+2025-10-16 18:06:18,482 - INFO - mIoU: 0.9254; OA: 0.9746; AA: 0.951; F1: 0.9608; Kappa: 0.9563;
+2025-10-16 18:06:18,483 - INFO - spatial_LccAccuracy: 0.8725; spatial_PA: 0.9735; spatial_UA: 0.9858; spatial_F1: 0.9796
+2025-10-16 18:06:18,483 - INFO - temporal_CdAccuracy: 0.7123; temporal_PA: 0.9272; temporal_UA: 0.8971; temporal_F1: 0.9119
+2025-10-16 18:06:18,484 - INFO - Confusion Matrix
+ [66618.	 1252.	    2.	    5.	   38.]
+ [ 1382.	51396.	   50.	   62.	  101.]
+ [    8.	  193.	 2108.	    0.	    0.]
+ [   58.	   60.	    0.	 1209.	    0.]
+ [  115.	   75.	    0.	    0.	 9368.]
+2025-10-16 18:06:18,526 - INFO - Epoch 42 saved.
+2025-10-16 18:06:18,527 - INFO - model saved 37 times, last saved epoch: 42.
+
+2025-10-16 18:06:21,362 - INFO - Epoch 43, Train loss: 0.4610795781725929
+2025-10-16 18:06:22,202 - INFO - mIoU: 0.9182; OA: 0.9723; AA: 0.9498; F1: 0.9568; Kappa: 0.9522;
+2025-10-16 18:06:22,202 - INFO - spatial_LccAccuracy: 0.8644; spatial_PA: 0.9649; spatial_UA: 0.9785; spatial_F1: 0.9717
+2025-10-16 18:06:22,202 - INFO - temporal_CdAccuracy: 0.7074; temporal_PA: 0.9228; temporal_UA: 0.8921; temporal_F1: 0.9072
+2025-10-16 18:06:22,203 - INFO - Confusion Matrix
+ [66997.	  897.	    2.	    4.	   15.]
+ [ 1935.	50807.	   62.	  107.	   80.]
+ [   11.	  182.	 2116.	    0.	    0.]
+ [   83.	   23.	    0.	 1221.	    0.]
+ [  242.	   73.	    0.	    0.	 9243.]
+2025-10-16 18:06:22,204 - INFO - model saved 37 times, last saved epoch: 42.
+
+2025-10-16 18:06:24,869 - INFO - Epoch 44, Train loss: 0.45964747894377933
+2025-10-16 18:06:25,664 - INFO - mIoU: 0.9266; OA: 0.9755; AA: 0.9607; F1: 0.9614; Kappa: 0.9579;
+2025-10-16 18:06:25,664 - INFO - spatial_LccAccuracy: 0.8734; spatial_PA: 0.9704; spatial_UA: 0.9849; spatial_F1: 0.9776
+2025-10-16 18:06:25,664 - INFO - temporal_CdAccuracy: 0.7221; temporal_PA: 0.9299; temporal_UA: 0.903; temporal_F1: 0.9163
+2025-10-16 18:06:25,665 - INFO - Confusion Matrix
+ [66748.	 1092.	    2.	    9.	   64.]
+ [ 1449.	51204.	   61.	  109.	  168.]
+ [    7.	  178.	 2124.	    0.	    0.]
+ [   53.	   24.	    0.	 1249.	    1.]
+ [   37.	   29.	    0.	    0.	 9492.]
+2025-10-16 18:06:25,710 - INFO - Epoch 44 saved.
+2025-10-16 18:06:25,711 - INFO - model saved 38 times, last saved epoch: 44.
+
+2025-10-16 18:06:28,435 - INFO - Epoch 45, Train loss: 0.4579707335858118
+2025-10-16 18:06:29,310 - INFO - mIoU: 0.924; OA: 0.9719; AA: 0.9569; F1: 0.9602; Kappa: 0.9518;
+2025-10-16 18:06:29,310 - INFO - spatial_LccAccuracy: 0.8604; spatial_PA: 0.9716; spatial_UA: 0.9824; spatial_F1: 0.977
+2025-10-16 18:06:29,311 - INFO - temporal_CdAccuracy: 0.6881; temporal_PA: 0.9191; temporal_UA: 0.887; temporal_F1: 0.9028
+2025-10-16 18:06:29,311 - INFO - Confusion Matrix
+ [65819.	 2057.	    5.	   19.	   15.]
+ [  882.	51877.	   86.	   77.	   69.]
+ [    6.	  162.	 2141.	    0.	    0.]
+ [   36.	   42.	    0.	 1249.	    0.]
+ [  200.	  106.	    0.	    0.	 9252.]
+2025-10-16 18:06:29,312 - INFO - model saved 38 times, last saved epoch: 44.
+
+2025-10-16 18:06:32,117 - INFO - Epoch 46, Train loss: 0.4578901693934486
+2025-10-16 18:06:32,947 - INFO - mIoU: 0.9199; OA: 0.9742; AA: 0.9482; F1: 0.9576; Kappa: 0.9556;
+2025-10-16 18:06:32,947 - INFO - spatial_LccAccuracy: 0.8667; spatial_PA: 0.9761; spatial_UA: 0.9719; spatial_F1: 0.974
+2025-10-16 18:06:32,948 - INFO - temporal_CdAccuracy: 0.7047; temporal_PA: 0.9233; temporal_UA: 0.8993; temporal_F1: 0.9111
+2025-10-16 18:06:32,949 - INFO - Confusion Matrix
+ [66810.	 1087.	    2.	    4.	   12.]
+ [ 1569.	51172.	   69.	   80.	  101.]
+ [   10.	  168.	 2131.	    0.	    0.]
+ [  131.	   14.	    0.	 1182.	    0.]
+ [  153.	   56.	    0.	    0.	 9349.]
+2025-10-16 18:06:32,950 - INFO - model saved 38 times, last saved epoch: 44.
+
+2025-10-16 18:06:35,763 - INFO - Epoch 47, Train loss: 0.4580363685176486
+2025-10-16 18:06:36,532 - INFO - mIoU: 0.9279; OA: 0.9763; AA: 0.9527; F1: 0.9621; Kappa: 0.9593;
+2025-10-16 18:06:36,532 - INFO - spatial_LccAccuracy: 0.8828; spatial_PA: 0.9709; spatial_UA: 0.9831; spatial_F1: 0.977
+2025-10-16 18:06:36,532 - INFO - temporal_CdAccuracy: 0.7177; temporal_PA: 0.9309; temporal_UA: 0.9056; temporal_F1: 0.9181
+2025-10-16 18:06:36,533 - INFO - Confusion Matrix
+ [66776.	 1052.	    2.	    4.	   81.]
+ [ 1383.	51330.	   81.	   30.	  167.]
+ [    8.	  164.	 2137.	    0.	    0.]
+ [   65.	   77.	    0.	 1184.	    1.]
+ [   28.	   30.	    0.	    0.	 9500.]
+2025-10-16 18:06:36,574 - INFO - Epoch 47 saved.
+2025-10-16 18:06:36,574 - INFO - model saved 39 times, last saved epoch: 47.
+
+2025-10-16 18:06:39,454 - INFO - Epoch 48, Train loss: 0.4539259243579138
+2025-10-16 18:06:40,271 - INFO - mIoU: 0.93; OA: 0.9772; AA: 0.9641; F1: 0.9633; Kappa: 0.9609;
+2025-10-16 18:06:40,271 - INFO - spatial_LccAccuracy: 0.8783; spatial_PA: 0.968; spatial_UA: 0.9861; spatial_F1: 0.977
+2025-10-16 18:06:40,271 - INFO - temporal_CdAccuracy: 0.723; temporal_PA: 0.9373; temporal_UA: 0.9092; temporal_F1: 0.9231
+2025-10-16 18:06:40,272 - INFO - Confusion Matrix
+ [66843.	 1018.	    3.	   16.	   35.]
+ [ 1357.	51311.	   76.	  104.	  143.]
+ [    7.	  186.	 2116.	    0.	    0.]
+ [   29.	   27.	    0.	 1270.	    1.]
+ [   18.	   33.	    0.	    0.	 9507.]
+2025-10-16 18:06:40,317 - INFO - Epoch 48 saved.
+2025-10-16 18:06:40,318 - INFO - model saved 40 times, last saved epoch: 48.
+
+2025-10-16 18:06:43,030 - INFO - Epoch 49, Train loss: 0.45496801336606346
+2025-10-16 18:06:43,901 - INFO - mIoU: 0.9316; OA: 0.9765; AA: 0.9561; F1: 0.9642; Kappa: 0.9595;
+2025-10-16 18:06:43,901 - INFO - spatial_LccAccuracy: 0.8792; spatial_PA: 0.9728; spatial_UA: 0.9865; spatial_F1: 0.9796
+2025-10-16 18:06:43,902 - INFO - temporal_CdAccuracy: 0.7163; temporal_PA: 0.9216; temporal_UA: 0.9033; temporal_F1: 0.9123
+2025-10-16 18:06:43,902 - INFO - Confusion Matrix
+ [66452.	 1454.	    2.	    6.	    1.]
+ [ 1049.	51745.	   54.	   60.	   83.]
+ [    4.	  193.	 2112.	    0.	    0.]
+ [   47.	   50.	    0.	 1230.	    0.]
+ [   72.	   83.	    0.	    0.	 9403.]
+2025-10-16 18:06:43,946 - INFO - Epoch 49 saved.
+2025-10-16 18:06:43,948 - INFO - model saved 41 times, last saved epoch: 49.
+
+2025-10-16 18:06:46,638 - INFO - Epoch 50, Train loss: 0.45448387151672726
+2025-10-16 18:06:47,445 - INFO - mIoU: 0.9319; OA: 0.9758; AA: 0.9574; F1: 0.9644; Kappa: 0.9584;
+2025-10-16 18:06:47,446 - INFO - spatial_LccAccuracy: 0.8832; spatial_PA: 0.9785; spatial_UA: 0.9835; spatial_F1: 0.981
+2025-10-16 18:06:47,446 - INFO - temporal_CdAccuracy: 0.7114; temporal_PA: 0.9206; temporal_UA: 0.9092; temporal_F1: 0.9149
+2025-10-16 18:06:47,447 - INFO - Confusion Matrix
+ [66422.	 1483.	    2.	    7.	    1.]
+ [ 1047.	51733.	   80.	   50.	   81.]
+ [    8.	  162.	 2139.	    0.	    0.]
+ [   45.	   48.	    0.	 1234.	    0.]
+ [  142.	   84.	    0.	    0.	 9332.]
+2025-10-16 18:06:47,487 - INFO - Epoch 50 saved.
+2025-10-16 18:06:47,487 - INFO - model saved 42 times, last saved epoch: 50.
+
+2025-10-16 18:06:50,246 - INFO - Epoch 51, Train loss: 0.4511664654527392
+2025-10-16 18:06:51,045 - INFO - mIoU: 0.9286; OA: 0.9751; AA: 0.9598; F1: 0.9626; Kappa: 0.957;
+2025-10-16 18:06:51,045 - INFO - spatial_LccAccuracy: 0.8872; spatial_PA: 0.9662; spatial_UA: 0.9798; spatial_F1: 0.973
+2025-10-16 18:06:51,046 - INFO - temporal_CdAccuracy: 0.7141; temporal_PA: 0.9306; temporal_UA: 0.9084; temporal_F1: 0.9194
+2025-10-16 18:06:51,046 - INFO - Confusion Matrix
+ [67340.	  569.	    2.	    4.	    0.]
+ [ 2084.	50594.	  148.	   59.	  106.]
+ [    9.	  137.	 2163.	    0.	    0.]
+ [   64.	   29.	    0.	 1234.	    0.]
+ [   83.	   51.	    0.	    0.	 9424.]
+2025-10-16 18:06:51,047 - INFO - model saved 42 times, last saved epoch: 50.
+
+2025-10-16 18:06:53,819 - INFO - Epoch 52, Train loss: 0.4504697703179859
+2025-10-16 18:06:54,653 - INFO - mIoU: 0.9334; OA: 0.9772; AA: 0.9604; F1: 0.9652; Kappa: 0.9609;
+2025-10-16 18:06:54,653 - INFO - spatial_LccAccuracy: 0.8895; spatial_PA: 0.9756; spatial_UA: 0.9798; spatial_F1: 0.9777
+2025-10-16 18:06:54,654 - INFO - temporal_CdAccuracy: 0.7186; temporal_PA: 0.9279; temporal_UA: 0.9114; temporal_F1: 0.9196
+2025-10-16 18:06:54,654 - INFO - Confusion Matrix
+ [66716.	 1184.	    2.	    4.	    9.]
+ [ 1218.	51490.	   79.	   61.	  143.]
+ [    6.	  177.	 2126.	    0.	    0.]
+ [   52.	   32.	    0.	 1242.	    1.]
+ [   53.	   31.	    0.	    0.	 9474.]
+2025-10-16 18:06:54,695 - INFO - Epoch 52 saved.
+2025-10-16 18:06:54,695 - INFO - model saved 43 times, last saved epoch: 52.
+
+2025-10-16 18:06:57,463 - INFO - Epoch 53, Train loss: 0.44913453516506013
+2025-10-16 18:06:58,334 - INFO - mIoU: 0.9347; OA: 0.978; AA: 0.9622; F1: 0.9659; Kappa: 0.9621;
+2025-10-16 18:06:58,334 - INFO - spatial_LccAccuracy: 0.8864; spatial_PA: 0.9694; spatial_UA: 0.9846; spatial_F1: 0.977
+2025-10-16 18:06:58,334 - INFO - temporal_CdAccuracy: 0.7217; temporal_PA: 0.9329; temporal_UA: 0.9097; temporal_F1: 0.9211
+2025-10-16 18:06:58,335 - INFO - Confusion Matrix
+ [66633.	 1250.	    2.	   10.	   20.]
+ [ 1088.	51639.	   59.	   71.	  134.]
+ [    6.	  196.	 2107.	    0.	    0.]
+ [   40.	   28.	    0.	 1258.	    1.]
+ [   19.	   32.	    0.	    0.	 9507.]
+2025-10-16 18:06:58,396 - INFO - Epoch 53 saved.
+2025-10-16 18:06:58,397 - INFO - model saved 44 times, last saved epoch: 53.
+
+2025-10-16 18:07:01,229 - INFO - Epoch 54, Train loss: 0.4469489520504361
+2025-10-16 18:07:02,101 - INFO - mIoU: 0.9326; OA: 0.9768; AA: 0.9532; F1: 0.9648; Kappa: 0.96;
+2025-10-16 18:07:02,101 - INFO - spatial_LccAccuracy: 0.8922; spatial_PA: 0.9721; spatial_UA: 0.9806; spatial_F1: 0.9763
+2025-10-16 18:07:02,102 - INFO - temporal_CdAccuracy: 0.7311; temporal_PA: 0.9292; temporal_UA: 0.9177; temporal_F1: 0.9234
+2025-10-16 18:07:02,102 - INFO - Confusion Matrix
+ [67038.	  872.	    1.	    4.	    0.]
+ [ 1526.	51273.	   79.	   22.	   91.]
+ [    8.	  211.	 2090.	    0.	    0.]
+ [   47.	   49.	    0.	 1231.	    0.]
+ [  135.	   68.	    0.	    0.	 9355.]
+2025-10-16 18:07:02,103 - INFO - model saved 44 times, last saved epoch: 53.
+
+2025-10-16 18:07:04,778 - INFO - Epoch 55, Train loss: 0.4490058348292396
+2025-10-16 18:07:05,737 - INFO - mIoU: 0.924; OA: 0.9725; AA: 0.9551; F1: 0.96; Kappa: 0.9526;
+2025-10-16 18:07:05,737 - INFO - spatial_LccAccuracy: 0.8698; spatial_PA: 0.9614; spatial_UA: 0.9627; spatial_F1: 0.962
+2025-10-16 18:07:05,737 - INFO - temporal_CdAccuracy: 0.7105; temporal_PA: 0.9172; temporal_UA: 0.9072; temporal_F1: 0.9122
+2025-10-16 18:07:05,738 - INFO - Confusion Matrix
+ [67528.	  376.	    2.	    2.	    7.]
+ [ 2613.	50039.	   82.	   83.	  174.]
+ [    9.	  174.	 2126.	    0.	    0.]
+ [   96.	    7.	    0.	 1224.	    0.]
+ [   44.	   17.	    0.	    0.	 9497.]
+2025-10-16 18:07:05,739 - INFO - model saved 44 times, last saved epoch: 53.
+
+2025-10-16 18:07:08,494 - INFO - Epoch 56, Train loss: 0.44849999575387867
+2025-10-16 18:07:09,335 - INFO - mIoU: 0.9287; OA: 0.9782; AA: 0.9507; F1: 0.9625; Kappa: 0.9625;
+2025-10-16 18:07:09,335 - INFO - spatial_LccAccuracy: 0.8837; spatial_PA: 0.974; spatial_UA: 0.984; spatial_F1: 0.979
+2025-10-16 18:07:09,335 - INFO - temporal_CdAccuracy: 0.7221; temporal_PA: 0.9397; temporal_UA: 0.913; temporal_F1: 0.9261
+2025-10-16 18:07:09,336 - INFO - Confusion Matrix
+ [66847.	 1059.	    2.	    5.	    2.]
+ [ 1177.	51585.	  123.	    8.	   98.]
+ [    8.	  151.	 2150.	    0.	    0.]
+ [   52.	  110.	    0.	 1165.	    0.]
+ [   66.	   63.	    0.	    0.	 9429.]
+2025-10-16 18:07:09,337 - INFO - model saved 44 times, last saved epoch: 53.
+
+2025-10-16 18:07:12,046 - INFO - Epoch 57, Train loss: 0.44405397886321657
+2025-10-16 18:07:12,940 - INFO - mIoU: 0.9381; OA: 0.9786; AA: 0.9613; F1: 0.9677; Kappa: 0.9632;
+2025-10-16 18:07:12,941 - INFO - spatial_LccAccuracy: 0.894; spatial_PA: 0.9842; spatial_UA: 0.987; spatial_F1: 0.9856
+2025-10-16 18:07:12,941 - INFO - temporal_CdAccuracy: 0.7226; temporal_PA: 0.9392; temporal_UA: 0.9161; temporal_F1: 0.9275
+2025-10-16 18:07:12,942 - INFO - Confusion Matrix
+ [66595.	 1279.	    2.	    8.	   31.]
+ [  988.	51741.	   94.	   19.	  149.]
+ [    9.	  176.	 2124.	    0.	    0.]
+ [   49.	   38.	    0.	 1238.	    2.]
+ [    3.	   29.	    0.	    0.	 9526.]
+2025-10-16 18:07:12,980 - INFO - Epoch 57 saved.
+2025-10-16 18:07:12,981 - INFO - model saved 45 times, last saved epoch: 57.
+
+2025-10-16 18:07:15,921 - INFO - Epoch 58, Train loss: 0.4478029654139564
+2025-10-16 18:07:16,754 - INFO - mIoU: 0.9361; OA: 0.9785; AA: 0.9599; F1: 0.9665; Kappa: 0.963;
+2025-10-16 18:07:16,755 - INFO - spatial_LccAccuracy: 0.9047; spatial_PA: 0.9831; spatial_UA: 0.9867; spatial_F1: 0.9849
+2025-10-16 18:07:16,755 - INFO - temporal_CdAccuracy: 0.7262; temporal_PA: 0.937; temporal_UA: 0.9166; temporal_F1: 0.9267
+2025-10-16 18:07:16,756 - INFO - Confusion Matrix
+ [67095.	  811.	    1.	    4.	    4.]
+ [ 1477.	51268.	   78.	   47.	  121.]
+ [    7.	  217.	 2085.	    0.	    0.]
+ [   44.	   27.	    0.	 1255.	    1.]
+ [    2.	   42.	    0.	    0.	 9514.]
+2025-10-16 18:07:16,757 - INFO - model saved 45 times, last saved epoch: 57.
+
+2025-10-16 18:07:19,581 - INFO - Epoch 59, Train loss: 0.4459372421105703
+2025-10-16 18:07:20,404 - INFO - mIoU: 0.9372; OA: 0.9777; AA: 0.9627; F1: 0.9673; Kappa: 0.9617;
+2025-10-16 18:07:20,404 - INFO - spatial_LccAccuracy: 0.8864; spatial_PA: 0.977; spatial_UA: 0.9916; spatial_F1: 0.9843
+2025-10-16 18:07:20,405 - INFO - temporal_CdAccuracy: 0.7199; temporal_PA: 0.9333; temporal_UA: 0.9124; temporal_F1: 0.9227
+2025-10-16 18:07:20,406 - INFO - Confusion Matrix
+ [66214.	 1646.	    2.	   18.	   35.]
+ [  737.	51983.	  115.	    9.	  147.]
+ [    6.	  144.	 2159.	    0.	    0.]
+ [   18.	   74.	    0.	 1229.	    6.]
+ [    0.	   34.	    0.	    0.	 9524.]
+2025-10-16 18:07:20,406 - INFO - model saved 45 times, last saved epoch: 57.
+
+2025-10-16 18:07:23,083 - INFO - Epoch 60, Train loss: 0.4448052238850366
+2025-10-16 18:07:23,890 - INFO - mIoU: 0.9356; OA: 0.9789; AA: 0.9575; F1: 0.9663; Kappa: 0.9636;
+2025-10-16 18:07:23,890 - INFO - spatial_LccAccuracy: 0.8989; spatial_PA: 0.9728; spatial_UA: 0.9865; spatial_F1: 0.9796
+2025-10-16 18:07:23,891 - INFO - temporal_CdAccuracy: 0.7293; temporal_PA: 0.9423; temporal_UA: 0.9218; temporal_F1: 0.932
+2025-10-16 18:07:23,891 - INFO - Confusion Matrix
+ [67155.	  748.	    2.	   10.	    0.]
+ [ 1483.	51260.	  104.	   12.	  132.]
+ [    7.	  153.	 2149.	    0.	    0.]
+ [   25.	   97.	    0.	 1204.	    1.]
+ [   31.	   31.	    0.	    0.	 9496.]
+2025-10-16 18:07:23,892 - INFO - model saved 45 times, last saved epoch: 57.
+
+2025-10-16 18:07:26,601 - INFO - Epoch 61, Train loss: 0.4441452471982865
+2025-10-16 18:07:27,464 - INFO - mIoU: 0.9311; OA: 0.9772; AA: 0.956; F1: 0.9639; Kappa: 0.9607;
+2025-10-16 18:07:27,464 - INFO - spatial_LccAccuracy: 0.889; spatial_PA: 0.9794; spatial_UA: 0.9801; spatial_F1: 0.9797
+2025-10-16 18:07:27,464 - INFO - temporal_CdAccuracy: 0.7204; temporal_PA: 0.9394; temporal_UA: 0.9152; temporal_F1: 0.9271
+2025-10-16 18:07:27,465 - INFO - Confusion Matrix
+ [66746.	 1162.	    2.	    5.	    0.]
+ [ 1228.	51522.	  122.	   29.	   90.]
+ [    9.	  141.	 2159.	    0.	    0.]
+ [  110.	   15.	    0.	 1202.	    0.]
+ [   83.	   67.	    0.	    0.	 9408.]
+2025-10-16 18:07:27,466 - INFO - model saved 45 times, last saved epoch: 57.
+
+2025-10-16 18:07:30,129 - INFO - Epoch 62, Train loss: 0.4419600478240422
+2025-10-16 18:07:30,925 - INFO - mIoU: 0.9331; OA: 0.9794; AA: 0.9696; F1: 0.9649; Kappa: 0.9646;
+2025-10-16 18:07:30,925 - INFO - spatial_LccAccuracy: 0.8966; spatial_PA: 0.9747; spatial_UA: 0.9833; spatial_F1: 0.979
+2025-10-16 18:07:30,925 - INFO - temporal_CdAccuracy: 0.7356; temporal_PA: 0.944; temporal_UA: 0.9219; temporal_F1: 0.9328
+2025-10-16 18:07:30,926 - INFO - Confusion Matrix
+ [67053.	  852.	    2.	    5.	    3.]
+ [ 1256.	51336.	  124.	  115.	  160.]
+ [    6.	  145.	 2158.	    0.	    0.]
+ [   44.	    7.	    0.	 1276.	    0.]
+ [    8.	   34.	    0.	    0.	 9516.]
+2025-10-16 18:07:30,927 - INFO - model saved 45 times, last saved epoch: 57.
+
+2025-10-16 18:07:33,629 - INFO - Epoch 63, Train loss: 0.44244572804087684
+2025-10-16 18:07:34,458 - INFO - mIoU: 0.9432; OA: 0.9796; AA: 0.9683; F1: 0.9704; Kappa: 0.965;
+2025-10-16 18:07:34,751 - INFO - spatial_LccAccuracy: 0.9074; spatial_PA: 0.9842; spatial_UA: 0.987; spatial_F1: 0.9856
+2025-10-16 18:07:34,751 - INFO - temporal_CdAccuracy: 0.7347; temporal_PA: 0.9422; temporal_UA: 0.9242; temporal_F1: 0.9331
+2025-10-16 18:07:34,752 - INFO - Confusion Matrix
+ [66475.	 1423.	    2.	   15.	    0.]
+ [  755.	51981.	  123.	   21.	  111.]
+ [    6.	  154.	 2149.	    0.	    0.]
+ [   26.	   30.	    0.	 1271.	    0.]
+ [   18.	   47.	    0.	    0.	 9493.]
+2025-10-16 18:07:34,826 - INFO - Epoch 63 saved.
+2025-10-16 18:07:34,826 - INFO - model saved 46 times, last saved epoch: 63.
+
+2025-10-16 18:07:37,655 - INFO - Epoch 64, Train loss: 0.4400930140699659
+2025-10-16 18:07:38,484 - INFO - mIoU: 0.943; OA: 0.9798; AA: 0.9632; F1: 0.9704; Kappa: 0.9653;
+2025-10-16 18:07:38,484 - INFO - spatial_LccAccuracy: 0.9119; spatial_PA: 0.9782; spatial_UA: 0.9891; spatial_F1: 0.9836
+2025-10-16 18:07:38,484 - INFO - temporal_CdAccuracy: 0.7378; temporal_PA: 0.9416; temporal_UA: 0.923; temporal_F1: 0.9322
+2025-10-16 18:07:38,485 - INFO - Confusion Matrix
+ [67055.	  848.	    2.	   10.	    0.]
+ [ 1268.	51521.	   80.	   17.	  105.]
+ [    6.	  189.	 2114.	    0.	    0.]
+ [   23.	   39.	    0.	 1265.	    0.]
+ [   64.	   54.	    0.	    0.	 9440.]
+2025-10-16 18:07:38,486 - INFO - model saved 46 times, last saved epoch: 63.
+
+2025-10-16 18:07:41,259 - INFO - Epoch 65, Train loss: 0.4395248259816851
+2025-10-16 18:07:42,108 - INFO - mIoU: 0.9379; OA: 0.978; AA: 0.9688; F1: 0.9677; Kappa: 0.9622;
+2025-10-16 18:07:42,109 - INFO - spatial_LccAccuracy: 0.8962; spatial_PA: 0.9845; spatial_UA: 0.9817; spatial_F1: 0.9831
+2025-10-16 18:07:42,109 - INFO - temporal_CdAccuracy: 0.728; temporal_PA: 0.9398; temporal_UA: 0.9237; temporal_F1: 0.9316
+2025-10-16 18:07:42,110 - INFO - Confusion Matrix
+ [66678.	 1209.	    2.	   10.	   16.]
+ [ 1120.	51501.	  132.	   49.	  189.]
+ [    6.	  139.	 2163.	    0.	    1.]
+ [   45.	   11.	    0.	 1269.	    2.]
+ [    5.	   19.	    0.	    0.	 9534.]
+2025-10-16 18:07:42,111 - INFO - model saved 46 times, last saved epoch: 63.
+
+2025-10-16 18:07:44,809 - INFO - Epoch 66, Train loss: 0.4414267361164093
+2025-10-16 18:07:45,636 - INFO - mIoU: 0.9396; OA: 0.9785; AA: 0.9611; F1: 0.9686; Kappa: 0.963;
+2025-10-16 18:07:45,636 - INFO - spatial_LccAccuracy: 0.9043; spatial_PA: 0.9687; spatial_UA: 0.9787; spatial_F1: 0.9737
+2025-10-16 18:07:45,636 - INFO - temporal_CdAccuracy: 0.7311; temporal_PA: 0.9407; temporal_UA: 0.9229; temporal_F1: 0.9317
+2025-10-16 18:07:45,637 - INFO - Confusion Matrix
+ [67199.	  705.	    1.	    9.	    1.]
+ [ 1544.	51145.	   83.	   11.	  208.]
+ [    8.	  180.	 2121.	    0.	    0.]
+ [   44.	   39.	    0.	 1244.	    0.]
+ [   26.	   23.	    0.	    0.	 9509.]
+2025-10-16 18:07:45,638 - INFO - model saved 46 times, last saved epoch: 63.
+
+2025-10-16 18:07:48,338 - INFO - Epoch 67, Train loss: 0.4406627646514348
+2025-10-16 18:07:49,196 - INFO - mIoU: 0.9368; OA: 0.9754; AA: 0.9602; F1: 0.9671; Kappa: 0.9577;
+2025-10-16 18:07:49,197 - INFO - spatial_LccAccuracy: 0.8917; spatial_PA: 0.9803; spatial_UA: 0.9768; spatial_F1: 0.9785
+2025-10-16 18:07:49,197 - INFO - temporal_CdAccuracy: 0.7177; temporal_PA: 0.9443; temporal_UA: 0.9139; temporal_F1: 0.9289
+2025-10-16 18:07:49,198 - INFO - Confusion Matrix
+ [66123.	 1777.	    1.	   12.	    2.]
+ [  887.	51883.	  100.	   11.	  110.]
+ [    6.	  156.	 2147.	    0.	    0.]
+ [   36.	   50.	    0.	 1240.	    1.]
+ [  106.	   47.	    0.	    0.	 9405.]
+2025-10-16 18:07:49,199 - INFO - model saved 46 times, last saved epoch: 63.
+
+2025-10-16 18:07:51,895 - INFO - Epoch 68, Train loss: 0.4369608737173535
+2025-10-16 18:07:52,756 - INFO - mIoU: 0.9466; OA: 0.9803; AA: 0.9668; F1: 0.9723; Kappa: 0.9661;
+2025-10-16 18:07:52,757 - INFO - spatial_LccAccuracy: 0.9069; spatial_PA: 0.9828; spatial_UA: 0.9857; spatial_F1: 0.9843
+2025-10-16 18:07:52,757 - INFO - temporal_CdAccuracy: 0.7387; temporal_PA: 0.9365; temporal_UA: 0.9259; temporal_F1: 0.9311
+2025-10-16 18:07:52,758 - INFO - Confusion Matrix
+ [66806.	 1097.	    2.	    9.	    1.]
+ [ 1015.	51776.	   60.	   27.	  113.]
+ [    6.	  186.	 2117.	    0.	    0.]
+ [   28.	   19.	    0.	 1280.	    0.]
+ [   28.	   50.	    0.	    0.	 9480.]
+2025-10-16 18:07:52,807 - INFO - Epoch 68 saved.
+2025-10-16 18:07:52,808 - INFO - model saved 47 times, last saved epoch: 68.
+
+2025-10-16 18:07:55,616 - INFO - Epoch 69, Train loss: 0.4376194204602923
+2025-10-16 18:07:56,449 - INFO - mIoU: 0.9404; OA: 0.9786; AA: 0.9643; F1: 0.969; Kappa: 0.9632;
+2025-10-16 18:07:56,449 - INFO - spatial_LccAccuracy: 0.9002; spatial_PA: 0.9716; spatial_UA: 0.9824; spatial_F1: 0.977
+2025-10-16 18:07:56,449 - INFO - temporal_CdAccuracy: 0.7351; temporal_PA: 0.9416; temporal_UA: 0.9244; temporal_F1: 0.9329
+2025-10-16 18:07:56,450 - INFO - Confusion Matrix
+ [67034.	  858.	    1.	    8.	   14.]
+ [ 1414.	51329.	   44.	   57.	  147.]
+ [    9.	  201.	 2099.	    0.	    0.]
+ [   45.	    3.	    0.	 1279.	    0.]
+ [   34.	   32.	    0.	    0.	 9492.]
+2025-10-16 18:07:56,451 - INFO - model saved 47 times, last saved epoch: 68.
+
+2025-10-16 18:07:59,311 - INFO - Epoch 70, Train loss: 0.4372501183123816
+2025-10-16 18:08:00,126 - INFO - mIoU: 0.9466; OA: 0.9797; AA: 0.9694; F1: 0.9723; Kappa: 0.965;
+2025-10-16 18:08:00,126 - INFO - spatial_LccAccuracy: 0.9092; spatial_PA: 0.9735; spatial_UA: 0.9858; spatial_F1: 0.9796
+2025-10-16 18:08:00,126 - INFO - temporal_CdAccuracy: 0.7436; temporal_PA: 0.9457; temporal_UA: 0.93; temporal_F1: 0.9378
+2025-10-16 18:08:00,127 - INFO - Confusion Matrix
+ [67212.	  691.	    2.	   10.	    0.]
+ [ 1501.	51230.	  113.	   15.	  132.]
+ [    8.	  140.	 2161.	    0.	    0.]
+ [   29.	   22.	    0.	 1276.	    0.]
+ [   32.	   33.	    0.	    0.	 9493.]
+2025-10-16 18:08:00,128 - INFO - model saved 47 times, last saved epoch: 68.
+
+2025-10-16 18:08:02,866 - INFO - Epoch 71, Train loss: 0.4366939462366558
+2025-10-16 18:08:03,714 - INFO - mIoU: 0.9437; OA: 0.9794; AA: 0.9682; F1: 0.9707; Kappa: 0.9645;
+2025-10-16 18:08:03,715 - INFO - spatial_LccAccuracy: 0.9074; spatial_PA: 0.9757; spatial_UA: 0.9836; spatial_F1: 0.9796
+2025-10-16 18:08:03,715 - INFO - temporal_CdAccuracy: 0.736; temporal_PA: 0.9476; temporal_UA: 0.9236; temporal_F1: 0.9354
+2025-10-16 18:08:03,716 - INFO - Confusion Matrix
+ [67312.	  591.	    2.	   10.	    0.]
+ [ 1615.	51092.	  105.	   30.	  149.]
+ [    9.	  155.	 2145.	    0.	    0.]
+ [   36.	   14.	    0.	 1277.	    0.]
+ [   17.	   35.	    0.	    0.	 9506.]
+2025-10-16 18:08:03,717 - INFO - model saved 47 times, last saved epoch: 68.
+
+2025-10-16 18:08:06,602 - INFO - Epoch 72, Train loss: 0.4374615972950345
+2025-10-16 18:08:07,392 - INFO - mIoU: 0.9476; OA: 0.9813; AA: 0.9677; F1: 0.9728; Kappa: 0.9678;
+2025-10-16 18:08:07,392 - INFO - spatial_LccAccuracy: 0.9204; spatial_PA: 0.9839; spatial_UA: 0.986; spatial_F1: 0.9849
+2025-10-16 18:08:07,393 - INFO - temporal_CdAccuracy: 0.7418; temporal_PA: 0.9473; temporal_UA: 0.9332; temporal_F1: 0.9402
+2025-10-16 18:08:07,393 - INFO - Confusion Matrix
+ [67242.	  662.	    2.	    9.	    0.]
+ [ 1320.	51478.	   93.	   18.	   82.]
+ [    7.	  167.	 2135.	    0.	    0.]
+ [   34.	   16.	    0.	 1277.	    0.]
+ [   19.	   77.	    0.	    0.	 9462.]
+2025-10-16 18:08:07,434 - INFO - Epoch 72 saved.
+2025-10-16 18:08:07,434 - INFO - model saved 48 times, last saved epoch: 72.
+
+2025-10-16 18:08:10,093 - INFO - Epoch 73, Train loss: 0.4341067529859997
+2025-10-16 18:08:10,899 - INFO - mIoU: 0.9353; OA: 0.9769; AA: 0.9682; F1: 0.9662; Kappa: 0.9604;
+2025-10-16 18:08:10,899 - INFO - spatial_LccAccuracy: 0.8913; spatial_PA: 0.9764; spatial_UA: 0.9895; spatial_F1: 0.9829
+2025-10-16 18:08:10,900 - INFO - temporal_CdAccuracy: 0.711; temporal_PA: 0.9254; temporal_UA: 0.9088; temporal_F1: 0.9171
+2025-10-16 18:08:10,900 - INFO - Confusion Matrix
+ [66051.	 1779.	    3.	   75.	    7.]
+ [  714.	52037.	   93.	   25.	  122.]
+ [    2.	  174.	 2133.	    0.	    0.]
+ [   10.	   31.	    0.	 1286.	    0.]
+ [   19.	   42.	    0.	    0.	 9497.]
+2025-10-16 18:08:10,901 - INFO - model saved 48 times, last saved epoch: 72.
+
+2025-10-16 18:08:13,616 - INFO - Epoch 74, Train loss: 0.4336231810706002
+2025-10-16 18:08:14,429 - INFO - mIoU: 0.9468; OA: 0.9813; AA: 0.9654; F1: 0.9724; Kappa: 0.9679;
+2025-10-16 18:08:14,429 - INFO - spatial_LccAccuracy: 0.9172; spatial_PA: 0.983; spatial_UA: 0.9895; spatial_F1: 0.9862
+2025-10-16 18:08:14,429 - INFO - temporal_CdAccuracy: 0.7387; temporal_PA: 0.9517; temporal_UA: 0.9315; temporal_F1: 0.9415
+2025-10-16 18:08:14,430 - INFO - Confusion Matrix
+ [67048.	  856.	    2.	    9.	    0.]
+ [ 1101.	51725.	   92.	    8.	   65.]
+ [    3.	  163.	 2143.	    0.	    0.]
+ [   24.	   43.	    0.	 1260.	    0.]
+ [   18.	  117.	    0.	    0.	 9423.]
+2025-10-16 18:08:14,431 - INFO - model saved 48 times, last saved epoch: 72.
+
+2025-10-16 18:08:17,238 - INFO - Epoch 75, Train loss: 0.4346600685800825
+2025-10-16 18:08:18,138 - INFO - mIoU: 0.9444; OA: 0.9799; AA: 0.9649; F1: 0.9711; Kappa: 0.9655;
+2025-10-16 18:08:18,138 - INFO - spatial_LccAccuracy: 0.9074; spatial_PA: 0.979; spatial_UA: 0.9922; spatial_F1: 0.9856
+2025-10-16 18:08:18,138 - INFO - temporal_CdAccuracy: 0.74; temporal_PA: 0.9414; temporal_UA: 0.9288; temporal_F1: 0.9351
+2025-10-16 18:08:18,139 - INFO - Confusion Matrix
+ [66588.	 1292.	    3.	   14.	   18.]
+ [  866.	51931.	   92.	    5.	   97.]
+ [    4.	  154.	 2151.	    0.	    0.]
+ [   12.	   67.	    0.	 1247.	    1.]
+ [    0.	   67.	    0.	    0.	 9491.]
+2025-10-16 18:08:18,140 - INFO - model saved 48 times, last saved epoch: 72.
+
+2025-10-16 18:08:20,841 - INFO - Epoch 76, Train loss: 0.43288763392539253
+2025-10-16 18:08:21,693 - INFO - mIoU: 0.9463; OA: 0.9799; AA: 0.9667; F1: 0.9721; Kappa: 0.9654;
+2025-10-16 18:08:21,693 - INFO - spatial_LccAccuracy: 0.9078; spatial_PA: 0.9702; spatial_UA: 0.9839; spatial_F1: 0.977
+2025-10-16 18:08:21,693 - INFO - temporal_CdAccuracy: 0.7396; temporal_PA: 0.9468; temporal_UA: 0.9242; temporal_F1: 0.9354
+2025-10-16 18:08:21,694 - INFO - Confusion Matrix
+ [67373.	  532.	    1.	    7.	    2.]
+ [ 1631.	51120.	   56.	   30.	  154.]
+ [    4.	  203.	 2102.	    0.	    0.]
+ [   31.	    9.	    0.	 1287.	    0.]
+ [    4.	   29.	    0.	    0.	 9525.]
+2025-10-16 18:08:21,695 - INFO - model saved 48 times, last saved epoch: 72.
+
+2025-10-16 18:08:24,606 - INFO - Epoch 77, Train loss: 0.4324227704888298
+2025-10-16 18:08:25,471 - INFO - mIoU: 0.9401; OA: 0.9815; AA: 0.9613; F1: 0.9687; Kappa: 0.9681;
+2025-10-16 18:08:25,471 - INFO - spatial_LccAccuracy: 0.9096; spatial_PA: 0.9808; spatial_UA: 0.9917; spatial_F1: 0.9862
+2025-10-16 18:08:25,471 - INFO - temporal_CdAccuracy: 0.749; temporal_PA: 0.9531; temporal_UA: 0.9351; temporal_F1: 0.944
+2025-10-16 18:08:25,472 - INFO - Confusion Matrix
+ [66994.	  910.	    2.	    7.	    2.]
+ [  956.	51787.	  127.	    5.	  116.]
+ [    4.	  155.	 2150.	    0.	    0.]
+ [   22.	   81.	    0.	 1223.	    1.]
+ [   46.	   51.	    0.	    0.	 9461.]
+2025-10-16 18:08:25,473 - INFO - model saved 48 times, last saved epoch: 72.
+
+2025-10-16 18:08:28,183 - INFO - Epoch 78, Train loss: 0.4330491105715434
+2025-10-16 18:08:28,988 - INFO - mIoU: 0.9473; OA: 0.9803; AA: 0.972; F1: 0.9727; Kappa: 0.9661;
+2025-10-16 18:08:28,989 - INFO - spatial_LccAccuracy: 0.9029; spatial_PA: 0.9842; spatial_UA: 0.987; spatial_F1: 0.9856
+2025-10-16 18:08:28,989 - INFO - temporal_CdAccuracy: 0.7387; temporal_PA: 0.9461; temporal_UA: 0.9306; temporal_F1: 0.9383
+2025-10-16 18:08:28,990 - INFO - Confusion Matrix
+ [66513.	 1389.	    2.	    9.	    2.]
+ [  736.	52000.	  116.	   28.	  111.]
+ [    4.	  121.	 2184.	    0.	    0.]
+ [   41.	   10.	    0.	 1276.	    0.]
+ [   21.	   57.	    0.	    0.	 9480.]
+2025-10-16 18:08:28,990 - INFO - model saved 48 times, last saved epoch: 72.
+
+2025-10-16 18:08:31,682 - INFO - Epoch 79, Train loss: 0.4331926683584849
+2025-10-16 18:08:32,479 - INFO - mIoU: 0.9403; OA: 0.9795; AA: 0.9604; F1: 0.969; Kappa: 0.9647;
+2025-10-16 18:08:32,479 - INFO - spatial_LccAccuracy: 0.9047; spatial_PA: 0.978; spatial_UA: 0.9852; spatial_F1: 0.9816
+2025-10-16 18:08:32,479 - INFO - temporal_CdAccuracy: 0.7436; temporal_PA: 0.9457; temporal_UA: 0.9287; temporal_F1: 0.9371
+2025-10-16 18:08:32,480 - INFO - Confusion Matrix
+ [67221.	  684.	    1.	    9.	    0.]
+ [ 1335.	51480.	  114.	    6.	   56.]
+ [    7.	  150.	 2152.	    0.	    0.]
+ [   33.	   45.	    0.	 1249.	    0.]
+ [  224.	   85.	    0.	    0.	 9249.]
+2025-10-16 18:08:32,480 - INFO - model saved 48 times, last saved epoch: 72.
+
+2025-10-16 18:08:35,238 - INFO - Epoch 80, Train loss: 0.43277999134290784
+2025-10-16 18:08:36,004 - INFO - mIoU: 0.946; OA: 0.9801; AA: 0.9757; F1: 0.972; Kappa: 0.9658;
+2025-10-16 18:08:36,004 - INFO - spatial_LccAccuracy: 0.9123; spatial_PA: 0.9763; spatial_UA: 0.9856; spatial_F1: 0.9809
+2025-10-16 18:08:36,005 - INFO - temporal_CdAccuracy: 0.7378; temporal_PA: 0.9504; temporal_UA: 0.9251; temporal_F1: 0.9376
+2025-10-16 18:08:36,006 - INFO - Confusion Matrix
+ [67422.	  481.	    2.	   10.	    0.]
+ [ 1581.	50977.	  179.	   20.	  234.]
+ [    7.	   96.	 2206.	    0.	    0.]
+ [   29.	   10.	    0.	 1288.	    0.]
+ [   14.	    6.	    0.	    0.	 9538.]
+2025-10-16 18:08:36,006 - INFO - model saved 48 times, last saved epoch: 72.
+
+2025-10-16 18:08:38,689 - INFO - Epoch 81, Train loss: 0.42922615153448923
+2025-10-16 18:08:39,557 - INFO - mIoU: 0.9472; OA: 0.9811; AA: 0.9711; F1: 0.9727; Kappa: 0.9674;
+2025-10-16 18:08:39,558 - INFO - spatial_LccAccuracy: 0.9186; spatial_PA: 0.9747; spatial_UA: 0.99; spatial_F1: 0.9823
+2025-10-16 18:08:39,558 - INFO - temporal_CdAccuracy: 0.7468; temporal_PA: 0.9546; temporal_UA: 0.9307; temporal_F1: 0.9425
+2025-10-16 18:08:39,559 - INFO - Confusion Matrix
+ [67106.	  796.	    2.	   11.	    0.]
+ [ 1138.	51639.	  110.	   34.	   70.]
+ [    5.	  138.	 2166.	    0.	    0.]
+ [   14.	   18.	    0.	 1295.	    0.]
+ [  107.	   94.	    0.	    0.	 9357.]
+2025-10-16 18:08:39,560 - INFO - model saved 48 times, last saved epoch: 72.
+
+2025-10-16 18:08:42,512 - INFO - Epoch 82, Train loss: 0.4283422850427173
+2025-10-16 18:08:43,307 - INFO - mIoU: 0.9496; OA: 0.982; AA: 0.9738; F1: 0.9739; Kappa: 0.969;
+2025-10-16 18:08:43,307 - INFO - spatial_LccAccuracy: 0.9136; spatial_PA: 0.9805; spatial_UA: 0.9907; spatial_F1: 0.9856
+2025-10-16 18:08:43,307 - INFO - temporal_CdAccuracy: 0.7481; temporal_PA: 0.9552; temporal_UA: 0.9322; temporal_F1: 0.9436
+2025-10-16 18:08:43,308 - INFO - Confusion Matrix
+ [67049.	  850.	    2.	   12.	    2.]
+ [ 1012.	51648.	   67.	   41.	  223.]
+ [    4.	  167.	 2138.	    0.	    0.]
+ [   16.	    7.	    0.	 1304.	    0.]
+ [    0.	   13.	    0.	    0.	 9545.]
+2025-10-16 18:08:43,830 - INFO - Epoch 82 saved.
+2025-10-16 18:08:43,831 - INFO - model saved 49 times, last saved epoch: 82.
+
+2025-10-16 18:08:46,714 - INFO - Epoch 83, Train loss: 0.4307293346949986
+2025-10-16 18:08:47,517 - INFO - mIoU: 0.9495; OA: 0.9809; AA: 0.9676; F1: 0.9739; Kappa: 0.9671;
+2025-10-16 18:08:47,517 - INFO - spatial_LccAccuracy: 0.9168; spatial_PA: 0.978; spatial_UA: 0.9852; spatial_F1: 0.9816
+2025-10-16 18:08:47,517 - INFO - temporal_CdAccuracy: 0.74; temporal_PA: 0.9469; temporal_UA: 0.9274; temporal_F1: 0.9371
+2025-10-16 18:08:47,518 - INFO - Confusion Matrix
+ [67341.	  565.	    2.	    7.	    0.]
+ [ 1495.	51297.	   72.	   11.	  116.]
+ [    4.	  160.	 2145.	    0.	    0.]
+ [   36.	   21.	    0.	 1270.	    0.]
+ [   24.	   50.	    0.	    0.	 9484.]
+2025-10-16 18:08:47,519 - INFO - model saved 49 times, last saved epoch: 82.
+
+2025-10-16 18:08:50,200 - INFO - Epoch 84, Train loss: 0.428168276094255
+2025-10-16 18:08:51,131 - INFO - mIoU: 0.9463; OA: 0.98; AA: 0.9664; F1: 0.9721; Kappa: 0.9655;
+2025-10-16 18:08:51,132 - INFO - spatial_LccAccuracy: 0.9114; spatial_PA: 0.977; spatial_UA: 0.963; spatial_F1: 0.9699
+2025-10-16 18:08:51,132 - INFO - temporal_CdAccuracy: 0.7396; temporal_PA: 0.942; temporal_UA: 0.9319; temporal_F1: 0.9369
+2025-10-16 18:08:51,133 - INFO - Confusion Matrix
+ [67143.	  766.	    1.	    5.	    0.]
+ [ 1384.	51382.	   94.	   14.	  117.]
+ [   11.	  151.	 2147.	    0.	    0.]
+ [   58.	    5.	    0.	 1264.	    0.]
+ [   38.	   44.	    0.	    0.	 9476.]
+2025-10-16 18:08:51,134 - INFO - model saved 49 times, last saved epoch: 82.
+
+2025-10-16 18:08:53,965 - INFO - Epoch 85, Train loss: 0.4273816330092294
+2025-10-16 18:08:54,774 - INFO - mIoU: 0.9464; OA: 0.982; AA: 0.9643; F1: 0.9721; Kappa: 0.969;
+2025-10-16 18:08:54,775 - INFO - spatial_LccAccuracy: 0.9226; spatial_PA: 0.9786; spatial_UA: 0.9873; spatial_F1: 0.9829
+2025-10-16 18:08:54,775 - INFO - temporal_CdAccuracy: 0.7548; temporal_PA: 0.9518; temporal_UA: 0.9363; temporal_F1: 0.944
+2025-10-16 18:08:54,776 - INFO - Confusion Matrix
+ [67236.	  672.	    2.	    5.	    0.]
+ [ 1157.	51592.	   75.	    8.	  159.]
+ [    3.	  199.	 2107.	    0.	    0.]
+ [   37.	   25.	    0.	 1265.	    0.]
+ [   47.	   30.	    0.	    0.	 9481.]
+2025-10-16 18:08:54,777 - INFO - model saved 49 times, last saved epoch: 82.
+
+2025-10-16 18:08:57,484 - INFO - Epoch 86, Train loss: 0.4260798539434161
+2025-10-16 18:08:58,342 - INFO - mIoU: 0.9482; OA: 0.9816; AA: 0.9748; F1: 0.9732; Kappa: 0.9683;
+2025-10-16 18:08:58,343 - INFO - spatial_LccAccuracy: 0.9128; spatial_PA: 0.9835; spatial_UA: 0.9916; spatial_F1: 0.9875
+2025-10-16 18:08:58,343 - INFO - temporal_CdAccuracy: 0.7432; temporal_PA: 0.9548; temporal_UA: 0.9309; temporal_F1: 0.9427
+2025-10-16 18:08:58,343 - INFO - Confusion Matrix
+ [66708.	 1189.	    2.	   16.	    0.]
+ [  761.	51987.	  104.	   49.	   90.]
+ [    4.	  139.	 2166.	    0.	    0.]
+ [   15.	    8.	    0.	 1304.	    0.]
+ [   13.	   82.	    0.	    0.	 9463.]
+2025-10-16 18:08:58,345 - INFO - model saved 49 times, last saved epoch: 82.
+
+2025-10-16 18:09:01,105 - INFO - Epoch 87, Train loss: 0.42691180620874675
+2025-10-16 18:09:01,960 - INFO - mIoU: 0.9439; OA: 0.9788; AA: 0.9625; F1: 0.971; Kappa: 0.9636;
+2025-10-16 18:09:01,960 - INFO - spatial_LccAccuracy: 0.9034; spatial_PA: 0.9805; spatial_UA: 0.9907; spatial_F1: 0.9856
+2025-10-16 18:09:01,960 - INFO - temporal_CdAccuracy: 0.736; temporal_PA: 0.9487; temporal_UA: 0.9226; temporal_F1: 0.9354
+2025-10-16 18:09:01,961 - INFO - Confusion Matrix
+ [66452.	 1453.	    1.	    9.	    0.]
+ [  720.	52125.	   81.	    5.	   60.]
+ [    3.	  145.	 2161.	    0.	    0.]
+ [   15.	   59.	    0.	 1253.	    0.]
+ [  161.	  125.	    0.	    0.	 9272.]
+2025-10-16 18:09:01,962 - INFO - model saved 49 times, last saved epoch: 82.
+
+2025-10-16 18:09:04,754 - INFO - Epoch 88, Train loss: 0.4252586904026213
+2025-10-16 18:09:05,623 - INFO - mIoU: 0.9503; OA: 0.9803; AA: 0.9748; F1: 0.9744; Kappa: 0.9662;
+2025-10-16 18:09:05,645 - INFO - spatial_LccAccuracy: 0.9074; spatial_PA: 0.9878; spatial_UA: 0.99; spatial_F1: 0.9889
+2025-10-16 18:09:05,645 - INFO - temporal_CdAccuracy: 0.7481; temporal_PA: 0.9467; temporal_UA: 0.935; temporal_F1: 0.9408
+2025-10-16 18:09:05,647 - INFO - Confusion Matrix
+ [66411.	 1422.	    3.	   12.	   67.]
+ [  650.	52024.	  104.	    9.	  204.]
+ [    3.	  111.	 2195.	    0.	    0.]
+ [   14.	   29.	    0.	 1281.	    3.]
+ [    0.	   14.	    0.	    0.	 9544.]
+2025-10-16 18:09:05,705 - INFO - Epoch 88 saved.
+2025-10-16 18:09:05,706 - INFO - model saved 50 times, last saved epoch: 88.
+
+2025-10-16 18:09:08,438 - INFO - Epoch 89, Train loss: 0.42802569781030925
+2025-10-16 18:09:09,262 - INFO - mIoU: 0.9484; OA: 0.9809; AA: 0.9679; F1: 0.9733; Kappa: 0.9672;
+2025-10-16 18:09:09,262 - INFO - spatial_LccAccuracy: 0.9078; spatial_PA: 0.9749; spatial_UA: 0.9911; spatial_F1: 0.9829
+2025-10-16 18:09:09,262 - INFO - temporal_CdAccuracy: 0.7418; temporal_PA: 0.9479; temporal_UA: 0.9311; temporal_F1: 0.9394
+2025-10-16 18:09:09,263 - INFO - Confusion Matrix
+ [66625.	 1257.	    1.	   32.	    0.]
+ [  806.	52018.	   34.	   13.	  120.]
+ [    3.	  214.	 2092.	    0.	    0.]
+ [   16.	   16.	    0.	 1295.	    0.]
+ [    0.	   49.	    0.	    0.	 9509.]
+2025-10-16 18:09:09,264 - INFO - model saved 50 times, last saved epoch: 88.
+
+2025-10-16 18:09:12,060 - INFO - Epoch 90, Train loss: 0.4259001641046433
+2025-10-16 18:09:12,888 - INFO - mIoU: 0.937; OA: 0.9801; AA: 0.9537; F1: 0.9672; Kappa: 0.9657;
+2025-10-16 18:09:12,889 - INFO - spatial_LccAccuracy: 0.9092; spatial_PA: 0.9834; spatial_UA: 0.9877; spatial_F1: 0.9856
+2025-10-16 18:09:12,889 - INFO - temporal_CdAccuracy: 0.7499; temporal_PA: 0.9523; temporal_UA: 0.934; temporal_F1: 0.9431
+2025-10-16 18:09:12,890 - INFO - Confusion Matrix
+ [67046.	  861.	    1.	    7.	    0.]
+ [ 1060.	51806.	   78.	    5.	   42.]
+ [    6.	  181.	 2122.	    0.	    0.]
+ [   32.	   77.	    0.	 1218.	    0.]
+ [  173.	  143.	    0.	    0.	 9242.]
+2025-10-16 18:09:12,891 - INFO - model saved 50 times, last saved epoch: 88.
+
+2025-10-16 18:09:15,547 - INFO - Epoch 91, Train loss: 0.4233161086127872
+2025-10-16 18:09:16,418 - INFO - mIoU: 0.9545; OA: 0.9826; AA: 0.9743; F1: 0.9765; Kappa: 0.97;
+2025-10-16 18:09:16,418 - INFO - spatial_LccAccuracy: 0.9275; spatial_PA: 0.9787; spatial_UA: 0.9912; spatial_F1: 0.9849
+2025-10-16 18:09:16,418 - INFO - temporal_CdAccuracy: 0.7535; temporal_PA: 0.9556; temporal_UA: 0.9386; temporal_F1: 0.947
+2025-10-16 18:09:16,419 - INFO - Confusion Matrix
+ [67275.	  630.	    1.	    9.	    0.]
+ [ 1243.	51544.	  100.	   14.	   90.]
+ [    4.	  134.	 2171.	    0.	    0.]
+ [   18.	   13.	    0.	 1296.	    0.]
+ [   24.	   60.	    0.	    0.	 9474.]
+2025-10-16 18:09:16,461 - INFO - Epoch 91 saved.
+2025-10-16 18:09:16,461 - INFO - model saved 51 times, last saved epoch: 91.
+
+2025-10-16 18:09:19,187 - INFO - Epoch 92, Train loss: 0.4239153796718234
+2025-10-16 18:09:19,974 - INFO - mIoU: 0.9503; OA: 0.9822; AA: 0.9755; F1: 0.9742; Kappa: 0.9694;
+2025-10-16 18:09:19,975 - INFO - spatial_LccAccuracy: 0.9284; spatial_PA: 0.978; spatial_UA: 0.9919; spatial_F1: 0.9849
+2025-10-16 18:09:19,975 - INFO - temporal_CdAccuracy: 0.7593; temporal_PA: 0.9568; temporal_UA: 0.9414; temporal_F1: 0.949
+2025-10-16 18:09:19,976 - INFO - Confusion Matrix
+ [67137.	  763.	    2.	   11.	    2.]
+ [ 1104.	51590.	  164.	   12.	  121.]
+ [    3.	  114.	 2192.	    0.	    0.]
+ [   19.	   18.	    0.	 1290.	    0.]
+ [   14.	   43.	    0.	    0.	 9501.]
+2025-10-16 18:09:19,977 - INFO - model saved 51 times, last saved epoch: 91.
+
+2025-10-16 18:09:22,739 - INFO - Epoch 93, Train loss: 0.42241947480610437
+2025-10-16 18:09:23,576 - INFO - mIoU: 0.9527; OA: 0.9816; AA: 0.974; F1: 0.9756; Kappa: 0.9684;
+2025-10-16 18:09:23,576 - INFO - spatial_LccAccuracy: 0.9163; spatial_PA: 0.9815; spatial_UA: 0.991; spatial_F1: 0.9862
+2025-10-16 18:09:23,576 - INFO - temporal_CdAccuracy: 0.7499; temporal_PA: 0.9465; temporal_UA: 0.933; temporal_F1: 0.9397
+2025-10-16 18:09:23,577 - INFO - Confusion Matrix
+ [66646.	 1253.	    2.	   14.	    0.]
+ [  739.	52031.	  102.	   10.	  109.]
+ [    4.	  132.	 2173.	    0.	    0.]
+ [   15.	   21.	    0.	 1291.	    0.]
+ [   25.	   44.	    0.	    0.	 9489.]
+2025-10-16 18:09:23,578 - INFO - model saved 51 times, last saved epoch: 91.
+
+2025-10-16 18:09:26,393 - INFO - Epoch 94, Train loss: 0.4231939551376161
+2025-10-16 18:09:27,181 - INFO - mIoU: 0.9533; OA: 0.9835; AA: 0.9725; F1: 0.9758; Kappa: 0.9716;
+2025-10-16 18:09:27,181 - INFO - spatial_LccAccuracy: 0.9298; spatial_PA: 0.9859; spatial_UA: 0.9932; spatial_F1: 0.9895
+2025-10-16 18:09:27,182 - INFO - temporal_CdAccuracy: 0.762; temporal_PA: 0.9609; temporal_UA: 0.9413; temporal_F1: 0.951
+2025-10-16 18:09:27,182 - INFO - Confusion Matrix
+ [67070.	  825.	    1.	   15.	    4.]
+ [  913.	51876.	   81.	   13.	  108.]
+ [    4.	  178.	 2127.	    0.	    0.]
+ [   16.	   11.	    0.	 1300.	    0.]
+ [    0.	   45.	    0.	    0.	 9513.]
+2025-10-16 18:09:27,183 - INFO - model saved 51 times, last saved epoch: 91.
+
+2025-10-16 18:09:30,001 - INFO - Epoch 95, Train loss: 0.4219402954691932
+2025-10-16 18:09:30,832 - INFO - mIoU: 0.9451; OA: 0.9788; AA: 0.9669; F1: 0.9715; Kappa: 0.9635;
+2025-10-16 18:09:30,832 - INFO - spatial_LccAccuracy: 0.9025; spatial_PA: 0.9789; spatial_UA: 0.9818; spatial_F1: 0.9803
+2025-10-16 18:09:30,832 - INFO - temporal_CdAccuracy: 0.7418; temporal_PA: 0.9456; temporal_UA: 0.9284; temporal_F1: 0.937
+2025-10-16 18:09:30,833 - INFO - Confusion Matrix
+ [66412.	 1486.	    1.	   16.	    0.]
+ [  844.	51961.	   91.	   14.	   81.]
+ [    3.	  175.	 2131.	    0.	    0.]
+ [   13.	   37.	    0.	 1277.	    0.]
+ [   10.	   76.	    0.	    0.	 9472.]
+2025-10-16 18:09:30,834 - INFO - model saved 51 times, last saved epoch: 91.
+
+2025-10-16 18:09:33,550 - INFO - Epoch 96, Train loss: 0.4233861517338526
+2025-10-16 18:09:34,392 - INFO - mIoU: 0.9518; OA: 0.9817; AA: 0.9757; F1: 0.9751; Kappa: 0.9686;
+2025-10-16 18:09:34,392 - INFO - spatial_LccAccuracy: 0.9159; spatial_PA: 0.984; spatial_UA: 0.9898; spatial_F1: 0.9869
+2025-10-16 18:09:34,392 - INFO - temporal_CdAccuracy: 0.7562; temporal_PA: 0.9553; temporal_UA: 0.9407; temporal_F1: 0.9479
+2025-10-16 18:09:34,393 - INFO - Confusion Matrix
+ [66868.	 1039.	    1.	    7.	    0.]
+ [  941.	51799.	   78.	   49.	  124.]
+ [    6.	  143.	 2160.	    0.	    0.]
+ [   18.	    2.	    0.	 1307.	    0.]
+ [    0.	   40.	    0.	    0.	 9518.]
+2025-10-16 18:09:34,394 - INFO - model saved 51 times, last saved epoch: 91.
+
+2025-10-16 18:09:37,072 - INFO - Epoch 97, Train loss: 0.42085356343360175
+2025-10-16 18:09:37,925 - INFO - mIoU: 0.9539; OA: 0.9831; AA: 0.9784; F1: 0.9762; Kappa: 0.971;
+2025-10-16 18:09:37,925 - INFO - spatial_LccAccuracy: 0.9253; spatial_PA: 0.9831; spatial_UA: 0.9934; spatial_F1: 0.9882
+2025-10-16 18:09:37,925 - INFO - temporal_CdAccuracy: 0.7566; temporal_PA: 0.9616; temporal_UA: 0.9402; temporal_F1: 0.9507
+2025-10-16 18:09:37,926 - INFO - Confusion Matrix
+ [67023.	  874.	    2.	   16.	    0.]
+ [  904.	51836.	  107.	   34.	  110.]
+ [    3.	  112.	 2194.	    0.	    0.]
+ [   12.	    7.	    0.	 1308.	    0.]
+ [   40.	   46.	    0.	    0.	 9472.]
+2025-10-16 18:09:37,927 - INFO - model saved 51 times, last saved epoch: 91.
+
+2025-10-16 18:09:40,789 - INFO - Epoch 98, Train loss: 0.41892974376678466
+2025-10-16 18:09:41,638 - INFO - mIoU: 0.9496; OA: 0.982; AA: 0.9769; F1: 0.974; Kappa: 0.9691;
+2025-10-16 18:09:41,638 - INFO - spatial_LccAccuracy: 0.9105; spatial_PA: 0.9711; spatial_UA: 0.991; spatial_F1: 0.981
+2025-10-16 18:09:41,638 - INFO - temporal_CdAccuracy: 0.7517; temporal_PA: 0.9581; temporal_UA: 0.9333; temporal_F1: 0.9455
+2025-10-16 18:09:41,639 - INFO - Confusion Matrix
+ [66846.	 1045.	    2.	   22.	    0.]
+ [  861.	51841.	   82.	   53.	  154.]
+ [    3.	  139.	 2167.	    0.	    0.]
+ [    9.	    9.	    0.	 1309.	    0.]
+ [    0.	   31.	    0.	    0.	 9527.]
+2025-10-16 18:09:41,640 - INFO - model saved 51 times, last saved epoch: 91.
+
+2025-10-16 18:09:44,340 - INFO - Epoch 99, Train loss: 0.42058007688749405
+2025-10-16 18:09:45,165 - INFO - mIoU: 0.9546; OA: 0.9835; AA: 0.9709; F1: 0.9766; Kappa: 0.9716;
+2025-10-16 18:09:45,165 - INFO - spatial_LccAccuracy: 0.9257; spatial_PA: 0.978; spatial_UA: 0.9919; spatial_F1: 0.9849
+2025-10-16 18:09:45,165 - INFO - temporal_CdAccuracy: 0.762; temporal_PA: 0.9615; temporal_UA: 0.9443; temporal_F1: 0.9528
+2025-10-16 18:09:45,166 - INFO - Confusion Matrix
+ [67361.	  542.	    1.	   11.	    0.]
+ [ 1208.	51608.	   66.	    7.	  102.]
+ [    3.	  155.	 2151.	    0.	    0.]
+ [   13.	   34.	    0.	 1280.	    0.]
+ [   19.	   52.	    0.	    0.	 9487.]
+2025-10-16 18:09:45,207 - INFO - Epoch 99 saved.
+2025-10-16 18:09:45,936 - INFO - model saved 52 times, last saved epoch: 99.
+
+2025-10-16 18:09:48,853 - INFO - Epoch 100, Train loss: 0.4206169775554112
+2025-10-16 18:09:49,662 - INFO - mIoU: 0.9535; OA: 0.9819; AA: 0.9799; F1: 0.976; Kappa: 0.969;
+2025-10-16 18:09:49,663 - INFO - spatial_LccAccuracy: 0.9208; spatial_PA: 0.9779; spatial_UA: 0.988; spatial_F1: 0.9829
+2025-10-16 18:09:49,663 - INFO - temporal_CdAccuracy: 0.7566; temporal_PA: 0.9551; temporal_UA: 0.9425; temporal_F1: 0.9488
+2025-10-16 18:09:49,664 - INFO - Confusion Matrix
+ [66994.	  907.	    1.	   12.	    1.]
+ [ 1023.	51646.	  129.	   30.	  163.]
+ [    3.	   92.	 2214.	    0.	    0.]
+ [   21.	    1.	    0.	 1305.	    0.]
+ [   20.	   19.	    0.	    0.	 9519.]
+2025-10-16 18:09:49,665 - INFO - model saved 52 times, last saved epoch: 99.
+
+2025-10-16 18:09:52,477 - INFO - Epoch 101, Train loss: 0.41970200283186776
+2025-10-16 18:09:53,295 - INFO - mIoU: 0.9414; OA: 0.9797; AA: 0.9807; F1: 0.9696; Kappa: 0.9652;
+2025-10-16 18:09:53,296 - INFO - spatial_LccAccuracy: 0.915; spatial_PA: 0.9748; spatial_UA: 0.9871; spatial_F1: 0.9809
+2025-10-16 18:09:53,296 - INFO - temporal_CdAccuracy: 0.7512; temporal_PA: 0.9532; temporal_UA: 0.9348; temporal_F1: 0.9439
+2025-10-16 18:09:53,297 - INFO - Confusion Matrix
+ [67331.	  569.	    1.	   14.	    0.]
+ [ 1540.	50969.	  132.	  112.	  238.]
+ [    4.	   86.	 2219.	    0.	    0.]
+ [   12.	    1.	    0.	 1314.	    0.]
+ [    5.	    5.	    0.	    0.	 9548.]
+2025-10-16 18:09:53,298 - INFO - model saved 52 times, last saved epoch: 99.
+
+2025-10-16 18:09:55,949 - INFO - Epoch 102, Train loss: 0.4194807007199242
+2025-10-16 18:09:56,779 - INFO - mIoU: 0.9509; OA: 0.9826; AA: 0.9707; F1: 0.9746; Kappa: 0.9702;
+2025-10-16 18:09:56,780 - INFO - spatial_LccAccuracy: 0.9262; spatial_PA: 0.98; spatial_UA: 0.9925; spatial_F1: 0.9862
+2025-10-16 18:09:56,780 - INFO - temporal_CdAccuracy: 0.7562; temporal_PA: 0.9594; temporal_UA: 0.9424; temporal_F1: 0.9508
+2025-10-16 18:09:56,781 - INFO - Confusion Matrix
+ [67213.	  693.	    1.	    6.	    2.]
+ [ 1113.	51583.	   95.	    7.	  193.]
+ [    3.	  141.	 2165.	    0.	    0.]
+ [   20.	   41.	    0.	 1266.	    0.]
+ [    0.	   12.	    0.	    0.	 9546.]
+2025-10-16 18:09:56,782 - INFO - model saved 52 times, last saved epoch: 99.
+
+2025-10-16 18:09:59,504 - INFO - Epoch 103, Train loss: 0.41773935244196936
+2025-10-16 18:10:00,332 - INFO - mIoU: 0.9455; OA: 0.9827; AA: 0.9606; F1: 0.9715; Kappa: 0.9703;
+2025-10-16 18:10:00,332 - INFO - spatial_LccAccuracy: 0.9177; spatial_PA: 0.9811; spatial_UA: 0.9861; spatial_F1: 0.9836
+2025-10-16 18:10:00,332 - INFO - temporal_CdAccuracy: 0.7562; temporal_PA: 0.9561; temporal_UA: 0.9437; temporal_F1: 0.9499
+2025-10-16 18:10:00,333 - INFO - Confusion Matrix
+ [67033.	  876.	    0.	    6.	    0.]
+ [  896.	51921.	   54.	    6.	  114.]
+ [    4.	  256.	 2049.	    0.	    0.]
+ [   37.	   25.	    0.	 1265.	    0.]
+ [    6.	   37.	    0.	    0.	 9515.]
+2025-10-16 18:10:00,334 - INFO - model saved 52 times, last saved epoch: 99.
+
+2025-10-16 18:10:03,014 - INFO - Epoch 104, Train loss: 0.4162631310167767
+2025-10-16 18:10:03,926 - INFO - mIoU: 0.9561; OA: 0.9826; AA: 0.9775; F1: 0.9774; Kappa: 0.9701;
+2025-10-16 18:10:03,927 - INFO - spatial_LccAccuracy: 0.9275; spatial_PA: 0.9811; spatial_UA: 0.9928; spatial_F1: 0.9869
+2025-10-16 18:10:03,927 - INFO - temporal_CdAccuracy: 0.7579; temporal_PA: 0.9574; temporal_UA: 0.9429; temporal_F1: 0.9501
+2025-10-16 18:10:03,927 - INFO - Confusion Matrix
+ [67066.	  833.	    1.	   10.	    5.]
+ [ 1025.	51685.	  104.	   11.	  166.]
+ [    3.	  112.	 2194.	    0.	    0.]
+ [   14.	   16.	    0.	 1297.	    0.]
+ [    7.	   23.	    0.	    0.	 9528.]
+2025-10-16 18:10:03,996 - INFO - Epoch 104 saved.
+2025-10-16 18:10:03,997 - INFO - model saved 53 times, last saved epoch: 104.
+
+2025-10-16 18:10:06,720 - INFO - Epoch 105, Train loss: 0.4166950943924132
+2025-10-16 18:10:07,553 - INFO - mIoU: 0.9486; OA: 0.9829; AA: 0.9681; F1: 0.9733; Kappa: 0.9706;
+2025-10-16 18:10:07,553 - INFO - spatial_LccAccuracy: 0.9239; spatial_PA: 0.9846; spatial_UA: 0.9918; spatial_F1: 0.9882
+2025-10-16 18:10:07,553 - INFO - temporal_CdAccuracy: 0.7584; temporal_PA: 0.953; temporal_UA: 0.9417; temporal_F1: 0.9474
+2025-10-16 18:10:07,554 - INFO - Confusion Matrix
+ [66943.	  955.	    1.	   15.	    1.]
+ [  800.	51951.	   85.	    6.	  149.]
+ [    3.	  185.	 2119.	    0.	    2.]
+ [   17.	   35.	    0.	 1275.	    0.]
+ [   16.	   25.	    0.	    0.	 9517.]
+2025-10-16 18:10:07,555 - INFO - model saved 53 times, last saved epoch: 104.
+
+2025-10-16 18:10:10,536 - INFO - Epoch 106, Train loss: 0.4164654615379515
+2025-10-16 18:10:11,494 - INFO - mIoU: 0.9533; OA: 0.9834; AA: 0.9719; F1: 0.9759; Kappa: 0.9714;
+2025-10-16 18:10:11,494 - INFO - spatial_LccAccuracy: 0.9284; spatial_PA: 0.9838; spatial_UA: 0.9926; spatial_F1: 0.9882
+2025-10-16 18:10:11,494 - INFO - temporal_CdAccuracy: 0.7566; temporal_PA: 0.958; temporal_UA: 0.94; temporal_F1: 0.9489
+2025-10-16 18:10:11,495 - INFO - Confusion Matrix
+ [67126.	  777.	    1.	   11.	    0.]
+ [  969.	51814.	   93.	    7.	  108.]
+ [    4.	  140.	 2165.	    0.	    0.]
+ [   22.	   27.	    0.	 1278.	    0.]
+ [   28.	   42.	    0.	    0.	 9488.]
+2025-10-16 18:10:11,496 - INFO - model saved 53 times, last saved epoch: 104.
+
+2025-10-16 18:10:14,138 - INFO - Epoch 107, Train loss: 0.4174860119819641
+2025-10-16 18:10:14,930 - INFO - mIoU: 0.9506; OA: 0.9825; AA: 0.9758; F1: 0.9745; Kappa: 0.9699;
+2025-10-16 18:10:14,930 - INFO - spatial_LccAccuracy: 0.9208; spatial_PA: 0.9808; spatial_UA: 0.9917; spatial_F1: 0.9862
+2025-10-16 18:10:14,930 - INFO - temporal_CdAccuracy: 0.7548; temporal_PA: 0.9586; temporal_UA: 0.9396; temporal_F1: 0.949
+2025-10-16 18:10:14,931 - INFO - Confusion Matrix
+ [67268.	  631.	    1.	   15.	    0.]
+ [ 1221.	51484.	   60.	   60.	  166.]
+ [    5.	  154.	 2150.	    0.	    0.]
+ [   14.	    2.	    0.	 1311.	    0.]
+ [    1.	   17.	    0.	    0.	 9540.]
+2025-10-16 18:10:14,932 - INFO - model saved 53 times, last saved epoch: 104.
+
+2025-10-16 18:10:17,649 - INFO - Epoch 108, Train loss: 0.4163050393263499
+2025-10-16 18:10:18,474 - INFO - mIoU: 0.9571; OA: 0.9828; AA: 0.9786; F1: 0.9779; Kappa: 0.9703;
+2025-10-16 18:10:18,474 - INFO - spatial_LccAccuracy: 0.9266; spatial_PA: 0.9803; spatial_UA: 0.9936; spatial_F1: 0.9869
+2025-10-16 18:10:18,475 - INFO - temporal_CdAccuracy: 0.7593; temporal_PA: 0.9595; temporal_UA: 0.9413; temporal_F1: 0.9503
+2025-10-16 18:10:18,475 - INFO - Confusion Matrix
+ [67253.	  649.	    1.	   11.	    1.]
+ [ 1210.	51509.	   93.	   19.	  160.]
+ [    4.	  116.	 2189.	    0.	    0.]
+ [   16.	    3.	    0.	 1308.	    0.]
+ [    7.	   23.	    0.	    0.	 9528.]
+2025-10-16 18:10:18,516 - INFO - Epoch 108 saved.
+2025-10-16 18:10:18,517 - INFO - model saved 54 times, last saved epoch: 108.
+
+2025-10-16 18:10:21,211 - INFO - Epoch 109, Train loss: 0.4154890415214357
+2025-10-16 18:10:21,993 - INFO - mIoU: 0.9569; OA: 0.9826; AA: 0.9782; F1: 0.9778; Kappa: 0.9701;
+2025-10-16 18:10:21,993 - INFO - spatial_LccAccuracy: 0.9271; spatial_PA: 0.983; spatial_UA: 0.9895; spatial_F1: 0.9862
+2025-10-16 18:10:21,994 - INFO - temporal_CdAccuracy: 0.7539; temporal_PA: 0.96; temporal_UA: 0.9361; temporal_F1: 0.9479
+2025-10-16 18:10:21,994 - INFO - Confusion Matrix
+ [67164.	  740.	    1.	   10.	    0.]
+ [ 1131.	51567.	  101.	   12.	  180.]
+ [    5.	  112.	 2192.	    0.	    0.]
+ [   15.	   10.	    0.	 1302.	    0.]
+ [    0.	   13.	    0.	    0.	 9545.]
+2025-10-16 18:10:21,995 - INFO - model saved 54 times, last saved epoch: 108.
+
+2025-10-16 18:10:24,725 - INFO - Epoch 110, Train loss: 0.4156732547850836
+2025-10-16 18:10:25,545 - INFO - mIoU: 0.9553; OA: 0.9832; AA: 0.972; F1: 0.9769; Kappa: 0.9711;
+2025-10-16 18:10:25,545 - INFO - spatial_LccAccuracy: 0.9302; spatial_PA: 0.9835; spatial_UA: 0.9916; spatial_F1: 0.9875
+2025-10-16 18:10:25,546 - INFO - temporal_CdAccuracy: 0.7611; temporal_PA: 0.9573; temporal_UA: 0.9428; temporal_F1: 0.95
+2025-10-16 18:10:25,546 - INFO - Confusion Matrix
+ [67156.	  750.	    1.	    8.	    0.]
+ [ 1031.	51738.	   58.	    8.	  156.]
+ [    6.	  174.	 2127.	    0.	    2.]
+ [   14.	   17.	    0.	 1296.	    0.]
+ [    0.	   28.	    0.	    0.	 9530.]
+2025-10-16 18:10:25,547 - INFO - model saved 54 times, last saved epoch: 108.
+
+2025-10-16 18:10:28,332 - INFO - Epoch 111, Train loss: 0.4149940604255313
+2025-10-16 18:10:29,287 - INFO - mIoU: 0.9526; OA: 0.9829; AA: 0.9717; F1: 0.9755; Kappa: 0.9705;
+2025-10-16 18:10:29,287 - INFO - spatial_LccAccuracy: 0.9217; spatial_PA: 0.9827; spatial_UA: 0.9885; spatial_F1: 0.9856
+2025-10-16 18:10:29,287 - INFO - temporal_CdAccuracy: 0.7615; temporal_PA: 0.9558; temporal_UA: 0.9402; temporal_F1: 0.9479
+2025-10-16 18:10:29,288 - INFO - Confusion Matrix
+ [66990.	  913.	    1.	   11.	    0.]
+ [  908.	51867.	   98.	    5.	  113.]
+ [    3.	  124.	 2182.	    0.	    0.]
+ [   25.	   35.	    0.	 1267.	    0.]
+ [   15.	   47.	    0.	    0.	 9496.]
+2025-10-16 18:10:29,289 - INFO - model saved 54 times, last saved epoch: 108.
+
+2025-10-16 18:10:32,120 - INFO - Epoch 112, Train loss: 0.41534758664312815
+2025-10-16 18:10:32,968 - INFO - mIoU: 0.957; OA: 0.9835; AA: 0.9788; F1: 0.9779; Kappa: 0.9717;
+2025-10-16 18:10:32,968 - INFO - spatial_LccAccuracy: 0.9338; spatial_PA: 0.9813; spatial_UA: 0.9938; spatial_F1: 0.9876
+2025-10-16 18:10:32,968 - INFO - temporal_CdAccuracy: 0.766; temporal_PA: 0.9604; temporal_UA: 0.9473; temporal_F1: 0.9538
+2025-10-16 18:10:32,968 - INFO - Confusion Matrix
+ [67151.	  748.	    1.	   15.	    0.]
+ [ 1013.	51720.	   77.	   28.	  153.]
+ [    4.	  122.	 2183.	    0.	    0.]
+ [   10.	    8.	    0.	 1309.	    0.]
+ [    0.	   27.	    0.	    0.	 9531.]
+2025-10-16 18:10:32,969 - INFO - model saved 54 times, last saved epoch: 108.
+
+2025-10-16 18:10:35,685 - INFO - Epoch 113, Train loss: 0.41511802474657694
+2025-10-16 18:10:36,552 - INFO - mIoU: 0.9484; OA: 0.9834; AA: 0.9644; F1: 0.9733; Kappa: 0.9714;
+2025-10-16 18:10:36,552 - INFO - spatial_LccAccuracy: 0.928; spatial_PA: 0.9825; spatial_UA: 0.9913; spatial_F1: 0.9869
+2025-10-16 18:10:36,552 - INFO - temporal_CdAccuracy: 0.7647; temporal_PA: 0.9606; temporal_UA: 0.9462; temporal_F1: 0.9534
+2025-10-16 18:10:36,553 - INFO - Confusion Matrix
+ [67178.	  732.	    1.	    4.	    0.]
+ [ 1012.	51781.	   73.	    4.	  121.]
+ [    3.	  126.	 2180.	    0.	    0.]
+ [   31.	   80.	    0.	 1216.	    0.]
+ [    0.	   45.	    0.	    0.	 9513.]
+2025-10-16 18:10:36,554 - INFO - model saved 54 times, last saved epoch: 108.
+
+2025-10-16 18:10:39,278 - INFO - Epoch 114, Train loss: 0.4125683639730726
+2025-10-16 18:10:40,102 - INFO - mIoU: 0.9579; OA: 0.9837; AA: 0.9756; F1: 0.9783; Kappa: 0.972;
+2025-10-16 18:10:40,102 - INFO - spatial_LccAccuracy: 0.9257; spatial_PA: 0.9834; spatial_UA: 0.9944; spatial_F1: 0.9889
+2025-10-16 18:10:40,103 - INFO - temporal_CdAccuracy: 0.7651; temporal_PA: 0.9624; temporal_UA: 0.9449; temporal_F1: 0.9536
+2025-10-16 18:10:40,103 - INFO - Confusion Matrix
+ [67179.	  719.	    1.	   12.	    4.]
+ [ 1037.	51749.	   67.	   11.	  127.]
+ [    3.	  148.	 2158.	    0.	    0.]
+ [   11.	   14.	    0.	 1302.	    0.]
+ [    0.	   32.	    0.	    0.	 9526.]
+2025-10-16 18:10:40,143 - INFO - Epoch 114 saved.
+2025-10-16 18:10:40,144 - INFO - model saved 55 times, last saved epoch: 114.
+
+2025-10-16 18:10:42,831 - INFO - Epoch 115, Train loss: 0.41190657019615173
+2025-10-16 18:10:43,621 - INFO - mIoU: 0.9503; OA: 0.9818; AA: 0.9643; F1: 0.9742; Kappa: 0.9686;
+2025-10-16 18:10:43,621 - INFO - spatial_LccAccuracy: 0.9186; spatial_PA: 0.9713; spatial_UA: 0.9881; spatial_F1: 0.9796
+2025-10-16 18:10:43,621 - INFO - temporal_CdAccuracy: 0.7485; temporal_PA: 0.9573; temporal_UA: 0.9398; temporal_F1: 0.9484
+2025-10-16 18:10:43,622 - INFO - Confusion Matrix
+ [67384.	  526.	    0.	    5.	    0.]
+ [ 1431.	51386.	   33.	    6.	  135.]
+ [    3.	  224.	 2082.	    0.	    0.]
+ [   24.	   28.	    0.	 1275.	    0.]
+ [    0.	   28.	    0.	    0.	 9530.]
+2025-10-16 18:10:43,623 - INFO - model saved 55 times, last saved epoch: 114.
+
+2025-10-16 18:10:46,508 - INFO - Epoch 116, Train loss: 0.41262273078873046
+2025-10-16 18:10:47,314 - INFO - mIoU: 0.9556; OA: 0.983; AA: 0.97; F1: 0.9771; Kappa: 0.9708;
+2025-10-16 18:10:47,314 - INFO - spatial_LccAccuracy: 0.9289; spatial_PA: 0.9812; spatial_UA: 0.9899; spatial_F1: 0.9856
+2025-10-16 18:10:47,314 - INFO - temporal_CdAccuracy: 0.7611; temporal_PA: 0.9624; temporal_UA: 0.9426; temporal_F1: 0.9524
+2025-10-16 18:10:47,315 - INFO - Confusion Matrix
+ [67002.	  905.	    1.	    7.	    0.]
+ [  935.	51887.	   30.	   10.	  129.]
+ [    6.	  173.	 2130.	    0.	    0.]
+ [   31.	   14.	    0.	 1282.	    0.]
+ [    5.	   34.	    0.	    0.	 9519.]
+2025-10-16 18:10:47,316 - INFO - model saved 55 times, last saved epoch: 114.
+
+2025-10-16 18:10:50,074 - INFO - Epoch 117, Train loss: 0.4136392709754762
+2025-10-16 18:10:50,871 - INFO - mIoU: 0.9561; OA: 0.9828; AA: 0.9755; F1: 0.9774; Kappa: 0.9704;
+2025-10-16 18:10:50,871 - INFO - spatial_LccAccuracy: 0.9271; spatial_PA: 0.9837; spatial_UA: 0.9888; spatial_F1: 0.9862
+2025-10-16 18:10:50,871 - INFO - temporal_CdAccuracy: 0.7548; temporal_PA: 0.9607; temporal_UA: 0.9413; temporal_F1: 0.9509
+2025-10-16 18:10:50,872 - INFO - Confusion Matrix
+ [67004.	  899.	    1.	   11.	    0.]
+ [  937.	51795.	   83.	    7.	  169.]
+ [   11.	  116.	 2182.	    0.	    0.]
+ [   19.	   17.	    0.	 1291.	    0.]
+ [   18.	   25.	    0.	    0.	 9515.]
+2025-10-16 18:10:50,873 - INFO - model saved 55 times, last saved epoch: 114.
+
+2025-10-16 18:10:53,678 - INFO - Epoch 118, Train loss: 0.41181592373620896
+2025-10-16 18:10:54,550 - INFO - mIoU: 0.9548; OA: 0.9822; AA: 0.9728; F1: 0.9767; Kappa: 0.9694;
+2025-10-16 18:10:54,550 - INFO - spatial_LccAccuracy: 0.9239; spatial_PA: 0.9739; spatial_UA: 0.9908; spatial_F1: 0.9823
+2025-10-16 18:10:54,550 - INFO - temporal_CdAccuracy: 0.7535; temporal_PA: 0.958; temporal_UA: 0.9369; temporal_F1: 0.9473
+2025-10-16 18:10:54,551 - INFO - Confusion Matrix
+ [67311.	  591.	    1.	   10.	    2.]
+ [ 1306.	51416.	   63.	    6.	  200.]
+ [    3.	  147.	 2159.	    0.	    0.]
+ [   20.	   21.	    0.	 1286.	    0.]
+ [    0.	   13.	    0.	    0.	 9545.]
+2025-10-16 18:10:54,552 - INFO - model saved 55 times, last saved epoch: 114.
+
+2025-10-16 18:10:57,446 - INFO - Epoch 119, Train loss: 0.41245470501127696
+2025-10-16 18:10:58,284 - INFO - mIoU: 0.9568; OA: 0.9832; AA: 0.9771; F1: 0.9778; Kappa: 0.9711;
+2025-10-16 18:10:58,284 - INFO - spatial_LccAccuracy: 0.9289; spatial_PA: 0.9822; spatial_UA: 0.9902; spatial_F1: 0.9862
+2025-10-16 18:10:58,284 - INFO - temporal_CdAccuracy: 0.757; temporal_PA: 0.9606; temporal_UA: 0.9394; temporal_F1: 0.9499
+2025-10-16 18:10:58,285 - INFO - Confusion Matrix
+ [67308.	  601.	    1.	    5.	    0.]
+ [ 1182.	51552.	   90.	   22.	  145.]
+ [    4.	  104.	 2201.	    0.	    0.]
+ [   33.	    0.	    0.	 1294.	    0.]
+ [   33.	   32.	    0.	    0.	 9493.]
+2025-10-16 18:10:58,286 - INFO - model saved 55 times, last saved epoch: 114.
+
+2025-10-16 18:11:00,972 - INFO - Epoch 120, Train loss: 0.41082571688152497
+2025-10-16 18:11:01,802 - INFO - mIoU: 0.9568; OA: 0.9825; AA: 0.9771; F1: 0.9778; Kappa: 0.9699;
+2025-10-16 18:11:01,803 - INFO - spatial_LccAccuracy: 0.9271; spatial_PA: 0.979; spatial_UA: 0.9922; spatial_F1: 0.9856
+2025-10-16 18:11:01,803 - INFO - temporal_CdAccuracy: 0.7579; temporal_PA: 0.9586; temporal_UA: 0.9415; temporal_F1: 0.95
+2025-10-16 18:11:01,804 - INFO - Confusion Matrix
+ [67233.	  676.	    1.	    5.	    0.]
+ [ 1224.	51497.	  115.	    5.	  150.]
+ [    3.	   79.	 2227.	    0.	    0.]
+ [   27.	   21.	    0.	 1279.	    0.]
+ [   18.	   26.	    0.	    0.	 9514.]
+2025-10-16 18:11:01,805 - INFO - model saved 55 times, last saved epoch: 114.
+
+2025-10-16 18:11:04,519 - INFO - Epoch 121, Train loss: 0.41158579417637414
+2025-10-16 18:11:05,356 - INFO - mIoU: 0.958; OA: 0.9839; AA: 0.9769; F1: 0.9785; Kappa: 0.9724;
+2025-10-16 18:11:05,356 - INFO - spatial_LccAccuracy: 0.9257; spatial_PA: 0.9811; spatial_UA: 0.9928; spatial_F1: 0.9869
+2025-10-16 18:11:05,357 - INFO - temporal_CdAccuracy: 0.7682; temporal_PA: 0.9597; temporal_UA: 0.9471; temporal_F1: 0.9533
+2025-10-16 18:11:05,357 - INFO - Confusion Matrix
+ [67044.	  845.	    2.	   11.	   13.]
+ [  878.	51887.	   89.	    6.	  131.]
+ [    3.	   91.	 2215.	    0.	    0.]
+ [   10.	   39.	    0.	 1278.	    0.]
+ [    0.	   38.	    0.	    0.	 9520.]
+2025-10-16 18:11:05,400 - INFO - Epoch 121 saved.
+2025-10-16 18:11:05,401 - INFO - model saved 56 times, last saved epoch: 121.
+
+2025-10-16 18:11:08,286 - INFO - Epoch 122, Train loss: 0.40881999447232203
+2025-10-16 18:11:09,126 - INFO - mIoU: 0.9571; OA: 0.983; AA: 0.9804; F1: 0.978; Kappa: 0.9708;
+2025-10-16 18:11:09,127 - INFO - spatial_LccAccuracy: 0.9266; spatial_PA: 0.985; spatial_UA: 0.9901; spatial_F1: 0.9875
+2025-10-16 18:11:09,127 - INFO - temporal_CdAccuracy: 0.7588; temporal_PA: 0.9582; temporal_UA: 0.9474; temporal_F1: 0.9528
+2025-10-16 18:11:09,128 - INFO - Confusion Matrix
+ [66789.	 1113.	    1.	   11.	    1.]
+ [  708.	51987.	   96.	   26.	  174.]
+ [    6.	   90.	 2213.	    0.	    0.]
+ [   23.	    1.	    0.	 1303.	    0.]
+ [    1.	   28.	    0.	    0.	 9529.]
+2025-10-16 18:11:09,129 - INFO - model saved 56 times, last saved epoch: 121.
+
+2025-10-16 18:11:11,815 - INFO - Epoch 123, Train loss: 0.41043759357361564
+2025-10-16 18:11:12,627 - INFO - mIoU: 0.9534; OA: 0.9831; AA: 0.9769; F1: 0.976; Kappa: 0.971;
+2025-10-16 18:11:12,628 - INFO - spatial_LccAccuracy: 0.9204; spatial_PA: 0.9773; spatial_UA: 0.9927; spatial_F1: 0.9849
+2025-10-16 18:11:12,628 - INFO - temporal_CdAccuracy: 0.7526; temporal_PA: 0.9614; temporal_UA: 0.9408; temporal_F1: 0.951
+2025-10-16 18:11:12,629 - INFO - Confusion Matrix
+ [66923.	  946.	    1.	   45.	    0.]
+ [  855.	51927.	   70.	   17.	  122.]
+ [    3.	  144.	 2162.	    0.	    0.]
+ [   12.	    5.	    0.	 1310.	    0.]
+ [    2.	   39.	    0.	    0.	 9517.]
+2025-10-16 18:11:12,630 - INFO - model saved 56 times, last saved epoch: 121.
+
+2025-10-16 18:11:15,360 - INFO - Epoch 124, Train loss: 0.4105882411911374
+2025-10-16 18:11:16,144 - INFO - mIoU: 0.9538; OA: 0.9829; AA: 0.9717; F1: 0.9762; Kappa: 0.9707;
+2025-10-16 18:11:16,145 - INFO - spatial_LccAccuracy: 0.9213; spatial_PA: 0.9811; spatial_UA: 0.9861; spatial_F1: 0.9836
+2025-10-16 18:11:16,145 - INFO - temporal_CdAccuracy: 0.7579; temporal_PA: 0.9585; temporal_UA: 0.9431; temporal_F1: 0.9507
+2025-10-16 18:11:16,146 - INFO - Confusion Matrix
+ [67114.	  795.	    1.	    4.	    1.]
+ [ 1024.	51733.	   88.	    6.	  140.]
+ [    3.	  134.	 2172.	    0.	    0.]
+ [   40.	   17.	    0.	 1270.	    0.]
+ [    7.	   27.	    0.	    0.	 9524.]
+2025-10-16 18:11:16,147 - INFO - model saved 56 times, last saved epoch: 121.
+
+2025-10-16 18:11:18,843 - INFO - Epoch 125, Train loss: 0.4089103009019579
+2025-10-16 18:11:19,810 - INFO - mIoU: 0.9578; OA: 0.983; AA: 0.981; F1: 0.9783; Kappa: 0.9707;
+2025-10-16 18:11:19,811 - INFO - spatial_LccAccuracy: 0.9306; spatial_PA: 0.9876; spatial_UA: 0.9927; spatial_F1: 0.9902
+2025-10-16 18:11:19,811 - INFO - temporal_CdAccuracy: 0.7647; temporal_PA: 0.9609; temporal_UA: 0.9432; temporal_F1: 0.952
+2025-10-16 18:11:19,812 - INFO - Confusion Matrix
+ [66931.	  977.	    1.	    5.	    1.]
+ [  835.	51805.	  136.	    8.	  207.]
+ [    3.	   79.	 2227.	    0.	    0.]
+ [   12.	   17.	    0.	 1298.	    0.]
+ [    0.	    5.	    0.	    0.	 9553.]
+2025-10-16 18:11:19,813 - INFO - model saved 56 times, last saved epoch: 121.
+
+2025-10-16 18:11:22,481 - INFO - Epoch 126, Train loss: 0.40785959987413317
+2025-10-16 18:11:23,288 - INFO - mIoU: 0.9626; OA: 0.9838; AA: 0.9828; F1: 0.9809; Kappa: 0.9722;
+2025-10-16 18:11:23,288 - INFO - spatial_LccAccuracy: 0.9356; spatial_PA: 0.9824; spatial_UA: 0.9941; spatial_F1: 0.9882
+2025-10-16 18:11:23,289 - INFO - temporal_CdAccuracy: 0.7664; temporal_PA: 0.9581; temporal_UA: 0.9498; temporal_F1: 0.9539
+2025-10-16 18:11:23,289 - INFO - Confusion Matrix
+ [67017.	  884.	    1.	   11.	    2.]
+ [  886.	51843.	   83.	   15.	  164.]
+ [    3.	   88.	 2218.	    0.	    0.]
+ [   10.	    3.	    0.	 1314.	    0.]
+ [    0.	   19.	    0.	    0.	 9539.]
+2025-10-16 18:11:24,454 - INFO - Epoch 126 saved.
+2025-10-16 18:11:24,455 - INFO - model saved 57 times, last saved epoch: 126.
+
+2025-10-16 18:11:27,255 - INFO - Epoch 127, Train loss: 0.40952125134922207
+2025-10-16 18:11:28,064 - INFO - mIoU: 0.954; OA: 0.9826; AA: 0.9717; F1: 0.9763; Kappa: 0.97;
+2025-10-16 18:11:28,064 - INFO - spatial_LccAccuracy: 0.9253; spatial_PA: 0.9822; spatial_UA: 0.9902; spatial_F1: 0.9862
+2025-10-16 18:11:28,064 - INFO - temporal_CdAccuracy: 0.7629; temporal_PA: 0.9593; temporal_UA: 0.9394; temporal_F1: 0.9493
+2025-10-16 18:11:28,065 - INFO - Confusion Matrix
+ [67133.	  771.	    1.	   10.	    0.]
+ [ 1087.	51658.	   65.	    6.	  175.]
+ [    5.	  140.	 2164.	    0.	    0.]
+ [   25.	   27.	    0.	 1275.	    0.]
+ [   14.	   12.	    0.	    0.	 9532.]
+2025-10-16 18:11:28,066 - INFO - model saved 57 times, last saved epoch: 126.
+
+2025-10-16 18:11:30,762 - INFO - Epoch 128, Train loss: 0.4078663800443922
+2025-10-16 18:11:31,559 - INFO - mIoU: 0.9561; OA: 0.9807; AA: 0.9762; F1: 0.9774; Kappa: 0.9668;
+2025-10-16 18:11:31,560 - INFO - spatial_LccAccuracy: 0.928; spatial_PA: 0.9811; spatial_UA: 0.9928; spatial_F1: 0.9869
+2025-10-16 18:11:31,560 - INFO - temporal_CdAccuracy: 0.7553; temporal_PA: 0.9493; temporal_UA: 0.9338; temporal_F1: 0.9415
+2025-10-16 18:11:31,561 - INFO - Confusion Matrix
+ [67431.	  469.	    1.	   14.	    0.]
+ [ 1678.	51074.	   69.	   15.	  155.]
+ [   11.	  126.	 2172.	    0.	    0.]
+ [   12.	    5.	    0.	 1310.	    0.]
+ [   13.	   22.	    0.	    0.	 9523.]
+2025-10-16 18:11:31,562 - INFO - model saved 57 times, last saved epoch: 126.
+
+2025-10-16 18:11:34,377 - INFO - Epoch 129, Train loss: 0.4103567165987832
+2025-10-16 18:11:35,191 - INFO - mIoU: 0.962; OA: 0.9838; AA: 0.9792; F1: 0.9806; Kappa: 0.9722;
+2025-10-16 18:11:35,192 - INFO - spatial_LccAccuracy: 0.9333; spatial_PA: 0.98; spatial_UA: 0.9925; spatial_F1: 0.9862
+2025-10-16 18:11:35,192 - INFO - temporal_CdAccuracy: 0.7669; temporal_PA: 0.9587; temporal_UA: 0.9455; temporal_F1: 0.9521
+2025-10-16 18:11:35,193 - INFO - Confusion Matrix
+ [67061.	  844.	    1.	    9.	    0.]
+ [  901.	51922.	   76.	   10.	   82.]
+ [    3.	   90.	 2216.	    0.	    0.]
+ [   10.	   13.	    0.	 1304.	    0.]
+ [   34.	   97.	    0.	    0.	 9427.]
+2025-10-16 18:11:35,194 - INFO - model saved 57 times, last saved epoch: 126.
+
+2025-10-16 18:11:38,158 - INFO - Epoch 130, Train loss: 0.40714636047681174
+2025-10-16 18:11:38,982 - INFO - mIoU: 0.9606; OA: 0.9831; AA: 0.9824; F1: 0.9798; Kappa: 0.9709;
+2025-10-16 18:11:38,982 - INFO - spatial_LccAccuracy: 0.9315; spatial_PA: 0.9752; spatial_UA: 0.9921; spatial_F1: 0.9836
+2025-10-16 18:11:38,982 - INFO - temporal_CdAccuracy: 0.7606; temporal_PA: 0.9646; temporal_UA: 0.9418; temporal_F1: 0.9531
+2025-10-16 18:11:38,983 - INFO - Confusion Matrix
+ [67318.	  586.	    1.	   10.	    0.]
+ [ 1267.	51460.	  102.	   21.	  141.]
+ [    3.	   80.	 2226.	    0.	    0.]
+ [   11.	    2.	    0.	 1314.	    0.]
+ [    6.	   36.	    0.	    0.	 9516.]
+2025-10-16 18:11:38,984 - INFO - model saved 57 times, last saved epoch: 126.
+
+2025-10-16 18:11:41,727 - INFO - Epoch 131, Train loss: 0.4090913386571975
+2025-10-16 18:11:42,524 - INFO - mIoU: 0.9621; OA: 0.9835; AA: 0.978; F1: 0.9806; Kappa: 0.9716;
+2025-10-16 18:11:42,524 - INFO - spatial_LccAccuracy: 0.9302; spatial_PA: 0.977; spatial_UA: 0.9916; spatial_F1: 0.9843
+2025-10-16 18:11:42,524 - INFO - temporal_CdAccuracy: 0.7606; temporal_PA: 0.9638; temporal_UA: 0.9388; temporal_F1: 0.9511
+2025-10-16 18:11:42,525 - INFO - Confusion Matrix
+ [67383.	  520.	    1.	   11.	    0.]
+ [ 1306.	51513.	   41.	   15.	  116.]
+ [    4.	  127.	 2178.	    0.	    0.]
+ [   13.	    2.	    0.	 1312.	    0.]
+ [    6.	   52.	    0.	    0.	 9500.]
+2025-10-16 18:11:42,526 - INFO - model saved 57 times, last saved epoch: 126.
+
+2025-10-16 18:11:45,263 - INFO - Epoch 132, Train loss: 0.409708324216661
+2025-10-16 18:11:46,062 - INFO - mIoU: 0.9609; OA: 0.9837; AA: 0.9776; F1: 0.98; Kappa: 0.972;
+2025-10-16 18:11:46,063 - INFO - spatial_LccAccuracy: 0.9289; spatial_PA: 0.9831; spatial_UA: 0.9934; spatial_F1: 0.9882
+2025-10-16 18:11:46,063 - INFO - temporal_CdAccuracy: 0.7548; temporal_PA: 0.9619; temporal_UA: 0.939; temporal_F1: 0.9503
+2025-10-16 18:11:46,064 - INFO - Confusion Matrix
+ [67305.	  599.	    1.	   10.	    0.]
+ [ 1158.	51583.	   56.	    5.	  189.]
+ [    3.	   95.	 2211.	    0.	    0.]
+ [   19.	   22.	    0.	 1286.	    0.]
+ [   21.	    8.	    0.	    0.	 9529.]
+2025-10-16 18:11:46,065 - INFO - model saved 57 times, last saved epoch: 126.
+
+2025-10-16 18:11:48,742 - INFO - Epoch 133, Train loss: 0.4073831978298369
+2025-10-16 18:11:49,660 - INFO - mIoU: 0.9619; OA: 0.9839; AA: 0.9778; F1: 0.9805; Kappa: 0.9724;
+2025-10-16 18:11:49,661 - INFO - spatial_LccAccuracy: 0.9262; spatial_PA: 0.9822; spatial_UA: 0.9902; spatial_F1: 0.9862
+2025-10-16 18:11:49,661 - INFO - temporal_CdAccuracy: 0.7691; temporal_PA: 0.9619; temporal_UA: 0.9469; temporal_F1: 0.9543
+2025-10-16 18:11:49,663 - INFO - Confusion Matrix
+ [67173.	  732.	    1.	    9.	    0.]
+ [ 1039.	51797.	   57.	   12.	   86.]
+ [    4.	  107.	 2198.	    0.	    0.]
+ [   17.	   11.	    0.	 1299.	    0.]
+ [   13.	   67.	    0.	    0.	 9478.]
+2025-10-16 18:11:49,663 - INFO - model saved 57 times, last saved epoch: 126.
+
+2025-10-16 18:11:52,380 - INFO - Epoch 134, Train loss: 0.40852013854753405
+2025-10-16 18:11:53,191 - INFO - mIoU: 0.9605; OA: 0.9807; AA: 0.9778; F1: 0.9798; Kappa: 0.9669;
+2025-10-16 18:11:53,594 - INFO - spatial_LccAccuracy: 0.9248; spatial_PA: 0.9846; spatial_UA: 0.9853; spatial_F1: 0.985
+2025-10-16 18:11:53,594 - INFO - temporal_CdAccuracy: 0.7526; temporal_PA: 0.9562; temporal_UA: 0.9404; temporal_F1: 0.9482
+2025-10-16 18:11:53,595 - INFO - Confusion Matrix
+ [66313.	 1595.	    1.	    6.	    0.]
+ [  629.	52185.	   66.	    5.	  106.]
+ [    3.	   86.	 2220.	    0.	    0.]
+ [   19.	   18.	    0.	 1290.	    0.]
+ [   11.	   42.	    0.	    0.	 9505.]
+2025-10-16 18:11:53,597 - INFO - model saved 57 times, last saved epoch: 126.
+
+2025-10-16 18:11:56,372 - INFO - Epoch 135, Train loss: 0.4064335136186509
+2025-10-16 18:11:57,214 - INFO - mIoU: 0.959; OA: 0.9829; AA: 0.9812; F1: 0.979; Kappa: 0.9706;
+2025-10-16 18:11:57,215 - INFO - spatial_LccAccuracy: 0.9293; spatial_PA: 0.9831; spatial_UA: 0.9934; spatial_F1: 0.9882
+2025-10-16 18:11:57,215 - INFO - temporal_CdAccuracy: 0.7678; temporal_PA: 0.9585; temporal_UA: 0.9453; temporal_F1: 0.9519
+2025-10-16 18:11:57,216 - INFO - Confusion Matrix
+ [67166.	  734.	    1.	   14.	    0.]
+ [ 1098.	51568.	   95.	   13.	  217.]
+ [    3.	   89.	 2217.	    0.	    0.]
+ [   11.	    9.	    0.	 1307.	    0.]
+ [    3.	    7.	    0.	    0.	 9548.]
+2025-10-16 18:11:57,217 - INFO - model saved 57 times, last saved epoch: 126.
+
+2025-10-16 18:11:59,936 - INFO - Epoch 136, Train loss: 0.4049737192335583
+2025-10-16 18:12:00,738 - INFO - mIoU: 0.9557; OA: 0.9822; AA: 0.9772; F1: 0.9772; Kappa: 0.9694;
+2025-10-16 18:12:00,739 - INFO - spatial_LccAccuracy: 0.923; spatial_PA: 0.9833; spatial_UA: 0.9905; spatial_F1: 0.9869
+2025-10-16 18:12:00,739 - INFO - temporal_CdAccuracy: 0.7535; temporal_PA: 0.956; temporal_UA: 0.9421; temporal_F1: 0.949
+2025-10-16 18:12:00,740 - INFO - Confusion Matrix
+ [67189.	  711.	    1.	   13.	    1.]
+ [ 1230.	51496.	   51.	   36.	  178.]
+ [   18.	  121.	 2170.	    0.	    0.]
+ [   18.	    0.	    0.	 1309.	    0.]
+ [    0.	   12.	    0.	    0.	 9546.]
+2025-10-16 18:12:00,741 - INFO - model saved 57 times, last saved epoch: 126.
+
+2025-10-16 18:12:03,597 - INFO - Epoch 137, Train loss: 0.40681769535655066
+2025-10-16 18:12:04,425 - INFO - mIoU: 0.9632; OA: 0.9835; AA: 0.9801; F1: 0.9812; Kappa: 0.9717;
+2025-10-16 18:12:04,425 - INFO - spatial_LccAccuracy: 0.9298; spatial_PA: 0.9842; spatial_UA: 0.987; spatial_F1: 0.9856
+2025-10-16 18:12:04,426 - INFO - temporal_CdAccuracy: 0.7651; temporal_PA: 0.9608; temporal_UA: 0.9459; temporal_F1: 0.9533
+2025-10-16 18:12:04,427 - INFO - Confusion Matrix
+ [66966.	  942.	    1.	    6.	    0.]
+ [  895.	51915.	   58.	   17.	  106.]
+ [    4.	   88.	 2217.	    0.	    0.]
+ [   22.	    2.	    0.	 1303.	    0.]
+ [   18.	   50.	    0.	    0.	 9490.]
+2025-10-16 18:12:04,477 - INFO - Epoch 137 saved.
+2025-10-16 18:12:04,478 - INFO - model saved 58 times, last saved epoch: 137.
+
+2025-10-16 18:12:07,187 - INFO - Epoch 138, Train loss: 0.40659537741116114
+2025-10-16 18:12:08,024 - INFO - mIoU: 0.9626; OA: 0.9838; AA: 0.977; F1: 0.9809; Kappa: 0.9721;
+2025-10-16 18:12:08,025 - INFO - spatial_LccAccuracy: 0.9302; spatial_PA: 0.9786; spatial_UA: 0.9941; spatial_F1: 0.9863
+2025-10-16 18:12:08,025 - INFO - temporal_CdAccuracy: 0.7678; temporal_PA: 0.9583; temporal_UA: 0.9455; temporal_F1: 0.9519
+2025-10-16 18:12:08,026 - INFO - Confusion Matrix
+ [67218.	  686.	    1.	   10.	    0.]
+ [ 1125.	51706.	   47.	    3.	  110.]
+ [    3.	  103.	 2203.	    0.	    0.]
+ [   12.	   27.	    0.	 1288.	    0.]
+ [    2.	   47.	    0.	    0.	 9509.]
+2025-10-16 18:12:08,027 - INFO - model saved 58 times, last saved epoch: 137.
+
+2025-10-16 18:12:10,722 - INFO - Epoch 139, Train loss: 0.40561804005077906
+2025-10-16 18:12:11,567 - INFO - mIoU: 0.9596; OA: 0.9821; AA: 0.9799; F1: 0.9793; Kappa: 0.9692;
+2025-10-16 18:12:11,568 - INFO - spatial_LccAccuracy: 0.9271; spatial_PA: 0.9773; spatial_UA: 0.9927; spatial_F1: 0.9849
+2025-10-16 18:12:11,568 - INFO - temporal_CdAccuracy: 0.7579; temporal_PA: 0.9605; temporal_UA: 0.9419; temporal_F1: 0.9511
+2025-10-16 18:12:11,569 - INFO - Confusion Matrix
+ [67471.	  438.	    1.	    5.	    0.]
+ [ 1560.	51188.	  104.	   14.	  125.]
+ [    3.	   79.	 2227.	    0.	    0.]
+ [   19.	    7.	    0.	 1301.	    0.]
+ [   15.	   31.	    0.	    0.	 9512.]
+2025-10-16 18:12:11,570 - INFO - model saved 58 times, last saved epoch: 137.
+
+2025-10-16 18:12:14,398 - INFO - Epoch 140, Train loss: 0.40625317494074503
+2025-10-16 18:12:15,188 - INFO - mIoU: 0.9607; OA: 0.9834; AA: 0.9788; F1: 0.9798; Kappa: 0.9715;
+2025-10-16 18:12:15,188 - INFO - spatial_LccAccuracy: 0.9347; spatial_PA: 0.9773; spatial_UA: 0.9927; spatial_F1: 0.9849
+2025-10-16 18:12:15,188 - INFO - temporal_CdAccuracy: 0.7691; temporal_PA: 0.9603; temporal_UA: 0.9488; temporal_F1: 0.9545
+2025-10-16 18:12:15,189 - INFO - Confusion Matrix
+ [67317.	  588.	    1.	    9.	    0.]
+ [ 1237.	51568.	   86.	   11.	   89.]
+ [    3.	   95.	 2211.	    0.	    0.]
+ [   14.	   12.	    0.	 1301.	    0.]
+ [   22.	   58.	    0.	    0.	 9478.]
+2025-10-16 18:12:15,190 - INFO - model saved 58 times, last saved epoch: 137.
+
+2025-10-16 18:12:17,908 - INFO - Epoch 141, Train loss: 0.4045205823012761
+2025-10-16 18:12:18,727 - INFO - mIoU: 0.9629; OA: 0.9845; AA: 0.9831; F1: 0.981; Kappa: 0.9734;
+2025-10-16 18:12:18,727 - INFO - spatial_LccAccuracy: 0.9315; spatial_PA: 0.9828; spatial_UA: 0.9923; spatial_F1: 0.9875
+2025-10-16 18:12:18,727 - INFO - temporal_CdAccuracy: 0.7584; temporal_PA: 0.9656; temporal_UA: 0.9451; temporal_F1: 0.9552
+2025-10-16 18:12:18,728 - INFO - Confusion Matrix
+ [67111.	  794.	    1.	    9.	    0.]
+ [  890.	51861.	  104.	   14.	  122.]
+ [    3.	   71.	 2235.	    0.	    0.]
+ [   12.	    7.	    0.	 1308.	    0.]
+ [   19.	   27.	    0.	    0.	 9512.]
+2025-10-16 18:12:18,729 - INFO - model saved 58 times, last saved epoch: 137.
+
+2025-10-16 18:12:21,646 - INFO - Epoch 142, Train loss: 0.4061397490047273
+2025-10-16 18:12:22,461 - INFO - mIoU: 0.9626; OA: 0.9839; AA: 0.9788; F1: 0.9809; Kappa: 0.9723;
+2025-10-16 18:12:22,462 - INFO - spatial_LccAccuracy: 0.9315; spatial_PA: 0.9752; spatial_UA: 0.9921; spatial_F1: 0.9836
+2025-10-16 18:12:22,462 - INFO - temporal_CdAccuracy: 0.7615; temporal_PA: 0.9665; temporal_UA: 0.9425; temporal_F1: 0.9543
+2025-10-16 18:12:22,462 - INFO - Confusion Matrix
+ [67373.	  535.	    1.	    6.	    0.]
+ [ 1269.	51534.	   68.	    9.	  111.]
+ [    3.	   96.	 2210.	    0.	    0.]
+ [   16.	   17.	    0.	 1294.	    0.]
+ [    0.	   28.	    0.	    0.	 9530.]
+2025-10-16 18:12:22,463 - INFO - model saved 58 times, last saved epoch: 137.
+
+2025-10-16 18:12:25,323 - INFO - Epoch 143, Train loss: 0.4042153361297789
+2025-10-16 18:12:26,120 - INFO - mIoU: 0.9588; OA: 0.9824; AA: 0.9779; F1: 0.9788; Kappa: 0.9697;
+2025-10-16 18:12:26,279 - INFO - spatial_LccAccuracy: 0.9311; spatial_PA: 0.9749; spatial_UA: 0.9911; spatial_F1: 0.9829
+2025-10-16 18:12:26,280 - INFO - temporal_CdAccuracy: 0.7544; temporal_PA: 0.9579; temporal_UA: 0.9353; temporal_F1: 0.9465
+2025-10-16 18:12:26,281 - INFO - Confusion Matrix
+ [67344.	  557.	    1.	   13.	    0.]
+ [ 1368.	51376.	   88.	    3.	  156.]
+ [    3.	   94.	 2212.	    0.	    0.]
+ [   11.	   22.	    0.	 1294.	    0.]
+ [   14.	   30.	    0.	    0.	 9514.]
+2025-10-16 18:12:26,282 - INFO - model saved 58 times, last saved epoch: 137.
+
+2025-10-16 18:12:29,027 - INFO - Epoch 144, Train loss: 0.4039875030517578
+2025-10-16 18:12:29,862 - INFO - mIoU: 0.9614; OA: 0.9836; AA: 0.9811; F1: 0.9802; Kappa: 0.9719;
+2025-10-16 18:12:29,863 - INFO - spatial_LccAccuracy: 0.932; spatial_PA: 0.9833; spatial_UA: 0.9905; spatial_F1: 0.9869
+2025-10-16 18:12:29,863 - INFO - temporal_CdAccuracy: 0.7642; temporal_PA: 0.9628; temporal_UA: 0.9463; temporal_F1: 0.9545
+2025-10-16 18:12:29,864 - INFO - Confusion Matrix
+ [67089.	  818.	    1.	    7.	    0.]
+ [  974.	51768.	  114.	    4.	  131.]
+ [    3.	   76.	 2230.	    0.	    0.]
+ [   11.	   17.	    0.	 1299.	    0.]
+ [    7.	   30.	    0.	    0.	 9521.]
+2025-10-16 18:12:29,865 - INFO - model saved 58 times, last saved epoch: 137.
+
+2025-10-16 18:12:32,570 - INFO - Epoch 145, Train loss: 0.40501431028048196
+2025-10-16 18:12:33,382 - INFO - mIoU: 0.9601; OA: 0.9836; AA: 0.9792; F1: 0.9795; Kappa: 0.9719;
+2025-10-16 18:12:33,382 - INFO - spatial_LccAccuracy: 0.928; spatial_PA: 0.9782; spatial_UA: 0.9891; spatial_F1: 0.9836
+2025-10-16 18:12:33,383 - INFO - temporal_CdAccuracy: 0.7588; temporal_PA: 0.9654; temporal_UA: 0.9443; temporal_F1: 0.9547
+2025-10-16 18:12:33,383 - INFO - Confusion Matrix
+ [67172.	  736.	    1.	    6.	    0.]
+ [ 1023.	51719.	   94.	   10.	  145.]
+ [    3.	   73.	 2233.	    0.	    0.]
+ [   25.	   14.	    0.	 1288.	    0.]
+ [   36.	   29.	    0.	    0.	 9493.]
+2025-10-16 18:12:33,384 - INFO - model saved 58 times, last saved epoch: 137.
+
+2025-10-16 18:12:36,052 - INFO - Epoch 146, Train loss: 0.40383210153806776
+2025-10-16 18:12:36,872 - INFO - mIoU: 0.9647; OA: 0.984; AA: 0.98; F1: 0.982; Kappa: 0.9726;
+2025-10-16 18:12:36,873 - INFO - spatial_LccAccuracy: 0.928; spatial_PA: 0.9828; spatial_UA: 0.9923; spatial_F1: 0.9875
+2025-10-16 18:12:36,873 - INFO - temporal_CdAccuracy: 0.7597; temporal_PA: 0.9643; temporal_UA: 0.9449; temporal_F1: 0.9545
+2025-10-16 18:12:36,874 - INFO - Confusion Matrix
+ [66901.	 1006.	    1.	    7.	    0.]
+ [  783.	52060.	   61.	    7.	   80.]
+ [    3.	   88.	 2218.	    0.	    0.]
+ [   13.	   13.	    0.	 1301.	    0.]
+ [    9.	   71.	    0.	    0.	 9478.]
+2025-10-16 18:12:36,915 - INFO - Epoch 146 saved.
+2025-10-16 18:12:36,916 - INFO - model saved 59 times, last saved epoch: 146.
+
+2025-10-16 18:12:39,717 - INFO - Epoch 147, Train loss: 0.4038322389125824
+2025-10-16 18:12:40,637 - INFO - mIoU: 0.9614; OA: 0.9841; AA: 0.9751; F1: 0.9802; Kappa: 0.9727;
+2025-10-16 18:12:40,638 - INFO - spatial_LccAccuracy: 0.9342; spatial_PA: 0.9798; spatial_UA: 0.9914; spatial_F1: 0.9856
+2025-10-16 18:12:40,638 - INFO - temporal_CdAccuracy: 0.7615; temporal_PA: 0.9628; temporal_UA: 0.9436; temporal_F1: 0.9531
+2025-10-16 18:12:40,639 - INFO - Confusion Matrix
+ [67237.	  671.	    1.	    6.	    0.]
+ [ 1060.	51763.	   43.	    4.	  121.]
+ [    3.	  126.	 2180.	    0.	    0.]
+ [   25.	   14.	    0.	 1288.	    0.]
+ [   25.	   33.	    0.	    0.	 9500.]
+2025-10-16 18:12:40,640 - INFO - model saved 59 times, last saved epoch: 146.
+
+2025-10-16 18:12:43,423 - INFO - Epoch 148, Train loss: 0.4032527384303865
+2025-10-16 18:12:44,249 - INFO - mIoU: 0.9624; OA: 0.9839; AA: 0.9791; F1: 0.9808; Kappa: 0.9724;
+2025-10-16 18:12:44,249 - INFO - spatial_LccAccuracy: 0.9329; spatial_PA: 0.9805; spatial_UA: 0.9907; spatial_F1: 0.9856
+2025-10-16 18:12:44,249 - INFO - temporal_CdAccuracy: 0.7584; temporal_PA: 0.9616; temporal_UA: 0.9422; temporal_F1: 0.9518
+2025-10-16 18:12:44,250 - INFO - Confusion Matrix
+ [67178.	  730.	    1.	    6.	    0.]
+ [ 1029.	51736.	   69.	    6.	  151.]
+ [    3.	   96.	 2210.	    0.	    0.]
+ [   21.	   11.	    0.	 1295.	    0.]
+ [   13.	   17.	    0.	    0.	 9528.]
+2025-10-16 18:12:44,251 - INFO - model saved 59 times, last saved epoch: 146.
+
+2025-10-16 18:12:46,919 - INFO - Epoch 149, Train loss: 0.4024783934865679
+2025-10-16 18:12:47,774 - INFO - mIoU: 0.9609; OA: 0.9838; AA: 0.9829; F1: 0.9799; Kappa: 0.9721;
+2025-10-16 18:12:47,774 - INFO - spatial_LccAccuracy: 0.9302; spatial_PA: 0.978; spatial_UA: 0.9919; spatial_F1: 0.9849
+2025-10-16 18:12:47,774 - INFO - temporal_CdAccuracy: 0.757; temporal_PA: 0.9634; temporal_UA: 0.9384; temporal_F1: 0.9507
+2025-10-16 18:12:47,775 - INFO - Confusion Matrix
+ [67387.	  518.	    1.	    9.	    0.]
+ [ 1233.	51459.	  126.	   10.	  163.]
+ [    3.	   66.	 2240.	    0.	    0.]
+ [   13.	    8.	    0.	 1306.	    0.]
+ [   10.	   19.	    0.	    0.	 9529.]
+2025-10-16 18:12:47,776 - INFO - model saved 59 times, last saved epoch: 146.
+
+2025-10-16 18:12:50,559 - INFO - Epoch 150, Train loss: 0.403824846517472
+2025-10-16 18:12:51,397 - INFO - mIoU: 0.9607; OA: 0.984; AA: 0.9773; F1: 0.9798; Kappa: 0.9725;
+2025-10-16 18:12:51,397 - INFO - spatial_LccAccuracy: 0.9248; spatial_PA: 0.98; spatial_UA: 0.9925; spatial_F1: 0.9862
+2025-10-16 18:12:51,397 - INFO - temporal_CdAccuracy: 0.7588; temporal_PA: 0.9663; temporal_UA: 0.9427; temporal_F1: 0.9543
+2025-10-16 18:12:51,398 - INFO - Confusion Matrix
+ [67179.	  723.	    1.	   12.	    0.]
+ [ 1003.	51820.	   53.	   15.	  100.]
+ [    4.	  129.	 2176.	    0.	    0.]
+ [   10.	    9.	    0.	 1308.	    0.]
+ [   35.	   49.	    0.	    0.	 9474.]
+2025-10-16 18:12:51,399 - INFO - model saved 59 times, last saved epoch: 146.
+
+2025-10-16 18:12:54,085 - INFO - Epoch 151, Train loss: 0.4022314080170223
+2025-10-16 18:12:54,932 - INFO - mIoU: 0.9598; OA: 0.9832; AA: 0.9777; F1: 0.9794; Kappa: 0.9711;
+2025-10-16 18:12:54,932 - INFO - spatial_LccAccuracy: 0.9302; spatial_PA: 0.9767; spatial_UA: 0.9906; spatial_F1: 0.9836
+2025-10-16 18:12:54,932 - INFO - temporal_CdAccuracy: 0.7633; temporal_PA: 0.9639; temporal_UA: 0.9449; temporal_F1: 0.9543
+2025-10-16 18:12:54,933 - INFO - Confusion Matrix
+ [67346.	  559.	    1.	    8.	    1.]
+ [ 1264.	51451.	   78.	    1.	  197.]
+ [    3.	   78.	 2228.	    0.	    0.]
+ [   18.	   32.	    0.	 1277.	    0.]
+ [    0.	   13.	    0.	    0.	 9545.]
+2025-10-16 18:12:54,934 - INFO - model saved 59 times, last saved epoch: 146.
+
+2025-10-16 18:12:57,598 - INFO - Epoch 152, Train loss: 0.40262227654457095
+2025-10-16 18:12:58,369 - INFO - mIoU: 0.9598; OA: 0.9838; AA: 0.9804; F1: 0.9794; Kappa: 0.9722;
+2025-10-16 18:12:58,370 - INFO - spatial_LccAccuracy: 0.9324; spatial_PA: 0.9798; spatial_UA: 0.9914; spatial_F1: 0.9856
+2025-10-16 18:12:58,370 - INFO - temporal_CdAccuracy: 0.7664; temporal_PA: 0.9625; temporal_UA: 0.9468; temporal_F1: 0.9546
+2025-10-16 18:12:58,371 - INFO - Confusion Matrix
+ [67234.	  672.	    1.	    8.	    0.]
+ [ 1037.	51711.	  110.	   14.	  119.]
+ [    4.	   83.	 2222.	    0.	    0.]
+ [   18.	    3.	    0.	 1306.	    0.]
+ [   58.	   42.	    0.	    0.	 9458.]
+2025-10-16 18:12:58,372 - INFO - model saved 59 times, last saved epoch: 146.
+
+2025-10-16 18:13:01,152 - INFO - Epoch 153, Train loss: 0.4020668359029861
+2025-10-16 18:13:01,933 - INFO - mIoU: 0.9605; OA: 0.9839; AA: 0.9833; F1: 0.9797; Kappa: 0.9723;
+2025-10-16 18:13:01,933 - INFO - spatial_LccAccuracy: 0.9315; spatial_PA: 0.9833; spatial_UA: 0.9905; spatial_F1: 0.9869
+2025-10-16 18:13:01,933 - INFO - temporal_CdAccuracy: 0.7615; temporal_PA: 0.9605; temporal_UA: 0.949; temporal_F1: 0.9547
+2025-10-16 18:13:01,934 - INFO - Confusion Matrix
+ [67052.	  848.	    1.	   14.	    0.]
+ [  895.	51803.	  117.	   14.	  162.]
+ [    3.	   74.	 2232.	    0.	    0.]
+ [   13.	    4.	    0.	 1310.	    0.]
+ [    0.	   19.	    0.	    0.	 9539.]
+2025-10-16 18:13:01,935 - INFO - model saved 59 times, last saved epoch: 146.
+
+2025-10-16 18:13:04,711 - INFO - Epoch 154, Train loss: 0.4019071820236388
+2025-10-16 18:13:05,572 - INFO - mIoU: 0.9653; OA: 0.9849; AA: 0.9807; F1: 0.9823; Kappa: 0.974;
+2025-10-16 18:13:05,572 - INFO - spatial_LccAccuracy: 0.9333; spatial_PA: 0.9735; spatial_UA: 0.9927; spatial_F1: 0.983
+2025-10-16 18:13:05,572 - INFO - temporal_CdAccuracy: 0.7691; temporal_PA: 0.9645; temporal_UA: 0.9467; temporal_F1: 0.9555
+2025-10-16 18:13:05,573 - INFO - Confusion Matrix
+ [67306.	  596.	    1.	   12.	    0.]
+ [ 1093.	51738.	   44.	   14.	  102.]
+ [    3.	  108.	 2198.	    0.	    0.]
+ [    8.	    7.	    0.	 1312.	    0.]
+ [    0.	   41.	    0.	    0.	 9517.]
+2025-10-16 18:13:05,616 - INFO - Epoch 154 saved.
+2025-10-16 18:13:05,616 - INFO - model saved 60 times, last saved epoch: 154.
+
+2025-10-16 18:13:08,384 - INFO - Epoch 155, Train loss: 0.40196881067185175
+2025-10-16 18:13:09,203 - INFO - mIoU: 0.9613; OA: 0.9845; AA: 0.9761; F1: 0.9801; Kappa: 0.9733;
+2025-10-16 18:13:09,203 - INFO - spatial_LccAccuracy: 0.9324; spatial_PA: 0.9846; spatial_UA: 0.9918; spatial_F1: 0.9882
+2025-10-16 18:13:09,203 - INFO - temporal_CdAccuracy: 0.7705; temporal_PA: 0.9592; temporal_UA: 0.949; temporal_F1: 0.9541
+2025-10-16 18:13:09,204 - INFO - Confusion Matrix
+ [67183.	  722.	    1.	    9.	    0.]
+ [  950.	51896.	   37.	   16.	   92.]
+ [    4.	  150.	 2155.	    0.	    0.]
+ [   11.	    6.	    0.	 1310.	    0.]
+ [   30.	   52.	    0.	    0.	 9476.]
+2025-10-16 18:13:09,205 - INFO - model saved 60 times, last saved epoch: 154.
+
+2025-10-16 18:13:11,910 - INFO - Epoch 156, Train loss: 0.40228305544172016
+2025-10-16 18:13:12,744 - INFO - mIoU: 0.963; OA: 0.9844; AA: 0.9798; F1: 0.9811; Kappa: 0.9733;
+2025-10-16 18:13:12,744 - INFO - spatial_LccAccuracy: 0.9289; spatial_PA: 0.9811; spatial_UA: 0.9928; spatial_F1: 0.9869
+2025-10-16 18:13:12,744 - INFO - temporal_CdAccuracy: 0.7714; temporal_PA: 0.9568; temporal_UA: 0.9494; temporal_F1: 0.953
+2025-10-16 18:13:12,745 - INFO - Confusion Matrix
+ [67126.	  777.	    1.	   11.	    0.]
+ [  917.	51873.	   66.	    7.	  128.]
+ [    3.	  101.	 2205.	    0.	    0.]
+ [   10.	   14.	    0.	 1303.	    0.]
+ [   15.	   36.	    0.	    0.	 9507.]
+2025-10-16 18:13:12,746 - INFO - model saved 60 times, last saved epoch: 154.
+
+2025-10-16 18:13:15,431 - INFO - Epoch 157, Train loss: 0.40227517031487964
+2025-10-16 18:13:16,269 - INFO - mIoU: 0.9639; OA: 0.9847; AA: 0.9797; F1: 0.9815; Kappa: 0.9737;
+2025-10-16 18:13:16,271 - INFO - spatial_LccAccuracy: 0.9315; spatial_PA: 0.98; spatial_UA: 0.9925; spatial_F1: 0.9862
+2025-10-16 18:13:16,271 - INFO - temporal_CdAccuracy: 0.7718; temporal_PA: 0.9618; temporal_UA: 0.9495; temporal_F1: 0.9556
+2025-10-16 18:13:16,271 - INFO - Confusion Matrix
+ [67230.	  673.	    1.	   11.	    0.]
+ [  998.	51812.	   40.	   16.	  125.]
+ [    3.	  122.	 2184.	    0.	    0.]
+ [   10.	    3.	    0.	 1314.	    0.]
+ [   17.	   33.	    0.	    0.	 9508.]
+2025-10-16 18:13:16,272 - INFO - model saved 60 times, last saved epoch: 154.
+
+2025-10-16 18:13:19,248 - INFO - Epoch 158, Train loss: 0.4015977913425082
+2025-10-16 18:13:20,087 - INFO - mIoU: 0.9629; OA: 0.9844; AA: 0.9796; F1: 0.981; Kappa: 0.9732;
+2025-10-16 18:13:20,087 - INFO - spatial_LccAccuracy: 0.9396; spatial_PA: 0.9843; spatial_UA: 0.9908; spatial_F1: 0.9875
+2025-10-16 18:13:20,088 - INFO - temporal_CdAccuracy: 0.7696; temporal_PA: 0.9604; temporal_UA: 0.9536; temporal_F1: 0.957
+2025-10-16 18:13:20,088 - INFO - Confusion Matrix
+ [67102.	  806.	    1.	    6.	    0.]
+ [  910.	51870.	   66.	   11.	  134.]
+ [    3.	  100.	 2206.	    0.	    0.]
+ [   22.	    7.	    0.	 1298.	    0.]
+ [    0.	   23.	    0.	    0.	 9535.]
+2025-10-16 18:13:20,089 - INFO - model saved 60 times, last saved epoch: 154.
+
+2025-10-16 18:13:22,906 - INFO - Epoch 159, Train loss: 0.4013078822976067
+2025-10-16 18:13:23,706 - INFO - mIoU: 0.962; OA: 0.9843; AA: 0.9743; F1: 0.9805; Kappa: 0.9729;
+2025-10-16 18:13:23,706 - INFO - spatial_LccAccuracy: 0.9333; spatial_PA: 0.9822; spatial_UA: 0.9902; spatial_F1: 0.9862
+2025-10-16 18:13:23,706 - INFO - temporal_CdAccuracy: 0.7673; temporal_PA: 0.9627; temporal_UA: 0.9484; temporal_F1: 0.9555
+2025-10-16 18:13:23,707 - INFO - Confusion Matrix
+ [67289.	  622.	    1.	    3.	    0.]
+ [ 1096.	51763.	   27.	    9.	   96.]
+ [    5.	  148.	 2156.	    0.	    0.]
+ [   22.	    8.	    0.	 1297.	    0.]
+ [   24.	   47.	    0.	    0.	 9487.]
+2025-10-16 18:13:23,708 - INFO - model saved 60 times, last saved epoch: 154.
+
+2025-10-16 18:13:26,415 - INFO - Epoch 160, Train loss: 0.4010770803406125
+2025-10-16 18:13:27,196 - INFO - mIoU: 0.9602; OA: 0.9832; AA: 0.9789; F1: 0.9796; Kappa: 0.9711;
+2025-10-16 18:13:27,197 - INFO - spatial_LccAccuracy: 0.9329; spatial_PA: 0.978; spatial_UA: 0.9919; spatial_F1: 0.9849
+2025-10-16 18:13:27,197 - INFO - temporal_CdAccuracy: 0.7633; temporal_PA: 0.9606; temporal_UA: 0.9466; temporal_F1: 0.9535
+2025-10-16 18:13:27,198 - INFO - Confusion Matrix
+ [67248.	  655.	    1.	   11.	    0.]
+ [ 1209.	51573.	  106.	    0.	  103.]
+ [    3.	   79.	 2227.	    0.	    0.]
+ [   10.	   27.	    0.	 1290.	    0.]
+ [   12.	   41.	    0.	    0.	 9505.]
+2025-10-16 18:13:27,199 - INFO - model saved 60 times, last saved epoch: 154.
+
+2025-10-16 18:13:30,025 - INFO - Epoch 161, Train loss: 0.4027145042305901
+2025-10-16 18:13:30,883 - INFO - mIoU: 0.9632; OA: 0.9835; AA: 0.9821; F1: 0.9812; Kappa: 0.9717;
+2025-10-16 18:13:30,884 - INFO - spatial_LccAccuracy: 0.9356; spatial_PA: 0.977; spatial_UA: 0.9916; spatial_F1: 0.9843
+2025-10-16 18:13:30,884 - INFO - temporal_CdAccuracy: 0.7575; temporal_PA: 0.9635; temporal_UA: 0.9421; temporal_F1: 0.9527
+2025-10-16 18:13:30,885 - INFO - Confusion Matrix
+ [67417.	  486.	    1.	   11.	    0.]
+ [ 1313.	51453.	   73.	   16.	  136.]
+ [    3.	   72.	 2234.	    0.	    0.]
+ [   13.	    3.	    0.	 1311.	    0.]
+ [   36.	   47.	    0.	    0.	 9475.]
+2025-10-16 18:13:30,886 - INFO - model saved 60 times, last saved epoch: 154.
+
+2025-10-16 18:13:33,569 - INFO - Epoch 162, Train loss: 0.40289666595913115
+2025-10-16 18:13:34,428 - INFO - mIoU: 0.959; OA: 0.9829; AA: 0.9841; F1: 0.9789; Kappa: 0.9706;
+2025-10-16 18:13:34,428 - INFO - spatial_LccAccuracy: 0.9333; spatial_PA: 0.9749; spatial_UA: 0.9911; spatial_F1: 0.9829
+2025-10-16 18:13:34,429 - INFO - temporal_CdAccuracy: 0.7647; temporal_PA: 0.9633; temporal_UA: 0.9429; temporal_F1: 0.953
+2025-10-16 18:13:34,429 - INFO - Confusion Matrix
+ [67390.	  513.	    1.	   11.	    0.]
+ [ 1331.	51324.	  148.	   14.	  174.]
+ [    3.	   63.	 2243.	    0.	    0.]
+ [   10.	    3.	    0.	 1314.	    0.]
+ [    0.	   20.	    0.	    0.	 9538.]
+2025-10-16 18:13:34,430 - INFO - model saved 60 times, last saved epoch: 154.
+
+2025-10-16 18:13:37,197 - INFO - Epoch 163, Train loss: 0.40122595457803634
+2025-10-16 18:13:38,074 - INFO - mIoU: 0.9612; OA: 0.9832; AA: 0.977; F1: 0.9801; Kappa: 0.971;
+2025-10-16 18:13:38,074 - INFO - spatial_LccAccuracy: 0.932; spatial_PA: 0.9745; spatial_UA: 0.9929; spatial_F1: 0.9836
+2025-10-16 18:13:38,074 - INFO - temporal_CdAccuracy: 0.7651; temporal_PA: 0.9622; temporal_UA: 0.9437; temporal_F1: 0.9529
+2025-10-16 18:13:38,075 - INFO - Confusion Matrix
+ [67404.	  501.	    1.	    9.	    0.]
+ [ 1332.	51436.	   58.	    1.	  164.]
+ [    3.	  136.	 2170.	    0.	    0.]
+ [    7.	   12.	    0.	 1308.	    0.]
+ [   10.	   24.	    0.	    0.	 9524.]
+2025-10-16 18:13:38,076 - INFO - model saved 60 times, last saved epoch: 154.
+
+2025-10-16 18:13:40,813 - INFO - Epoch 164, Train loss: 0.4015510459740957
+2025-10-16 18:13:41,693 - INFO - mIoU: 0.9609; OA: 0.9843; AA: 0.9839; F1: 0.98; Kappa: 0.973;
+2025-10-16 18:13:41,694 - INFO - spatial_LccAccuracy: 0.9315; spatial_PA: 0.9798; spatial_UA: 0.9914; spatial_F1: 0.9856
+2025-10-16 18:13:41,694 - INFO - temporal_CdAccuracy: 0.7638; temporal_PA: 0.9624; temporal_UA: 0.9452; temporal_F1: 0.9537
+2025-10-16 18:13:41,695 - INFO - Confusion Matrix
+ [67213.	  685.	    1.	   16.	    0.]
+ [ 1036.	51706.	   67.	   45.	  137.]
+ [    4.	   82.	 2223.	    0.	    0.]
+ [    7.	    1.	    0.	 1319.	    0.]
+ [    0.	   26.	    0.	    0.	 9532.]
+2025-10-16 18:13:41,696 - INFO - model saved 60 times, last saved epoch: 154.
+
+2025-10-16 18:13:44,470 - INFO - Epoch 165, Train loss: 0.40231927377837046
+2025-10-16 18:13:45,319 - INFO - mIoU: 0.9645; OA: 0.9838; AA: 0.9801; F1: 0.9819; Kappa: 0.9721;
+2025-10-16 18:13:45,320 - INFO - spatial_LccAccuracy: 0.9333; spatial_PA: 0.9798; spatial_UA: 0.9914; spatial_F1: 0.9856
+2025-10-16 18:13:45,320 - INFO - temporal_CdAccuracy: 0.766; temporal_PA: 0.9628; temporal_UA: 0.9455; temporal_F1: 0.9541
+2025-10-16 18:13:45,321 - INFO - Confusion Matrix
+ [67189.	  713.	    1.	   12.	    0.]
+ [ 1086.	51690.	   51.	    0.	  164.]
+ [    5.	   97.	 2207.	    0.	    0.]
+ [   10.	   13.	    0.	 1304.	    0.]
+ [   10.	   17.	    0.	    0.	 9531.]
+2025-10-16 18:13:45,322 - INFO - model saved 60 times, last saved epoch: 154.
+
