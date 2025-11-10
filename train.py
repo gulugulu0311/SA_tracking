@@ -35,7 +35,7 @@ class Diceloss(nn.Module):
 def plot_train_metrics(model_metrics_data):
     pass
             
-def trainModel(model, configs, train_dl, test_dl, 
+def trainModel(model, train_dl, test_dl, 
                model_name='TSSCD_Unet', iter_num=200, fold='1000',
                is_opt_only=False,
                is_early_stopping=True):
@@ -114,7 +114,7 @@ def trainModel(model, configs, train_dl, test_dl,
         
         valid_loss_sum, best_acc, best_spatialscore, best_temporalscore, \
         model_saved_times, last_saved_epoch,\
-        model_metrics = validModel( test_dl, model, device, configs, logger,
+        model_metrics = validModel( test_dl, model, device, logger,
                                     True, best_acc, best_spatialscore, best_temporalscore,
                                     epoch, last_saved_epoch,
                                     model_saved_times,
@@ -135,11 +135,11 @@ def trainModel(model, configs, train_dl, test_dl,
     file_handler.close()
     return model_metrics_data
 
-def validModel(test_dl, model, device, configs, logger, saveModel=True,
+def validModel(test_dl, model, device, logger, saveModel=True,
                best_acc=0, best_spatialscore=0, best_temporalscore=0,
                epoch=0, last_saved_epoch=0, model_saved_times=0, 
                model_name='TSSCD_FCN', fold='1000', is_opt_only=False):
-    evaluator = Evaluator(configs.classes)
+    evaluator = Evaluator(5)
     loss_fn = nn.CrossEntropyLoss()
     loss_ch_noch = Diceloss()
     model.eval()
@@ -249,7 +249,7 @@ def validModel(test_dl, model, device, configs, logger, saveModel=True,
             return
 
 if __name__ == '__main__':
-    iter_num, batch_size, configs = 800, 64, Configs()
+    iter_num, batch_size = 800, 64
     def training_set(model_name):
         '''
             continue (pass) when return True
@@ -262,7 +262,7 @@ if __name__ == '__main__':
             return False
         
     # load dataset
-    model_idx = 1035
+    model_idx = 1036
     model_save_name = str(model_idx)
     confirm_model_idx = input(f'Current model index is {model_save_name}. Continue? (y/n)\n')
     if confirm_model_idx == 'y':
@@ -295,7 +295,7 @@ if __name__ == '__main__':
                 
                 model_name=model_name, 
                 iter_num=iter_num, 
-                fold=model_save_name+ '_' + str(fold+1),
+                fold=model_save_name + '_' + str(fold+1),
                 is_opt_only=False,
                 is_early_stopping=True
             )
@@ -313,7 +313,7 @@ if __name__ == '__main__':
                 
                 model_name=model_name, 
                 iter_num=iter_num, 
-                fold=model_save_name+ '_' + str(fold+1) + '_opt_only',
+                fold=model_save_name + '_' + str(fold+1) + '_opt_only',
                 is_opt_only=True,
                 is_early_stopping=True
             )
@@ -324,7 +324,6 @@ if __name__ == '__main__':
         model = model.to(device=device)
         model_metrics = trainModel(
             model=model,
-            configs=configs, # just for class_nums
             train_dl=make_dataloader(tralid, type='train', is_shuffle=True, batch_size=batch_size), 
             test_dl=make_dataloader(test, type='test', is_shuffle=False, batch_size=batch_size),
             model_name=model_name,
@@ -339,7 +338,6 @@ if __name__ == '__main__':
         model = model.to(device=device)
         model_metrics = trainModel(
             model=model,
-            configs=configs, # just for class_nums
             train_dl=make_dataloader(tralid_opt_only, type='train', is_shuffle=True, batch_size=batch_size), 
             test_dl=make_dataloader(test_opt_only, type='test', is_shuffle=False, batch_size=batch_size),
             model_name=model_name,

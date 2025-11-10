@@ -274,14 +274,14 @@ class ConvTransEncoder(nn.Module):
         x = self.decoder(x)               # [B, out_channels, T]
         return x        # [B, out_channels, T]
 
-def generate_model_instances(is_opt_only=False, model_idx=1027, ):
+def generate_model_instances(is_opt_only=False, model_idx='1036'):
     configs = Configs(is_opt_only=is_opt_only)
     model_names = ['TSSCD_TransEncoder', 'TSSCD_Unet', 'TSSCD_FCN']
     if is_opt_only: 
         model_idx = str(model_idx) + '_opt_only'
     for name in model_names:
-        model_dir = os.path.join(f'models\\model_data\\{name}', model_idx)
-        log_dir = os.path.join(f'models\\model_data\\log\\{name}', model_idx)
+        model_dir = os.path.join(f'models\\model_data\\{name}', str(model_idx))
+        log_dir = os.path.join(f'models\\model_data\\log\\{name}', str(model_idx))
 
         while not (os.path.exists(model_dir) and os.path.exists(log_dir)):
             os.makedirs(model_dir, exist_ok=True)
