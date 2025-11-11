@@ -114,10 +114,10 @@ if __name__ == '__main__':
     save_dir = os.path.join('./models/model_data/dataset', str(model_idx))
     os.makedirs(save_dir, exist_ok=True)
 
-    np.save(os.path.join(save_dir, 'tralid.npy'), tralid)
-    np.save(os.path.join(save_dir, 'test.npy'), test)
-    np.save(os.path.join(save_dir, 'tralid_opt_only.npy'), trailid_opt_only)
-    np.save(os.path.join(save_dir, 'test_opt_only.npy'), test_opt_only)
+    # np.save(os.path.join(save_dir, 'tralid.npy'), tralid)
+    # np.save(os.path.join(save_dir, 'test.npy'), test)
+    # np.save(os.path.join(save_dir, 'tralid_opt_only.npy'), trailid_opt_only)
+    # np.save(os.path.join(save_dir, 'test_opt_only.npy'), test_opt_only)
     
     for province in provinces:
         train, test, train_opt, test_opt = load_data(
@@ -127,7 +127,7 @@ if __name__ == '__main__':
             province=province,
         )
         print(f'province: {province}, train shape: {train.shape}, test shape: {test.shape}')
-        np.save(os.path.join(save_dir, f'{province}_tralid.npy'), train)
-        np.save(os.path.join(save_dir, f'{province}_test.npy'), test)
-        np.save(os.path.join(save_dir, f'{province}_tralid_opt_only.npy'), train_opt)
-        np.save(os.path.join(save_dir, f'{province}_test_opt_only.npy'), test_opt)
+        # np.save(os.path.join(save_dir, f'{province}_tralid.npy'), train)
+        # np.save(os.path.join(save_dir, f'{province}_test.npy'), test)
+        # np.save(os.path.join(save_dir, f'{province}_tralid_opt_only.npy'), train_opt)
+        # np.save(os.path.join(save_dir, f'{province}_test_opt_only.npy'), test_opt)
