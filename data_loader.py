@@ -85,6 +85,47 @@ def load_data(batch_size=64, split_rate=0.8,
             
     return train, test, train[:, np.r_[0:10, -1], :], test[:, np.r_[0:10, -1], :]
 
+# 修改data_loader.py中生成固定索引的部分
+def generate_fixed_indices_by_folder(root_dir, split_rate=0.8, seed=42):
+    """
+    为每个文件夹单独生成固定的训练和测试索引
+    """
+    # 设置随机种子
+    np.random.seed(seed)
+    random.seed(seed)
+    
+    # 收集所有文件并按文件夹分组
+    folder_files = []
+    for dirpath, _, filenames in os.walk(root_dir):
+        if dirpath == root_dir:  # 跳过根目录
+            continue
+        
+        csv_files = [os.path.join(dirpath, f) for f in filenames if f.endswith('.csv')]
+        if csv_files:  # 只处理有CSV文件的文件夹
+            folder_files.append((dirpath, csv_files))
+    
+    # 为每个文件夹生成索引
+    train_indices = []
+    test_indices = []
+    current_global_idx = 0
+    
+    for _, files in folder_files:
+        # 为当前文件夹内的文件打乱顺序
+        shuffled_indices = np.random.permutation(len(files))
+        split_index = int(len(files) * split_rate)
+        
+        # 分配全局索引
+        for i in range(len(files)):
+            if i < split_index:
+                train_indices.append(current_global_idx + i)
+            else:
+                test_indices.append(current_global_idx + i)
+        
+        current_global_idx += len(files)
+    
+    return train_indices, test_indices
+
+
 def make_dataloader(dataset, type, is_shuffle, batch_size=64):
     ds = MaskDataset(paths=dataset, type=type)
     return data.DataLoader(dataset=ds, batch_size=batch_size, shuffle=is_shuffle)
@@ -109,19 +150,12 @@ if __name__ == '__main__':
     is_standardization = input(f'Standardization ? (y/n)\t') == 'y'
     print(f'is_standardization: {is_standardization}')
     
-    # MODIFY: 先获取全国所有样本文件列表，用于后续固定划分
-    all_samples, _ = get_all_files_in_samples(".\\samples", split_rate=1.0, province=None)
-    n_samples = len(all_samples)
-    n_test = int(n_samples * 0.1)  # 对应split_rate=0.9
-    # 使用固定随机种子确保划分一致性
-    np.random.seed(42)
-    indices = np.random.permutation(n_samples)
-    national_train_indices, national_test_indices = indices[n_test:], indices[:n_test]
+    national_train_indices, national_test_indices = generate_fixed_indices_by_folder(".\\samples", split_rate=0.8)
     
     # 全国数据使用固定划分
     tralid, test, trailid_opt_only, test_opt_only = load_data(
         batch_size=64, 
-        split_rate=0.9, 
+        split_rate=0.8, 
         is_standardization=True,
         fixed_split_indices=(national_train_indices, national_test_indices)
     )

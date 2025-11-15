@@ -262,7 +262,7 @@ if __name__ == '__main__':
             return False
         
     # load dataset
-    model_idx = 1036
+    model_idx = 1037
     model_save_name = str(model_idx)
     confirm_model_idx = input(f'Current model index is {model_save_name}. Continue? (y/n)\n')
     if confirm_model_idx == 'y':
@@ -279,9 +279,10 @@ if __name__ == '__main__':
     
     # _ds, _ds_opt_only = np.vstack((tralid, test)), np.vstack((tralid_opt_only, test_opt_only))
     _ds, _ds_opt_only = tralid, tralid_opt_only
+    split_rate = 0.8
     
     # Valid dataset —— "tralid" will split into train and valid
-    for fold, (train_dl, valid_dl) in enumerate(random_permutation(_ds, n_split=5, split_rate=8/9, batch_size=64)):
+    for fold, (train_dl, valid_dl) in enumerate(random_permutation(_ds, n_split=5, split_rate=split_rate, batch_size=64)):
     # for fold in range(5):
         for model_name, model in generate_model_instances(is_opt_only=False, model_idx=model_idx):
             if training_set(model_name):  continue
@@ -300,7 +301,7 @@ if __name__ == '__main__':
                 is_early_stopping=True
             )
     # Opt Only
-    for fold, (train_dl, valid_dl) in enumerate(random_permutation(_ds_opt_only, n_split=5, split_rate=8/9, batch_size=64)):
+    for fold, (train_dl, valid_dl) in enumerate(random_permutation(_ds_opt_only, n_split=5, split_rate=split_rate, batch_size=64)):
         for model_name, model in generate_model_instances(is_opt_only=True, model_idx=model_idx):
             if training_set(model_name):  continue
             model = model.to(device=device)

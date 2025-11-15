@@ -211,18 +211,24 @@ def proc_bands_value(csv_file, bands_col='bands_value',
         print(f'Error processing DataFrame: {e}, ', csv_file)
         return None
 
+# 修改后的get_all_files_in_samples函数
 def get_all_files_in_samples(dir, split_rate=0.8, show_tonum=False, province=None, fixed_split_indices=None):
     '''
-        Get all samples file path in root_dir.\n
+        Get all samples file path in root_dir.
         Return:
             samples4train: Train samples file path.
             samples4valid: Valid samples file path.
     '''
     samples4train, samples4valid = list(), list()
     total_samples_num = 0
-
-    # MODIFY: 收集所有样本文件路径
-    all_csv_files = []
+    
+    # 按文件夹组织文件路径和索引映射
+    folder_files = []  # 存储每个文件夹的文件列表
+    file_to_global_idx = {}  # 文件路径到全局索引的映射
+    global_idx_to_folder_info = []  # 全局索引到(文件夹索引, 文件夹内索引)的映射
+    
+    # 第一遍遍历：收集文件并建立映射关系
+    current_global_idx = 0
     for dirpath, _, filenames in os.walk(dir):
         if province is not None and province not in dirpath:    continue
         
@@ -232,27 +238,46 @@ def get_all_files_in_samples(dir, split_rate=0.8, show_tonum=False, province=Non
         if dirpath != dir:
             dir_name = os.path.basename(dirpath)
             print(f'{dir_name}: {len(csv_files)}')
-
-        # MODIFY: 保存完整路径
-        all_csv_files.extend([os.path.join(dirpath, filename) for filename in csv_files])
+        
+        # 为当前文件夹的文件创建完整路径
+        folder_file_paths = [os.path.join(dirpath, filename) for filename in csv_files]
+        folder_files.append((dirpath, folder_file_paths))
+        
+        # 建立映射关系
+        for folder_idx, file_path in enumerate(folder_file_paths):
+            file_to_global_idx[file_path] = current_global_idx
+            global_idx_to_folder_info.append((len(folder_files) - 1, folder_idx))
+            current_global_idx += 1
     
-    # MODIFY: 如果提供了固定划分索引，使用固定划分
+    # 如果提供了固定划分索引
     if fixed_split_indices is not None:
         train_indices, test_indices = fixed_split_indices
-        # 确保索引在有效范围内
-        train_indices = [idx for idx in train_indices if idx < len(all_csv_files)]
-        test_indices = [idx for idx in test_indices if idx < len(all_csv_files)]
         
-        samples4train = [all_csv_files[i] for i in train_indices]
-        samples4valid = [all_csv_files[i] for i in test_indices]
+        # 将全局索引转换为对应的文件路径
+        for idx in train_indices:
+            if 0 <= idx < len(global_idx_to_folder_info):
+                folder_idx, file_idx = global_idx_to_folder_info[idx]
+                dirpath, folder_file_paths = folder_files[folder_idx]
+                if file_idx < len(folder_file_paths):
+                    samples4train.append(folder_file_paths[file_idx])
+        
+        for idx in test_indices:
+            if 0 <= idx < len(global_idx_to_folder_info):
+                folder_idx, file_idx = global_idx_to_folder_info[idx]
+                dirpath, folder_file_paths = folder_files[folder_idx]
+                if file_idx < len(folder_file_paths):
+                    samples4valid.append(folder_file_paths[file_idx])
     else:
-        # 保持原有逻辑
-        random.shuffle(all_csv_files)
-        split_index = int(len(all_csv_files) * split_rate)
-        
-        samples4train = all_csv_files[:split_index]
-        if split_rate != 1:
-            samples4valid = all_csv_files[split_index:]
+        # 按文件夹单独进行8:2划分
+        for dirpath, folder_file_paths in folder_files:
+            # 对当前文件夹内的文件进行随机打乱
+            random.shuffle(folder_file_paths)
+            # 计算划分索引
+            split_index = int(len(folder_file_paths) * split_rate)
+            # 添加到训练集和验证集
+            samples4train.extend(folder_file_paths[:split_index])
+            if split_rate != 1:
+                samples4valid.extend(folder_file_paths[split_index:])
     
     if show_tonum: print('Total Samples:', total_samples_num)
     return samples4train, samples4valid
