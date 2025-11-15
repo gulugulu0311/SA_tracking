@@ -281,7 +281,7 @@ if __name__ == '__main__':
     _ds, _ds_opt_only = tralid, tralid_opt_only
     
     # Valid dataset —— "tralid" will split into train and valid
-    for fold, (train_dl, valid_dl) in enumerate(random_permutation(_ds, n_split=5, split_rate=0.75, batch_size=64)):
+    for fold, (train_dl, valid_dl) in enumerate(random_permutation(_ds, n_split=5, split_rate=8/9, batch_size=64)):
     # for fold in range(5):
         for model_name, model in generate_model_instances(is_opt_only=False, model_idx=model_idx):
             if training_set(model_name):  continue
@@ -300,7 +300,7 @@ if __name__ == '__main__':
                 is_early_stopping=True
             )
     # Opt Only
-    for fold, (train_dl, valid_dl) in enumerate(random_permutation(_ds_opt_only, n_split=5, split_rate=0.75, batch_size=64)):
+    for fold, (train_dl, valid_dl) in enumerate(random_permutation(_ds_opt_only, n_split=5, split_rate=8/9, batch_size=64)):
         for model_name, model in generate_model_instances(is_opt_only=True, model_idx=model_idx):
             if training_set(model_name):  continue
             model = model.to(device=device)

@@ -32,13 +32,14 @@ class MaskDataset(data.Dataset):
 def load_data(batch_size=64, split_rate=0.8, 
               test_mode=False, 
               is_standardization=False,
-              province=None):
+              province=None,
+              fixed_split_indices=None):  # ADD: 新增固定划分参数
     print(f'Batch size: {batch_size}, split rate: {split_rate}')
     cols2keep=['B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B8', 'B8A', 'B11', 'B12', 'VV', 'VH', 'label']
     if test_mode:
         cols2keep.insert(-1, 'lat_lon')
     # samples for train & samples for valid
-    samples4train, samples4valid = get_all_files_in_samples(".\\samples", split_rate=split_rate, province=province)
+    samples4train, samples4valid = get_all_files_in_samples(".\\samples", split_rate=split_rate, province=province, fixed_split_indices=fixed_split_indices)  # MODIFY: 传递固定划分参数
     print('Processing samples files...')
     samples4train, samples4valid = [proc_bands_value(file, cols2keep=cols2keep) for file in tqdm(samples4train)], \
                                    [proc_bands_value(file, cols2keep=cols2keep) for file in tqdm(samples4valid)]
@@ -60,6 +61,7 @@ def load_data(batch_size=64, split_rate=0.8,
         print('Data standardization.')
         train[:, :-1, :], _ = standarlization(train[:, :-1, :])
         test[:, :-1, :], _ = standarlization(test[:, :-1, :])
+        # standardization opt + sar together
         # train[:, :-1, :], _ = standardization(train[:, :-1, :], optical_idx=range(12), sar_idx=list())
         # test[:, :-1, :], _ = standardization(test[:, :-1, :], optical_idx=range(12), sar_idx=list())
         
@@ -100,34 +102,51 @@ def random_permutation(tralid_ds, n_split=5, split_rate=0.8, batch_size=64):
 
 if __name__ == '__main__':
     # Batch × Channel × Length
-    model_idx = 1036
+    model_idx = 1037
     provinces = ['SD', 'JS', 'SH', 'ZJ', 'FJ', 'GDGX']
     if input(f'model idx is {model_idx}, continue? (y/n)\t') != 'y':
         exit('Aborted.')
     is_standardization = input(f'Standardization ? (y/n)\t') == 'y'
     print(f'is_standardization: {is_standardization}')
     
-    tralid, test, trailid_opt_only, test_opt_only = load_data(batch_size=64, split_rate=0.8, is_standardization=True)
+    # MODIFY: 先获取全国所有样本文件列表，用于后续固定划分
+    all_samples, _ = get_all_files_in_samples(".\\samples", split_rate=1.0, province=None)
+    n_samples = len(all_samples)
+    n_test = int(n_samples * 0.1)  # 对应split_rate=0.9
+    # 使用固定随机种子确保划分一致性
+    np.random.seed(42)
+    indices = np.random.permutation(n_samples)
+    national_train_indices, national_test_indices = indices[n_test:], indices[:n_test]
+    
+    # 全国数据使用固定划分
+    tralid, test, trailid_opt_only, test_opt_only = load_data(
+        batch_size=64, 
+        split_rate=0.9, 
+        is_standardization=True,
+        fixed_split_indices=(national_train_indices, national_test_indices)
+    )
     
     print(f'train shape: {tralid.shape}, test shape: {test.shape}')
     
     save_dir = os.path.join('./models/model_data/dataset', str(model_idx))
     os.makedirs(save_dir, exist_ok=True)
 
-    # np.save(os.path.join(save_dir, 'tralid.npy'), tralid)
-    # np.save(os.path.join(save_dir, 'test.npy'), test)
-    # np.save(os.path.join(save_dir, 'tralid_opt_only.npy'), trailid_opt_only)
-    # np.save(os.path.join(save_dir, 'test_opt_only.npy'), test_opt_only)
+    np.save(os.path.join(save_dir, 'tralid.npy'), tralid)
+    np.save(os.path.join(save_dir, 'test.npy'), test)
+    np.save(os.path.join(save_dir, 'tralid_opt_only.npy'), trailid_opt_only)
+    np.save(os.path.join(save_dir, 'test_opt_only.npy'), test_opt_only)
     
     for province in provinces:
+        # 分省数据使用相同的划分方式
         train, test, train_opt, test_opt = load_data(
             batch_size=64,
             split_rate=0.8,
             is_standardization=is_standardization,
             province=province,
+            fixed_split_indices=(national_train_indices, national_test_indices)
         )
         print(f'province: {province}, train shape: {train.shape}, test shape: {test.shape}')
-        # np.save(os.path.join(save_dir, f'{province}_tralid.npy'), train)
-        # np.save(os.path.join(save_dir, f'{province}_test.npy'), test)
-        # np.save(os.path.join(save_dir, f'{province}_tralid_opt_only.npy'), train_opt)
-        # np.save(os.path.join(save_dir, f'{province}_test_opt_only.npy'), test_opt)
+        np.save(os.path.join(save_dir, f'{province}_tralid.npy'), train)
+        np.save(os.path.join(save_dir, f'{province}_test.npy'), test)
+        np.save(os.path.join(save_dir, f'{province}_tralid_opt_only.npy'), train_opt)
+        np.save(os.path.join(save_dir, f'{province}_test_opt_only.npy'), test_opt)

@@ -135,64 +135,6 @@ def trainModel(model, train_dl, test_dl,
     file_handler.close()
     return model_metrics_data
 
-def trainModel(model, train_dl, test_dl, 
-               model_name='TSSCD_Unet', iter_num=200, fold='1000',
-               is_opt_only=False,
-               is_early_stopping=True):
-    # log setting
-    if is_opt_only:
-        model_idx = str(fold)[:4] + '_opt_only'
-    else:
-        model_idx = str(fold)[:4]
-    log_filename = f'models\\model_data\\log\\{model_name}\\{model_idx}\\{fold}.log'
-    logger = logging.getLogger(f'logger_{fold}')
-    logger.setLevel(logging.INFO)
-    
-    if os.path.exists(log_filename):
-        with open(log_filename, 'w') as f:
-            f.truncate()
-    
-    file_handler = logging.FileHandler(log_filename)
-    file_handler.setLevel(logging.INFO)
-    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
-    file_handler.setFormatter(formatter)
-    logger.addHandler(file_handler)
-    
-    # load data
-    loss_fn = nn.CrossEntropyLoss()  # classification loss function
-    loss_ch_noch = Diceloss()  # changed loss function
-
-    total_steps = len(train_dl) * iter_num
-    warmup_steps = int(0.1 * total_steps)
-    optimizer = optim.AdamW(model.parameters(), lr=2e-5, betas=(0.9, 0.98), eps=1e-9, weight_decay=1e-5)
-    lr_scheduler = get_linear_schedule_with_warmup(optimizer, num_warmup_steps=warmup_steps, num_training_steps=total_steps)
-
-    # Start training
-    early_stopping = EarlyStopping(patience=32)
-    best_acc, best_spatialscore, best_temporalscore = 0, 0, 0
-    
-    model_saved_times, last_saved_epoch = 0, 0
-    model_metrics_data = dict()
-    
-    valid_loss_sum, best_acc, best_spatialscore, best_temporalscore, \
-    model_saved_times, last_saved_epoch,\
-    model_metrics = validModel( test_dl, model, device, logger,
-                                True, best_acc, best_spatialscore, best_temporalscore,
-                                epoch, last_saved_epoch,
-                                model_saved_times,
-                                model_name, fold=fold, is_opt_only=is_opt_only)
-    model_metrics_data[epoch] = model_metrics
-
-    logger.info(f'model saved {model_saved_times} times, last saved epoch: {last_saved_epoch}.\n')
-    print(f'model saved {model_saved_times} times, last saved epoch: {last_saved_epoch}.\n')
-    print(f'Current model: {model_name}, fold: {fold}; early stop ref: valid_loss_sum; loss: loss1 + 0.5 * loss2')
-    
-    
-    logger.removeHandler(file_handler)
-    file_handler.close()
-    return model_metrics_data
-
-
 def validModel(test_dl, model, device, logger, saveModel=True,
                best_acc=0, best_spatialscore=0, best_temporalscore=0,
                epoch=0, last_saved_epoch=0, model_saved_times=0, 
@@ -306,106 +248,122 @@ def validModel(test_dl, model, device, logger, saveModel=True,
         else:
             return
 
-if __name__ == '__main__':
-    iter_num, batch_size = 800, 64
-    def training_set(model_name):
-        '''
-            continue (pass) when return True
-
-        '''
-        return False
-        if model_name == 'TSSCD_TransEncoder':
-            return True
-        else:
-            return False
+# =============================================================================
+# NEW FUNCTION: Regional Accuracy Evaluation
+# =============================================================================
+def evaluateRegionalAccuracy(model, model_name='TSSCD_Unet', model_idx=1036, is_opt_only=False):
+    """
+    Regional accuracy evaluation function - performs single accuracy evaluation for each region
+    MODIFICATION: Replaced training logic with regional evaluation
+    """
+    # Define region list based on actual file naming
+    provinces = ['FJ', 'GDGX', 'JS', 'SD', 'SH', 'ZJ']
+    
+    # Log configuration for regional evaluation
+    log_filename = f'models\\model_data\\log\\{model_name}\\regional_eval_{model_idx}.log'
+    logger = logging.getLogger(f'regional_eval_{model_idx}')
+    logger.setLevel(logging.INFO)
+    
+    # Clear existing log file
+    if os.path.exists(log_filename):
+        with open(log_filename, 'w') as f:
+            f.truncate()
+    
+    file_handler = logging.FileHandler(log_filename)
+    file_handler.setLevel(logging.INFO)
+    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+    file_handler.setFormatter(formatter)
+    logger.addHandler(file_handler)
+    
+    # MODIFICATION: Log regional evaluation start
+    logger.info(f"=== Regional Accuracy Evaluation Started ===")
+    logger.info(f"Model: {model_name}, Index: {model_idx}, Mode: {'opt_only' if is_opt_only else 'normal'}")
+    
+    # Evaluate each region
+    for province in provinces:
+        logger.info(f"\n--- Evaluating Region: {province} ---")
         
-    # load dataset
-    model_idx = 1036
-    model_save_name = str(model_idx)
-    confirm_model_idx = input(f'Current model index is {model_save_name}. Continue? (y/n)\n')
-    if confirm_model_idx == 'y':
-        print('Start training...')
-    else:
-        print(f'Exit...({confirm_model_idx})')
-        exit()
-
-    tralid = np.load(os.path.join('./models/model_data/dataset', str(model_idx), 'tralid.npy'))
-    test = np.load(os.path.join('./models/model_data/dataset', str(model_idx), 'test.npy'))
-    
-    tralid_opt_only = np.load(os.path.join('./models/model_data/dataset', str(model_idx), 'tralid_opt_only.npy'))
-    test_opt_only = np.load(os.path.join('./models/model_data/dataset', str(model_idx), 'test_opt_only.npy'))
-    
-    # _ds, _ds_opt_only = np.vstack((tralid, test)), np.vstack((tralid_opt_only, test_opt_only))
-    _ds, _ds_opt_only = tralid, tralid_opt_only
-    
-    # Valid dataset —— "tralid" will split into train and valid
-    for fold, (train_dl, valid_dl) in enumerate(random_permutation(_ds, n_split=5, split_rate=0.75, batch_size=64)):
-    # for fold in range(5):
-        for model_name, model in generate_model_instances(is_opt_only=False, model_idx=model_idx):
-            if training_set(model_name):  continue
-            model = model.to(device=device)
-            model_metrics = trainModel(
-                model=model, 
-                
-                train_dl=train_dl, test_dl=valid_dl,
-                # train_dl=make_dataloader(tralid, type='train', is_shuffle=True, batch_size=batch_size), 
-                # test_dl=make_dataloader(test, type='test', is_shuffle=False, batch_size=batch_size),
-                
-                model_name=model_name, 
-                iter_num=iter_num, 
-                fold=model_save_name + '_' + str(fold+1),
-                is_opt_only=False,
-                is_early_stopping=True
-            )
-    # Opt Only
-    for fold, (train_dl, valid_dl) in enumerate(random_permutation(_ds_opt_only, n_split=5, split_rate=0.75, batch_size=64)):
-        for model_name, model in generate_model_instances(is_opt_only=True, model_idx=model_idx):
-            if training_set(model_name):  continue
-            model = model.to(device=device)
-            model_metrics = trainModel(
-                model=model, 
-                
-                train_dl=train_dl, test_dl=valid_dl,
-                # train_dl=make_dataloader(tralid_opt_only, type='train', is_shuffle=True, batch_size=batch_size), 
-                # test_dl=make_dataloader(test_opt_only, type='test', is_shuffle=False, batch_size=batch_size),
-                
-                model_name=model_name, 
-                iter_num=iter_num, 
-                fold=model_save_name + '_' + str(fold+1) + '_opt_only',
-                is_opt_only=True,
-                is_early_stopping=True
+        try:
+            # MODIFICATION: Load regional test data
+            if is_opt_only:
+                test_data = np.load(os.path.join('./models/model_data/dataset', str(model_idx), f'{province}_test_opt_only.npy'))
+            else:
+                test_data = np.load(os.path.join('./models/model_data/dataset', str(model_idx), f'{province}_test.npy'))
+            
+            # Create data loader for the region
+            test_dl = make_dataloader(test_data, type='test', is_shuffle=False, batch_size=64)
+            
+            # MODIFICATION: Perform single accuracy evaluation (epoch=1, no training)
+            _, _, _, _, _, _, region_metrics = validModel(
+                test_dl=test_dl,
+                model=model,
+                device=device,
+                logger=logger,
+                saveModel=False,  # No model saving during evaluation
+                best_acc=0,
+                best_spatialscore=0,
+                best_temporalscore=0,
+                epoch=1,  # Fixed to 1 for single evaluation
+                last_saved_epoch=0,
+                model_saved_times=0,
+                model_name=model_name,
+                fold=f'{province}_eval',
+                is_opt_only=is_opt_only
             )
             
-    # Test dataset —— traid for training & test for validation
+            # MODIFICATION: Log regional accuracy results
+            logger.info(f"Region {province} evaluation completed:")
+            logger.info(f"  mIoU: {region_metrics['mIoU']}")
+            logger.info(f"  OA: {region_metrics['OA']}")
+            logger.info(f"  AA: {region_metrics['AA']}")
+            logger.info(f"  Spatial Lcc Accuracy: {region_metrics['spatial_LccAccuracy']}")
+            logger.info(f"  Temporal Cd Accuracy: {region_metrics['temporal_CdAccuracy']}")
+            
+        except FileNotFoundError:
+            logger.warning(f"Region {province} data file not found, skipping evaluation")
+        except Exception as e:
+            logger.error(f"Error evaluating region {province}: {str(e)}")
+    
+    logger.info(f"\n=== Regional Accuracy Evaluation Completed ===")
+    logger.removeHandler(file_handler)
+    file_handler.close()
+
+# =============================================================================
+# MODIFIED MAIN PROGRAM: Regional Evaluation Mode
+# =============================================================================
+if __name__ == '__main__':
+    # MODIFICATION: Changed to regional evaluation mode
+    model_idx = 1036
+    model_save_name = str(model_idx)
+    
+    # MODIFICATION: User confirmation for regional evaluation
+    confirm_eval = input(f'Start regional accuracy evaluation, model index: {model_save_name}. Continue? (y/n)\n')
+    if confirm_eval != 'y':
+        print(f'Exiting...({confirm_eval})')
+        exit()
+    
+    print('Starting regional accuracy evaluation...')
+    
+    # MODIFICATION: Evaluate each model architecture (normal mode)
     for model_name, model in generate_model_instances(is_opt_only=False, model_idx=model_idx):
-        if training_set(model_name):  continue
         model = model.to(device=device)
-        model_metrics = trainModel(
+        print(f'Evaluating model: {model_name} (normal mode)')
+        evaluateRegionalAccuracy(
             model=model,
-            train_dl=make_dataloader(tralid, type='train', is_shuffle=True, batch_size=batch_size), 
-            test_dl=make_dataloader(test, type='test', is_shuffle=False, batch_size=batch_size),
             model_name=model_name,
-            iter_num=iter_num,
-            fold=model_save_name,
-            is_opt_only=False,
-            is_early_stopping=True
+            model_idx=model_idx,
+            is_opt_only=False
         )
-    # Opt Only
+    
+    # MODIFICATION: Evaluate each model architecture (opt_only mode)
     for model_name, model in generate_model_instances(is_opt_only=True, model_idx=model_idx):
-        if training_set(model_name):  continue
         model = model.to(device=device)
-        model_metrics = trainModel(
+        print(f'Evaluating model: {model_name} (opt_only mode)')
+        evaluateRegionalAccuracy(
             model=model,
-            train_dl=make_dataloader(tralid_opt_only, type='train', is_shuffle=True, batch_size=batch_size), 
-            test_dl=make_dataloader(test_opt_only, type='test', is_shuffle=False, batch_size=batch_size),
             model_name=model_name,
-            iter_num=iter_num,
-            fold=model_save_name + '_opt_only',
-            is_opt_only=True,
-            is_early_stopping=True
+            model_idx=model_idx,
+            is_opt_only=True
         )
-        # plot_train_metrics(model_metrics)
-
-
-        
-
+    
+    print('Regional accuracy evaluation completed!')

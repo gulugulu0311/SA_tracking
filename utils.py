@@ -211,7 +211,7 @@ def proc_bands_value(csv_file, bands_col='bands_value',
         print(f'Error processing DataFrame: {e}, ', csv_file)
         return None
 
-def get_all_files_in_samples(dir, split_rate=0.8, show_tonum=False, province=None):
+def get_all_files_in_samples(dir, split_rate=0.8, show_tonum=False, province=None, fixed_split_indices=None):
     '''
         Get all samples file path in root_dir.\n
         Return:
@@ -221,6 +221,8 @@ def get_all_files_in_samples(dir, split_rate=0.8, show_tonum=False, province=Non
     samples4train, samples4valid = list(), list()
     total_samples_num = 0
 
+    # MODIFY: 收集所有样本文件路径
+    all_csv_files = []
     for dirpath, _, filenames in os.walk(dir):
         if province is not None and province not in dirpath:    continue
         
@@ -231,19 +233,27 @@ def get_all_files_in_samples(dir, split_rate=0.8, show_tonum=False, province=Non
             dir_name = os.path.basename(dirpath)
             print(f'{dir_name}: {len(csv_files)}')
 
-        random.shuffle(csv_files)
-        split_index = int(len(csv_files) * split_rate)
+        # MODIFY: 保存完整路径
+        all_csv_files.extend([os.path.join(dirpath, filename) for filename in csv_files])
+    
+    # MODIFY: 如果提供了固定划分索引，使用固定划分
+    if fixed_split_indices is not None:
+        train_indices, test_indices = fixed_split_indices
+        # 确保索引在有效范围内
+        train_indices = [idx for idx in train_indices if idx < len(all_csv_files)]
+        test_indices = [idx for idx in test_indices if idx < len(all_csv_files)]
         
-        samples4train.extend(
-            os.path.join(dirpath, filename) 
-            for filename in csv_files[:split_index]
-        )
+        samples4train = [all_csv_files[i] for i in train_indices]
+        samples4valid = [all_csv_files[i] for i in test_indices]
+    else:
+        # 保持原有逻辑
+        random.shuffle(all_csv_files)
+        split_index = int(len(all_csv_files) * split_rate)
         
+        samples4train = all_csv_files[:split_index]
         if split_rate != 1:
-            samples4valid.extend(
-                os.path.join(dirpath, filename)
-                for filename in csv_files[split_index:]
-            )
+            samples4valid = all_csv_files[split_index:]
+    
     if show_tonum: print('Total Samples:', total_samples_num)
     return samples4train, samples4valid
 
