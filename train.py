@@ -250,6 +250,7 @@ def validModel(test_dl, model, device, logger, saveModel=True,
 
 if __name__ == '__main__':
     iter_num, batch_size = 800, 64
+    k_random_permutation = 5
     def training_set(model_name):
         '''
             continue (pass) when return True
@@ -271,83 +272,86 @@ if __name__ == '__main__':
         print(f'Exit...({confirm_model_idx})')
         exit()
 
-    tralid = np.load(os.path.join('./models/model_data/dataset', str(model_idx), 'tralid.npy'))
-    test = np.load(os.path.join('./models/model_data/dataset', str(model_idx), 'test.npy'))
+    # tralid = np.load(os.path.join('./models/model_data/dataset', str(model_idx), 'tralid.npy'))
+    # test = np.load(os.path.join('./models/model_data/dataset', str(model_idx), 'test.npy'))
     
-    tralid_opt_only = np.load(os.path.join('./models/model_data/dataset', str(model_idx), 'tralid_opt_only.npy'))
-    test_opt_only = np.load(os.path.join('./models/model_data/dataset', str(model_idx), 'test_opt_only.npy'))
+    # tralid_opt_only = np.load(os.path.join('./models/model_data/dataset', str(model_idx), 'tralid_opt_only.npy'))
+    # test_opt_only = np.load(os.path.join('./models/model_data/dataset', str(model_idx), 'test_opt_only.npy'))
     
-    # _ds, _ds_opt_only = np.vstack((tralid, test)), np.vstack((tralid_opt_only, test_opt_only))
-    _ds, _ds_opt_only = tralid, tralid_opt_only
+    # # _ds, _ds_opt_only = np.vstack((tralid, test)), np.vstack((tralid_opt_only, test_opt_only))
+    # _ds, _ds_opt_only = tralid, tralid_opt_only
     split_rate = 0.8
     
     # Valid dataset —— "tralid" will split into train and valid
-    for fold, (train_dl, valid_dl) in enumerate(random_permutation(_ds, n_split=5, split_rate=split_rate, batch_size=64)):
-    # for fold in range(5):
+    
+    for fold in range(k_random_permutation):
+        fold += 1
+        tralid = np.load(os.path.join('./models/model_data/dataset', str(model_idx), str(fold), 'tralid.npy'))
+        test = np.load(os.path.join('./models/model_data/dataset', str(model_idx), str(fold), 'test.npy'))
+        train_dl, valid_dl = make_dataloader(tralid, type='train', is_shuffle=True, batch_size=64), \
+                             make_dataloader(test, type='test', is_shuffle=False, batch_size=64)
+    # for fold, (train_dl, valid_dl) in enumerate(random_permutation(_ds, n_split=5, split_rate=split_rate, batch_size=64)):
         for model_name, model in generate_model_instances(is_opt_only=False, model_idx=model_idx):
             if training_set(model_name):  continue
             model = model.to(device=device)
             model_metrics = trainModel(
                 model=model, 
-                
                 train_dl=train_dl, test_dl=valid_dl,
-                # train_dl=make_dataloader(tralid, type='train', is_shuffle=True, batch_size=batch_size), 
-                # test_dl=make_dataloader(test, type='test', is_shuffle=False, batch_size=batch_size),
-                
                 model_name=model_name, 
                 iter_num=iter_num, 
-                fold=model_save_name + '_' + str(fold+1),
+                fold=model_save_name + '_' + str(fold),
                 is_opt_only=False,
                 is_early_stopping=True
             )
     # Opt Only
-    for fold, (train_dl, valid_dl) in enumerate(random_permutation(_ds_opt_only, n_split=5, split_rate=split_rate, batch_size=64)):
+    for fold in range(k_random_permutation):
+        fold += 1
+        tralid = np.load(os.path.join('./models/model_data/dataset', str(model_idx), str(fold), 'tralid_opt_only.npy'))
+        test = np.load(os.path.join('./models/model_data/dataset', str(model_idx), str(fold), 'test_opt_only.npy'))
+        train_dl, valid_dl = make_dataloader(tralid, type='train', is_shuffle=True, batch_size=64), \
+                             make_dataloader(test, type='test', is_shuffle=False, batch_size=64)
+    # for fold, (train_dl, valid_dl) in enumerate(random_permutation(_ds_opt_only, n_split=5, split_rate=split_rate, batch_size=64)):
         for model_name, model in generate_model_instances(is_opt_only=True, model_idx=model_idx):
             if training_set(model_name):  continue
             model = model.to(device=device)
             model_metrics = trainModel(
                 model=model, 
-                
                 train_dl=train_dl, test_dl=valid_dl,
-                # train_dl=make_dataloader(tralid_opt_only, type='train', is_shuffle=True, batch_size=batch_size), 
-                # test_dl=make_dataloader(test_opt_only, type='test', is_shuffle=False, batch_size=batch_size),
-                
                 model_name=model_name, 
                 iter_num=iter_num, 
-                fold=model_save_name + '_' + str(fold+1) + '_opt_only',
+                fold=model_save_name + '_' + str(fold) + '_opt_only',
                 is_opt_only=True,
                 is_early_stopping=True
             )
             
-    # Test dataset —— traid for training & test for validation
-    for model_name, model in generate_model_instances(is_opt_only=False, model_idx=model_idx):
-        if training_set(model_name):  continue
-        model = model.to(device=device)
-        model_metrics = trainModel(
-            model=model,
-            train_dl=make_dataloader(tralid, type='train', is_shuffle=True, batch_size=batch_size), 
-            test_dl=make_dataloader(test, type='test', is_shuffle=False, batch_size=batch_size),
-            model_name=model_name,
-            iter_num=iter_num,
-            fold=model_save_name,
-            is_opt_only=False,
-            is_early_stopping=True
-        )
-    # Opt Only
-    for model_name, model in generate_model_instances(is_opt_only=True, model_idx=model_idx):
-        if training_set(model_name):  continue
-        model = model.to(device=device)
-        model_metrics = trainModel(
-            model=model,
-            train_dl=make_dataloader(tralid_opt_only, type='train', is_shuffle=True, batch_size=batch_size), 
-            test_dl=make_dataloader(test_opt_only, type='test', is_shuffle=False, batch_size=batch_size),
-            model_name=model_name,
-            iter_num=iter_num,
-            fold=model_save_name + '_opt_only',
-            is_opt_only=True,
-            is_early_stopping=True
-        )
-        # plot_train_metrics(model_metrics)
+    # # Test dataset —— traid for training & test for validation
+    # for model_name, model in generate_model_instances(is_opt_only=False, model_idx=model_idx):
+    #     if training_set(model_name):  continue
+    #     model = model.to(device=device)
+    #     model_metrics = trainModel(
+    #         model=model,
+    #         train_dl=make_dataloader(tralid, type='train', is_shuffle=True, batch_size=batch_size), 
+    #         test_dl=make_dataloader(test, type='test', is_shuffle=False, batch_size=batch_size),
+    #         model_name=model_name,
+    #         iter_num=iter_num,
+    #         fold=model_save_name,
+    #         is_opt_only=False,
+    #         is_early_stopping=True
+    #     )
+    # # Opt Only
+    # for model_name, model in generate_model_instances(is_opt_only=True, model_idx=model_idx):
+    #     if training_set(model_name):  continue
+    #     model = model.to(device=device)
+    #     model_metrics = trainModel(
+    #         model=model,
+    #         train_dl=make_dataloader(tralid_opt_only, type='train', is_shuffle=True, batch_size=batch_size), 
+    #         test_dl=make_dataloader(test_opt_only, type='test', is_shuffle=False, batch_size=batch_size),
+    #         model_name=model_name,
+    #         iter_num=iter_num,
+    #         fold=model_save_name + '_opt_only',
+    #         is_opt_only=True,
+    #         is_early_stopping=True
+    #     )
 
 
         

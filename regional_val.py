@@ -29,10 +29,9 @@ class Diceloss(nn.Module):
                 pred.sum(dim=0).sum(dim=0) + target.sum(dim=0).sum(dim=0) + self.smooth)))
         return loss.mean()
 
-def validModel(test_dl, model, device, logger, saveModel=True,
+def validModel(test_dl, model, device, logger,
                best_acc=0, best_spatialscore=0, best_temporalscore=0,
-               epoch=1, last_saved_epoch=1, model_saved_times=0, 
-               model_name='TSSCD_FCN', fold='1000', is_opt_only=False):
+               epoch=1, last_saved_epoch=1, model_saved_times=0):
     evaluator = Evaluator(5)
     loss_fn = nn.CrossEntropyLoss()
     loss_ch_noch = Diceloss()
@@ -133,8 +132,7 @@ def validModel(test_dl, model, device, logger, saveModel=True,
                     'temporal_UA': round(temporalscore.temporal_ua, 4),
                     'temporal_F1': round(temporalscore.temporal_f1, 4)
                 }
-
-def evaluateRegionalAccuracy(model, model_name='TSSCD_Unet', model_idx=1036, is_opt_only=False):
+def independent_evaluate_main_model(model, model_name='TSSCD_Unet', model_idx=1036, is_opt_only=False, k=1):
     """
     Regional accuracy evaluation function - performs single accuracy evaluation for each region
     MODIFICATION: Replaced training logic with regional evaluation
@@ -147,7 +145,7 @@ def evaluateRegionalAccuracy(model, model_name='TSSCD_Unet', model_idx=1036, is_
         # MODIFICATION: Create separate logger for each province
         model_idx_str = str(model_idx) if not is_opt_only else f'{model_idx}_opt_only'
         logger_name = f'{province}_logger_{model_idx_str}'
-        log_filename = f'models\\model_data\\log\\{model_name}\\{model_idx_str}\\{province}_{model_idx_str}.log'
+        log_filename = f'models\\model_data\\log\\{model_name}\\{model_idx_str}\\{str(k)}\\{province}_{model_idx_str}.log'
         
         # Ensure directory exists
         os.makedirs(os.path.dirname(log_filename), exist_ok=True)
@@ -171,30 +169,84 @@ def evaluateRegionalAccuracy(model, model_name='TSSCD_Unet', model_idx=1036, is_
         logger.addHandler(file_handler)
         
         # Load regional test data
-        if is_opt_only:
-            test_data = np.load(os.path.join('./models/model_data/dataset', str(model_idx), f'{province}_test_opt_only.npy'))
-        else:
-            test_data = np.load(os.path.join('./models/model_data/dataset', str(model_idx), f'{province}_test.npy'))
-        
+        regional_npy = f'{province}_test.npy' if not is_opt_only else f'{province}_test_opt_only.npy'
+        test_data = np.load(os.path.join('./models/model_data/dataset', str(model_idx), str(1), regional_npy))
+        print(f'Loading {province} test data from: {os.path.join("./models/model_data/dataset", str(model_idx), str(1), regional_npy)}')
         # Create data loader for the region
         test_dl = make_dataloader(test_data, type='test', is_shuffle=False, batch_size=64)
         
         # Perform single accuracy evaluation (epoch=1, no training)
-        _, _, _, _, _, _, region_metrics = validModel(
+        _, _, _, _, _, _, _ = validModel(
             test_dl=test_dl,
             model=model,
             device=device,
             logger=logger,  # Use province-specific logger
-            saveModel=False,  # No model saving during evaluation
             best_acc=0,
             best_spatialscore=0,
             best_temporalscore=0,
-            epoch=1,  # Fixed to 1 for single evaluation
+            epoch=0,  # Fixed to 1 for single evaluation
             last_saved_epoch=0,
             model_saved_times=0,
-            model_name=model_name,
-            fold=model_idx_str,
-            is_opt_only=is_opt_only
+        )
+        # Clean up province logger
+        logger.removeHandler(file_handler)
+        file_handler.close()
+
+def evaluateRegionalAccuracy(model, model_name='TSSCD_Unet', model_idx=1036, is_opt_only=False, k=1):
+    """
+    Regional accuracy evaluation function - performs single accuracy evaluation for each region
+    MODIFICATION: Replaced training logic with regional evaluation
+    """
+    # Define region list based on actual file naming
+    provinces = ['FJ', 'GDGX', 'JS', 'SD', 'SH', 'ZJ']
+    
+    # Evaluate each region
+    for province in provinces:
+        # MODIFICATION: Create separate logger for each province
+        model_idx_str = str(model_idx) if not is_opt_only else f'{model_idx}_opt_only'
+        logger_name = f'{province}_logger_{model_idx_str}'
+        log_filename = f'models\\model_data\\log\\{model_name}\\{model_idx_str}\\{str(k)}\\{province}_{model_idx_str}.log'
+        
+        # Ensure directory exists
+        os.makedirs(os.path.dirname(log_filename), exist_ok=True)
+        
+        # Create province-specific logger
+        logger = logging.getLogger(logger_name)
+        logger.setLevel(logging.INFO)
+        
+        # Clear existing log handlers and file
+        for handler in logger.handlers[:]:
+            logger.removeHandler(handler)
+        
+        if os.path.exists(log_filename):
+            with open(log_filename, 'w') as f:
+                f.truncate()
+        
+        file_handler = logging.FileHandler(log_filename)
+        file_handler.setLevel(logging.INFO)
+        formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+        file_handler.setFormatter(formatter)
+        logger.addHandler(file_handler)
+        
+        # Load regional test data
+        regional_npy = f'{province}_test.npy' if not is_opt_only else f'{province}_test_opt_only.npy'
+        test_data = np.load(os.path.join('./models/model_data/dataset', str(model_idx), str(1), regional_npy))
+        print(f'Loading {province} test data from: {os.path.join("./models/model_data/dataset", str(model_idx), str(1), regional_npy)}')
+        # Create data loader for the region
+        test_dl = make_dataloader(test_data, type='test', is_shuffle=False, batch_size=64)
+        
+        # Perform single accuracy evaluation (epoch=1, no training)
+        _, _, _, _, _, _, _ = validModel(
+            test_dl=test_dl,
+            model=model,
+            device=device,
+            logger=logger,  # Use province-specific logger
+            best_acc=0,
+            best_spatialscore=0,
+            best_temporalscore=0,
+            epoch=0,  # Fixed to 1 for single evaluation
+            last_saved_epoch=0,
+            model_saved_times=0,
         )
         # Clean up province logger
         logger.removeHandler(file_handler)
@@ -204,53 +256,55 @@ def evaluateRegionalAccuracy(model, model_name='TSSCD_Unet', model_idx=1036, is_
 # =============================================================================
 if __name__ == '__main__':
     # MODIFICATION: Changed to regional evaluation mode
-    model_idx = 1036
+    model_idx = 1037
     model_save_name = str(model_idx)
+    k_random_permutation = 5
     
     # MODIFICATION: User confirmation for regional evaluation
     confirm_eval = input(f'Start regional accuracy evaluation, model index: {model_save_name}. Continue? (y/n)\n')
     if confirm_eval != 'y':
-        print(f'Exiting...({confirm_eval})')
-        exit()
+        exit(print(f'Exiting...({confirm_eval})'))
     
     print('Starting regional accuracy evaluation...')
     
     # MODIFICATION: Evaluate each model architecture (normal mode)
     for model_name, model in generate_model_instances(is_opt_only=False, model_idx=model_idx):
-        model = model.to(device=device)
-        
-        model_ = str(model_idx)
-        model_path = os.path.join(f'models\\model_data\\{model_name}\\{model_}', f'{model_}.pth')
-        print(f'Loading model parameters from: {model_path}')
-        model_state_dict = torch.load(model_path, map_location='cuda', weights_only=True)
-        model.load_state_dict(model_state_dict)
-        model.eval()
-        
-        print(f'Evaluating model: {model_name}')
-        evaluateRegionalAccuracy(
-            model=model,
-            model_name=model_name,
-            model_idx=model_idx,
-            is_opt_only=False
-        )
+        for k in range(1, k_random_permutation + 1):
+            model = model.to(device=device)
+            
+            model_ = f'{model_idx}'
+            model_path = os.path.join(f'models\\model_data\\{model_name}\\{model_}', f'{model_}_{k}.pth')
+            model_state_dict = torch.load(model_path, map_location='cuda', weights_only=True)
+            model.load_state_dict(model_state_dict)
+            model.eval()
+            
+            print(f'Evaluating model: {model_name}')
+            evaluateRegionalAccuracy(
+                model=model,
+                model_name=model_name,
+                model_idx=model_idx,
+                is_opt_only=False,
+                k=k
+            )
     
     # MODIFICATION: Evaluate each model architecture (opt_only mode)
     for model_name, model in generate_model_instances(is_opt_only=True, model_idx=model_idx):
-        model = model.to(device=device)
-        
-        model_ = f'{model_idx}_opt_only'
-        model_path = os.path.join(f'models\\model_data\\{model_name}\\{model_}', f'{model_}.pth')
-        print(f'Loading model parameters from: {model_path}')
-        model_state_dict = torch.load(model_path, map_location='cuda', weights_only=True)
-        model.load_state_dict(model_state_dict)
-        model.eval()
-        
-        print(f'Evaluating model: {model_name} (opt_only mode)')
-        evaluateRegionalAccuracy(
-            model=model,
-            model_name=model_name,
-            model_idx=model_idx,
-            is_opt_only=True
-        )
+        for k in range(1, k_random_permutation + 1):
+            model = model.to(device=device)
+            
+            model_ = f'{model_idx}_opt_only'
+            model_path = os.path.join(f'models\\model_data\\{model_name}\\{model_}', f'{model_idx}_{k}_opt_only.pth')
+            print(f'Loading model parameters from: {model_path}')
+            model_state_dict = torch.load(model_path, map_location='cuda', weights_only=True)
+            model.load_state_dict(model_state_dict)
+            model.eval()
+            
+            evaluateRegionalAccuracy(
+                model=model,
+                model_name=model_name,
+                model_idx=model_idx,
+                is_opt_only=True,
+                k=k
+            )
     
     print('Regional accuracy evaluation completed!')

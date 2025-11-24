@@ -12,6 +12,7 @@ from collections import Counter
 # from tqdm import tqdm
 from osgeo import gdal, ogr, osr
 from scipy.special import softmax
+
 class EarlyStopping:
     '''
     Early stopping to stop the training when the loss does not improve after
@@ -435,6 +436,7 @@ def generate_event_map(model_preds, valid_area, events, max_lc_change=5, is_stat
 def extract_accuracy_from_log(file_path):
     pth = file_path.split('\\')[-1].split('.')[0]
     try:
+        print(file_path)
         with open(file_path, 'r') as file:
             log_content = file.read()
 
