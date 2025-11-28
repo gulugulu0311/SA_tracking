@@ -143,7 +143,7 @@ def random_permutation(tralid_ds, n_split=5, split_rate=0.8, batch_size=64):
 
 if __name__ == '__main__':
     # Batch × Channel × Length
-    model_idx, k_random_permutation = 1037, 5
+    model_idx, k_random_permutation = 1038, 5
     split_rate = 0.8
     provinces = ['SD', 'JS', 'SH', 'ZJ', 'FJ', 'GDGX']
     if input(f'model idx is {model_idx}, continue? (y/n)\t') != 'y':

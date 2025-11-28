@@ -306,7 +306,7 @@ def generate_model_instances(is_opt_only=False, model_idx='1036'):
             ]
         ))
 def plot_confusion_matrix(cm, classes, save_path, normalize=True):
-    font_size = 16
+    font_size = 20
     cm_copy = cm.T.copy()
     # Apply normalization if requested
     if normalize:
@@ -329,7 +329,12 @@ def plot_confusion_matrix(cm, classes, save_path, normalize=True):
     )
     
     # Display the confusion matrix with DualGammaNorm for color mapping
-    plt.imshow(cm_copy, interpolation='nearest', cmap=plt.cm.Reds, norm=dual_gamma_norm)
+    if normalize:
+        # for confusion matrix
+        plt.imshow(cm_copy, interpolation='nearest', cmap=plt.cm.Reds, norm=dual_gamma_norm)
+    else:
+        # for change_type_acc
+        plt.imshow(cm_copy, interpolation='nearest', cmap=plt.cm.Purples)
     
     # Set class labels with proper rotation and alignment
     tick_marks = np.arange(len(classes))
@@ -337,16 +342,14 @@ def plot_confusion_matrix(cm, classes, save_path, normalize=True):
     plt.yticks(tick_marks, classes, fontsize=font_size)
     
     # Format for displaying numbers - use .2f for percentages to match example
-    fmt = '.2f' if normalize else 'd'
+    # fmt = '.2f' if normalize else 'd'
     thresh = cm_copy.max() / 2.
     
     # Add numerical labels on the heatmap
     for i in range(cm_copy.shape[0]):
         for j in range(cm_copy.shape[1]):
-            value_text = format(cm_copy[i, j] * 100, fmt)
-            # Add percentage symbol if normalized
-            if normalize:
-                value_text += '%'
+            value_text = format(cm_copy[i, j] * 100, '.2f')
+            value_text += '%'
             plt.text(j, i, value_text,
                      horizontalalignment="center",
                      verticalalignment="center",
@@ -354,8 +357,12 @@ def plot_confusion_matrix(cm, classes, save_path, normalize=True):
                      color="white" if cm_copy[i, j] > thresh else "black")
     
     # Set axis labels with larger font
-    plt.ylabel('Predicted class', fontsize=font_size, fontweight='bold')
-    plt.xlabel('Actual label', fontsize=font_size, fontweight='bold')
+    if normalize: 
+        x_label, y_label = 'Actual label', 'Predicted class'
+    else:
+        x_label, y_label = 'To', 'From'
+    plt.ylabel(y_label, fontsize=font_size, fontweight='bold')
+    plt.xlabel(x_label, fontsize=font_size, fontweight='bold')
     
     # Adjust layout to prevent label clipping
     plt.tight_layout()
@@ -410,12 +417,11 @@ def process_regional_data(log_dir, metircs_rename):
                 # Exclude unwanted metrics
                 if metric in ['pth', 'pth_idx', 'train_loss', 'F1', 'mIoU']:  # Added 'mIoU' to skip list
                     continue
-                if metric == 'confusion_matrix':
-                    cm_save_path = os.path.join('models\\model_data\\log\\confusion_matrix\\', model_idx, model_name, pth_idx)
+                if metric in ['confusion_matrix', 'change_type_acc']:
+                    cm_save_path = os.path.join(f'models\\model_data\\log\\{metric}\\', model_idx, model_name, pth_idx)
                     if not os.path.exists(cm_save_path):    os.makedirs(cm_save_path)
-                    print(f'Confusion matrix saved to: {os.path.join(cm_save_path, f'{sn}.png')}')
-                    plot_confusion_matrix(value, classes, os.path.join(cm_save_path, f'{sn}.png'))
-                    # np.save(os.path.join(cm_save_path, f'{province_name}.npy'), value)
+                    is_norm = True if metric == 'confusion_matrix' else False
+                    plot_confusion_matrix(value, classes, os.path.join(cm_save_path, f'{sn}.png'), normalize=is_norm)
                     continue
                 if metric not in metric_values:
                     metric_values[metric] = []
@@ -479,12 +485,12 @@ if __name__ == '__main__':
                         # Skip unwanted metrics
                         if metric in ['pth', 'train_loss', 'F1']:
                             continue
-                        if metric == 'confusion_matrix':
+                        if metric in ['confusion_matrix', 'change_type_acc']:
                             pth_idx = acc_dict['pth'].split('_')[1]
-                            cm_save_path = os.path.join('models\\model_data\\log\\confusion_matrix\\', model_idx, model_name, pth_idx)
+                            cm_save_path = os.path.join(f'models\\model_data\\log\\{metric}\\', model_idx, model_name, pth_idx)
                             if not os.path.exists(cm_save_path):    os.makedirs(cm_save_path)
-                            # np.save(os.path.join(cm_save_path, f'{pth_idx}.npy'), value)
-                            plot_confusion_matrix(value, classes, os.path.join(cm_save_path, f'{pth_idx if not is_opt_only else pth_idx + '_opt_only'}.png'))
+                            is_norm = True if metric == 'confusion_matrix' else False
+                            plot_confusion_matrix(value, classes, os.path.join(cm_save_path, f'{pth_idx if not is_opt_only else pth_idx + '_opt_only'}.png'), normalize=is_norm)
                             continue
                         if metric not in metric_values:
                             metric_values[metric], metric_values_for_main_model[metric] = list(), None

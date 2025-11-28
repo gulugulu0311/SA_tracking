@@ -9,7 +9,7 @@ from collections import Counter
 
 from utils import *
 from models.TSSCD import *
-
+device = device_on()
 events = ['Invasion', 'Mowing 1st', 'Mowing 2nd', 'Waterlogging', 'Herbicide control', 'Recurring', 'WL_fast', 'Mangrove', 'No change']
 vec_path = '.\\TimeSeriesImages\\SA_region\\SA_extend_0621.shp'
 
@@ -263,7 +263,7 @@ def main(province, model, temporal_filter_size=3, mode=None, is_spatial_filter=F
                 interpolated_pixels = np.apply_along_axis(interpolate_1d, axis=2, arr=pixel2interp)
                 model_input_data[has_zero_pixels] = interpolated_pixels
             # ===================================
-            model_input_data = standarlization(model_input_data)    # standarlization
+            model_input_data, _ = standarlization(model_input_data)    # standarlization
             model_input_data = torch.Tensor(model_input_data).to(device)
             
             batch_sub_size = int(batch_size / 4) # split batch for inference...
@@ -308,7 +308,7 @@ def main(province, model, temporal_filter_size=3, mode=None, is_spatial_filter=F
     
 if __name__ == '__main__':
     # load model
-    model_name, model_idx = 'TSSCD_Unet', '1035'
+    model_name, model_idx = 'TSSCD_TransEncoder', '1038'
     # which model to classify
     confirm_model_idx = input(f'Current model is {model_name}_{model_idx}. Continue? (y/n)\t')
     if confirm_model_idx != 'y':    exit()
@@ -321,7 +321,7 @@ if __name__ == '__main__':
     model = model_instances[model_name]
     model = model.to(device)
     
-    model_state_dict = torch.load(os.path.join(f'models\\model_data\\{model_name}\\{model_idx}', f'{model_idx}.pth'), map_location='cuda', weights_only=True)
+    model_state_dict = torch.load(os.path.join(f'models\\model_data\\{model_name}\\{model_idx}', f'{model_idx}_1.pth'), map_location='cuda', weights_only=True)
     model.load_state_dict(model_state_dict)
     model.eval()
     

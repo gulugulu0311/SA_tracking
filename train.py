@@ -13,7 +13,6 @@ from models.TSSCD import *
 from utils import *
 from data_loader import *
 from metrics import Evaluator, SpatialChangeDetectScore, TemporalChangeDetectScore
-from torch.nn.utils import clip_grad_norm_
 
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
@@ -69,7 +68,7 @@ def trainModel(model, train_dl, test_dl,
 
     # Start training
     early_stopping = EarlyStopping(patience=32)
-    best_acc, best_spatialscore, best_temporalscore = 0, 0, 0
+    best_acc, best_spatialscore, best_temporalscore = 1e9, 0, 0
     
     model_saved_times, last_saved_epoch = 0, 0
     model_metrics_data = dict()
@@ -95,10 +94,11 @@ def trainModel(model, train_dl, test_dl,
             loss1 = loss_fn(pred, train_labels.long())
             loss2 = loss_ch_noch(pre_No_change, label_No_change)
             loss = loss1
+            optimizer.zero_grad()
             loss.backward()
             optimizer.step()
             lr_scheduler.step()
-            optimizer.zero_grad()
+            
             with torch.no_grad():
                 train_loss1_sum = torch.cat([train_loss1_sum, torch.unsqueeze(input=loss1, dim=-1)], dim=-1)
                 train_loss2_sum = torch.cat([train_loss2_sum, torch.unsqueeze(input=loss2, dim=-1)], dim=-1)
@@ -106,8 +106,6 @@ def trainModel(model, train_dl, test_dl,
                 train_tqdm.set_postfix(
                     {'train loss': train_loss_sum.mean().item(), 'train loss1': train_loss1_sum.mean().item(),
                      'train loss2': train_loss2_sum.mean().item()})
-        
-        # lr_scheduler.step()
         
         logger.info(f'Epoch {epoch}, Train loss: {train_loss_sum.mean().item()}')
         train_tqdm.close()
@@ -217,10 +215,10 @@ def validModel(test_dl, model, device, logger, saveModel=True,
         if saveModel:
             model_idx = (str(fold)[:4] + '_opt_only') if is_opt_only else str(fold)[:4]
             # if mIoU >= best_acc and spatialscore.getLccScore() >= best_spatialscore:
-            if mIoU >= best_acc:
+            if valid_loss_sum.mean().item() <= best_acc:
                 torch.save(model.state_dict(), os.path.join(f'models\\model_data\\{model_name}\\{model_idx}', f'{fold}.pth'))
                 logger.info(f'Epoch {epoch} saved.')
-                best_acc = mIoU
+                best_acc = valid_loss_sum.mean().item()
                 best_spatialscore = spatialscore.getLccScore()
                 best_temporalscore = temporalscore.getCDScore()
                 
@@ -263,7 +261,7 @@ if __name__ == '__main__':
             return False
         
     # load dataset
-    model_idx = 1037
+    model_idx = 1038
     model_save_name = str(model_idx)
     confirm_model_idx = input(f'Current model index is {model_save_name}. Continue? (y/n)\n')
     if confirm_model_idx == 'y':

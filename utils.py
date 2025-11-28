@@ -436,7 +436,6 @@ def generate_event_map(model_preds, valid_area, events, max_lc_change=5, is_stat
 def extract_accuracy_from_log(file_path):
     pth = file_path.split('\\')[-1].split('.')[0]
     try:
-        print(file_path)
         with open(file_path, 'r') as file:
             log_content = file.read()
 
@@ -444,6 +443,7 @@ def extract_accuracy_from_log(file_path):
         epoch_pattern = re.compile(r'Epoch (\d+), Train loss: ([\d.]+)')
         metric_pattern = re.compile(r'(\w+): ([\d.]+)')
         confusion_matrix_pattern = re.compile(r'Confusion Matrix\s*\n((?:\s*\[.*?\]\s*\n?)+)', re.DOTALL)
+        change_type_acc_pattern = re.compile(r'Change Type Accuracy Matrix\s*\n((?:\s*\[.*?\]\s*\n?)+)', re.DOTALL)
         last_saved_pattern = re.compile(r'last saved epoch: (\d+)')
 
         last_saved_epoch = 0
@@ -467,23 +467,25 @@ def extract_accuracy_from_log(file_path):
                 metrics[metric_name] = metric_value
             
             # extract confusion matrix
-            cm_match = confusion_matrix_pattern.search(metric_text)
-            if cm_match:
-                cm_block = cm_match.group(1)
-                rows = list()
-                for line in cm_block.strip().splitlines():
-                    if not line.strip():
-                        continue
-                    nums = re.findall(r'[-+]?\d*\.?\d+(?:[eE][-+]?\d+)?', line)
-                    if nums:
-                        row = [float(x) for x in nums]
-                        rows.append(row)
-                if rows:
-                    import numpy as _np
-                    cm = _np.array(rows, dtype=float)
-                    if _np.all(cm == _np.floor(cm)):
-                        cm = cm.astype(int)
-                    metrics['confusion_matrix'] = cm
+            cm_match, ct_acc_match = confusion_matrix_pattern.search(metric_text), \
+                                     change_type_acc_pattern.search(metric_text)
+            for cm_, cm_name in zip([cm_match, ct_acc_match], ['confusion_matrix', 'change_type_acc']):
+                if cm_:
+                    cm_block = cm_.group(1)
+                    rows = list()
+                    for line in cm_block.strip().splitlines():
+                        if not line.strip():
+                            continue
+                        nums = re.findall(r'[-+]?\d*\.?\d+(?:[eE][-+]?\d+)?', line)
+                        if nums:
+                            row = [float(x) for x in nums]
+                            rows.append(row)
+                    if rows:
+                        import numpy as _np
+                        cm = _np.array(rows, dtype=float)
+                        if _np.all(cm == _np.floor(cm)):
+                            cm = cm.astype(int)
+                        metrics[cm_name] = cm
             
             last_saved_match = last_saved_pattern.search(metric_text)
             if last_saved_match:

@@ -178,3 +178,94 @@ class TemporalChangeDetectScore(object):
     
     def getCDScore(self):
         return self.cd_nume / self.cd_deno
+
+import numpy as np
+
+class ChangeTypeAccuracyMatrix:
+    """
+    统计每一种变化类型 i→j 的准确率：
+    对每一个真实变化事件 i→j，分母 denom[i,j] += 1
+    若预测事件也是 i→j，则分子 numer[i,j] += 1
+
+    参数：
+        num_classes: 类别数量
+        tol: 时间容差（论文 = ±2）
+    """
+    def __init__(self, num_classes, tol=1):
+        self.num_classes = num_classes
+        self.tol = tol
+        self.numer = np.zeros((num_classes, num_classes), dtype=np.int64)
+        self.denom = np.zeros((num_classes, num_classes), dtype=np.int64)
+
+    def reset(self):
+        self.numer.fill(0)
+        self.denom.fill(0)
+
+    def _extract_events(self, seq):
+        """
+        从序列中提取所有变化事件，格式为：
+        (t, from_class, to_class)
+        """
+        seq = np.asarray(seq)
+        events = []
+        for t in range(1, len(seq)):
+            if seq[t] != seq[t-1]:
+                events.append((t, int(seq[t-1]), int(seq[t])))
+        return events
+
+    def add_sequence(self, gt_seq, pred_seq):
+        """
+        对一条序列进行变化类型准确率统计。
+        gt_seq / pred_seq: 一维类别数组
+        """
+
+        true_events = self._extract_events(gt_seq)
+        pred_events = self._extract_events(pred_seq)
+
+        if len(pred_events) > 0:
+            pred_times = np.array([e[0] for e in pred_events])
+            pred_froms = np.array([e[1] for e in pred_events])
+            pred_tos = np.array([e[2] for e in pred_events])
+        else:
+            pred_times = np.array([], dtype=int)
+
+        used_pred = set()
+
+        for t_true, f_true, to_true in true_events:
+
+            # 所有真实事件 i→j 的 denom 加 1
+            self.denom[f_true, to_true] += 1
+
+            # 时间容差范围内找预测事件
+            if len(pred_times) == 0:
+                continue
+
+            diffs = np.abs(pred_times - t_true)
+            cand = np.where(diffs <= self.tol)[0]
+
+            if cand.size == 0:
+                continue
+
+            # 找最接近的未使用预测事件
+            cand_sorted = sorted(cand, key=lambda k: (abs(pred_times[k]-t_true), k))
+            chosen = None
+            for c in cand_sorted:
+                if c not in used_pred:
+                    chosen = c
+                    break
+            
+            if chosen is None:
+                continue
+
+            used_pred.add(chosen)
+
+            # 若预测变化类型也等于真实变化类型，则 numer +1
+            if pred_froms[chosen] == f_true and pred_tos[chosen] == to_true:
+                self.numer[f_true, to_true] += 1
+
+    def get_accuracy_matrix(self):
+        """ 返回逐类型准确率的矩阵 """
+        accuracy = np.zeros_like(self.numer, dtype=float)
+        mask = (self.denom > 0)
+        accuracy[mask] = self.numer[mask] / self.denom[mask]
+        return accuracy

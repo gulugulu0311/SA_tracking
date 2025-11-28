@@ -10,7 +10,7 @@ from torch import nn
 from models.TSSCD import *
 from utils import *
 from data_loader import *
-from metrics import Evaluator, SpatialChangeDetectScore, TemporalChangeDetectScore
+from metrics import Evaluator, SpatialChangeDetectScore, TemporalChangeDetectScore, ChangeTypeAccuracyMatrix
 
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
@@ -32,7 +32,6 @@ class Diceloss(nn.Module):
 def validModel(test_dl, model, device, logger,
                best_acc=0, best_spatialscore=0, best_temporalscore=0,
                epoch=1, last_saved_epoch=1, model_saved_times=0):
-    evaluator = Evaluator(5)
     loss_fn = nn.CrossEntropyLoss()
     loss_ch_noch = Diceloss()
     model.eval()
@@ -40,9 +39,14 @@ def validModel(test_dl, model, device, logger,
         valid_tqdm = tqdm(iterable=test_dl, total=len(test_dl))
         valid_tqdm.set_description_str('Valid : ')
         valid_loss_sum = torch.tensor(data=[], dtype=torch.float, device=device)
+        
+        evaluator = Evaluator(5)
+        change_type_eval = ChangeTypeAccuracyMatrix(num_classes=5, tol=1)
         evaluator.reset()
+        change_type_eval.reset()
         spatialscore = SpatialChangeDetectScore()
         temporalscore = TemporalChangeDetectScore(series_length=60, error_rate=1)
+        
         for valid_data, valid_labels in valid_tqdm:
             valid_data, valid_labels = valid_data.to(device), valid_labels.to(device)
             valid_pred = model(valid_data.float())
@@ -70,6 +74,7 @@ def validModel(test_dl, model, device, logger,
                 spatialscore.addValue(labchangepoints[0], prechangepoints[0])
                 spatialscore.addLccValue(pretypes[0], labtypes[0])
                 temporalscore.addValue(labchangepoints[0], prechangepoints[0])
+                change_type_eval.add_sequence(labtypes[0], pretypes[0])
                 
         valid_tqdm.close()
         # Evaluation Accuracy
@@ -106,6 +111,14 @@ def validModel(test_dl, model, device, logger,
             separator='\t'
         )
         logger.info(f'Confusion Matrix\n {confusion_matrix_str[1:-1]}')
+        change_type_acc = change_type_eval.get_accuracy_matrix()
+        change_type_acc_str = np.array2string(
+            change_type_acc, 
+            precision=4,
+            suppress_small=True,
+            separator='\t'
+        )
+        logger.info(f'Change Type Accuracy Matrix\n {change_type_acc_str[1:-1]}')
         logger.info(f'Epoch {epoch} saved.')
         best_acc = mIoU
         best_spatialscore = spatialscore.getLccScore()
@@ -137,60 +150,56 @@ def independent_evaluate_main_model(model, model_name='TSSCD_Unet', model_idx=10
     Regional accuracy evaluation function - performs single accuracy evaluation for each region
     MODIFICATION: Replaced training logic with regional evaluation
     """
-    # Define region list based on actual file naming
-    provinces = ['FJ', 'GDGX', 'JS', 'SD', 'SH', 'ZJ']
+    # MODIFICATION: Create separate logger for each province
+    model_idx_str = str(model_idx)
+    postfix = '' if not is_opt_only else '_opt_only'
+    logger_name = f'logger_{model_idx_str}'
+    log_filename = os.path.join('./models/model_data/log', model_name, f'{model_idx_str}{postfix}', f'{model_idx_str}_{k}{postfix}.log')
     
-    # Evaluate each region
-    for province in provinces:
-        # MODIFICATION: Create separate logger for each province
-        model_idx_str = str(model_idx) if not is_opt_only else f'{model_idx}_opt_only'
-        logger_name = f'{province}_logger_{model_idx_str}'
-        log_filename = f'models\\model_data\\log\\{model_name}\\{model_idx_str}\\{str(k)}\\{province}_{model_idx_str}.log'
-        
-        # Ensure directory exists
-        os.makedirs(os.path.dirname(log_filename), exist_ok=True)
-        
-        # Create province-specific logger
-        logger = logging.getLogger(logger_name)
-        logger.setLevel(logging.INFO)
-        
-        # Clear existing log handlers and file
-        for handler in logger.handlers[:]:
-            logger.removeHandler(handler)
-        
-        if os.path.exists(log_filename):
-            with open(log_filename, 'w') as f:
-                f.truncate()
-        
-        file_handler = logging.FileHandler(log_filename)
-        file_handler.setLevel(logging.INFO)
-        formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
-        file_handler.setFormatter(formatter)
-        logger.addHandler(file_handler)
-        
-        # Load regional test data
-        regional_npy = f'{province}_test.npy' if not is_opt_only else f'{province}_test_opt_only.npy'
-        test_data = np.load(os.path.join('./models/model_data/dataset', str(model_idx), str(1), regional_npy))
-        print(f'Loading {province} test data from: {os.path.join("./models/model_data/dataset", str(model_idx), str(1), regional_npy)}')
-        # Create data loader for the region
-        test_dl = make_dataloader(test_data, type='test', is_shuffle=False, batch_size=64)
-        
-        # Perform single accuracy evaluation (epoch=1, no training)
-        _, _, _, _, _, _, _ = validModel(
-            test_dl=test_dl,
-            model=model,
-            device=device,
-            logger=logger,  # Use province-specific logger
-            best_acc=0,
-            best_spatialscore=0,
-            best_temporalscore=0,
-            epoch=0,  # Fixed to 1 for single evaluation
-            last_saved_epoch=0,
-            model_saved_times=0,
-        )
-        # Clean up province logger
-        logger.removeHandler(file_handler)
-        file_handler.close()
+    # Ensure directory exists
+    os.makedirs(os.path.dirname(log_filename), exist_ok=True)
+    
+    # Create province-specific logger
+    logger = logging.getLogger(logger_name)
+    logger.setLevel(logging.INFO)
+    
+    # Clear existing log handlers and file
+    for handler in logger.handlers[:]:
+        logger.removeHandler(handler)
+    
+    if os.path.exists(log_filename):
+        with open(log_filename, 'w') as f:
+            f.truncate()
+    
+    file_handler = logging.FileHandler(log_filename)
+    file_handler.setLevel(logging.INFO)
+    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+    file_handler.setFormatter(formatter)
+    logger.addHandler(file_handler)
+    
+    # Load regional test data
+    regional_npy = f'test.npy' if not is_opt_only else f'test_opt_only.npy'
+    test_data = np.load(os.path.join('./models/model_data/dataset', str(model_idx), str(k), regional_npy))
+    print(f'Loading test data from: {os.path.join("./models/model_data/dataset", str(model_idx), str(k), regional_npy)}')
+    # Create data loader for the region
+    test_dl = make_dataloader(test_data, type='test', is_shuffle=False, batch_size=64)
+    
+    # Perform single accuracy evaluation (epoch=1, no training)
+    _, _, _, _, _, _, _ = validModel(
+        test_dl=test_dl,
+        model=model,
+        device=device,
+        logger=logger,  # Use province-specific logger
+        best_acc=0,
+        best_spatialscore=0,
+        best_temporalscore=0,
+        epoch=0,  # Fixed to 1 for single evaluation
+        last_saved_epoch=0,
+        model_saved_times=0,
+    )
+    # Clean up province logger
+    logger.removeHandler(file_handler)
+    file_handler.close()
 
 def evaluateRegionalAccuracy(model, model_name='TSSCD_Unet', model_idx=1036, is_opt_only=False, k=1):
     """
@@ -230,8 +239,8 @@ def evaluateRegionalAccuracy(model, model_name='TSSCD_Unet', model_idx=1036, is_
         
         # Load regional test data
         regional_npy = f'{province}_test.npy' if not is_opt_only else f'{province}_test_opt_only.npy'
-        test_data = np.load(os.path.join('./models/model_data/dataset', str(model_idx), str(1), regional_npy))
-        print(f'Loading {province} test data from: {os.path.join("./models/model_data/dataset", str(model_idx), str(1), regional_npy)}')
+        test_data = np.load(os.path.join('./models/model_data/dataset', str(model_idx), str(k), regional_npy))
+        print(f'Loading {province} test data from: {os.path.join("./models/model_data/dataset", str(model_idx), str(k), regional_npy)}')
         # Create data loader for the region
         test_dl = make_dataloader(test_data, type='test', is_shuffle=False, batch_size=64)
         
@@ -279,6 +288,13 @@ if __name__ == '__main__':
             model.eval()
             
             print(f'Evaluating model: {model_name}')
+            independent_evaluate_main_model(
+                model=model,
+                model_name=model_name,
+                model_idx=model_idx,
+                is_opt_only=False,
+                k=k
+            )
             evaluateRegionalAccuracy(
                 model=model,
                 model_name=model_name,
@@ -299,6 +315,14 @@ if __name__ == '__main__':
             model.load_state_dict(model_state_dict)
             model.eval()
             
+            print(f'Evaluating model: {model_name}')
+            independent_evaluate_main_model(
+                model=model,
+                model_name=model_name,
+                model_idx=model_idx,
+                is_opt_only=True,
+                k=k
+            )
             evaluateRegionalAccuracy(
                 model=model,
                 model_name=model_name,
