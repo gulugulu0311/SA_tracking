@@ -1,16 +1,14 @@
 import os
 import torch
-import time
+from torch import nn
 import logging
 
 from matplotlib import pyplot as plt
 
-from torch import nn
-
-from models.TSSCD import *
 from utils import *
+from metrics import *
+from models.TSSCD import *
 from data_loader import *
-from metrics import Evaluator, SpatialChangeDetectScore, TemporalChangeDetectScore, ChangeTypeAccuracyMatrix
 
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')

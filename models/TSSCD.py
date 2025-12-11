@@ -306,8 +306,8 @@ def generate_model_instances(is_opt_only=False, model_idx='1036'):
             ]
         ))
 def plot_confusion_matrix(cm, classes, save_path, normalize=True):
-    font_size = 20
-    cm_copy = cm.T.copy()
+    font_size = 24
+    cm_copy = cm.copy()
     # Apply normalization if requested
     if normalize:
         col_sums = cm_copy.sum(axis=0, keepdims=True)
@@ -338,7 +338,7 @@ def plot_confusion_matrix(cm, classes, save_path, normalize=True):
     
     # Set class labels with proper rotation and alignment
     tick_marks = np.arange(len(classes))
-    plt.xticks(tick_marks, classes, rotation=30, fontsize=font_size)
+    plt.xticks(tick_marks, classes, fontsize=font_size)
     plt.yticks(tick_marks, classes, fontsize=font_size)
     
     # Format for displaying numbers - use .2f for percentages to match example
@@ -350,10 +350,12 @@ def plot_confusion_matrix(cm, classes, save_path, normalize=True):
         for j in range(cm_copy.shape[1]):
             value_text = format(cm_copy[i, j] * 100, '.2f')
             value_text += '%'
+            if cm_copy[i, j] == 0.00 and not normalize:
+                value_text = '-'
             plt.text(j, i, value_text,
                      horizontalalignment="center",
                      verticalalignment="center",
-                     fontsize=font_size,
+                     fontsize=font_size+1,
                      color="white" if cm_copy[i, j] > thresh else "black")
     
     # Set axis labels with larger font
@@ -447,12 +449,13 @@ def process_regional_data(log_dir, metircs_rename):
 
 if __name__ == '__main__':
     batch_size, seq_len, device = 64, 60, device_on()
-    classes = ['S. alterniflora', 'Bare flats', 'Water body', 'Herbicide\n-treated\nS. alterniflora\nlitter', 'Other\nvegetation']
+    # classes = ['S. alterniflora', 'Bare flats', 'Water body', 'Herbicide-treated\nS. alterniflora\nlitter', 'Other\nvegetation']
+    classes = ['SA', 'BF', 'WB', 'HL', 'OV']
     target_dir = 'models\\model_data\\log'
     
     # Get or specify model indices
     model_idxs = os.listdir('models\\model_data\\dataset')
-    model_idxs = ['1037']  # Override with specific models if needed
+    model_idxs = ['1038']  # Override with specific models if needed
     print(f'Current model: {model_idxs}')
           
     models_name = ['TSSCD_TransEncoder', 'TSSCD_Unet', 'TSSCD_FCN']

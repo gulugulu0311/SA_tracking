@@ -1,8 +1,3 @@
-"""
-@Author ：hhx
-@Description ：classification and change detection metrics
-"""
-
 import numpy as np
 
 eps = np.finfo(np.float32).eps.item()
