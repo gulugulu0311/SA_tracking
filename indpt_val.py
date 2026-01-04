@@ -2,11 +2,14 @@ import os
 import torch
 from torch import nn
 import logging
+import numpy as np
 
 from matplotlib import pyplot as plt
+from tqdm import tqdm
 
 from utils import *
-from metrics import *
+# >>> MODIFIED: Make sure ChangeTypeAccuracyMatrix is imported from metrics
+from metrics import Evaluator, SpatialChangeDetectScore, TemporalChangeDetectScore, ChangeTypeAccuracyMatrix
 from models.TSSCD import *
 from data_loader import *
 
@@ -39,7 +42,9 @@ def validModel(test_dl, model, device, logger,
         valid_loss_sum = torch.tensor(data=[], dtype=torch.float, device=device)
         
         evaluator = Evaluator(5)
+        # >>> MODIFIED: Initialize ChangeTypeAccuracyMatrix
         change_type_eval = ChangeTypeAccuracyMatrix(num_classes=5, tol=1)
+        
         evaluator.reset()
         change_type_eval.reset()
         spatialscore = SpatialChangeDetectScore()
@@ -66,12 +71,32 @@ def validModel(test_dl, model, device, logger,
             labelList = valid_labels.cpu().numpy()
 
             for pre, label in zip(predList, labelList):
+                # Backup raw prediction for filtering
+                pre_raw, label_raw = pre.copy(), label.copy()
+
                 pre, label = pre[None, :], label[None, :]
-                _, prechangepoints, pretypes = FilteringSeries(pre, method='Majority', window_size=3)
-                _, labchangepoints, labtypes = FilteringSeries(label, method='NoFilter')
+                
+                # Spatial & Temporal Score Calculation (Existing Logic)
+                # Note: FilteringSeries inside the loop returns (filtered_data, changepoints, changetypes)
+                # For consistency, we should use the same filtered results for all metrics.
+                filtered_pre_1d, prechangepoints, pretypes = FilteringSeries(pre, method='Majority', window_size=3)
+                filtered_label_1d, labchangepoints, labtypes = FilteringSeries(label, method='NoFilter')
+                
                 spatialscore.addValue(labchangepoints[0], prechangepoints[0])
-                spatialscore.addLccValue(pretypes[0], labtypes[0])
+                # spatialscore.addLccValue(pretypes[0], labtypes[0])
+                spatialscore.addLccValue(
+                    pretypes[0], 
+                    labtypes[0],
+                    prepoints=prechangepoints[0],
+                    labelpoints=labchangepoints[0]
+                    
+                )
                 temporalscore.addValue(labchangepoints[0], prechangepoints[0])
+                
+                # >>> MODIFIED: Change Type Evaluation
+                # Need 1D filtered arrays for ChangeTypeAccuracyMatrix
+                # FilteringSeries returns shape (1, T), so take index [0]
+                # change_type_eval.add_sequence(filtered_label_1d[0], filtered_pre_1d[0])
                 change_type_eval.add_sequence(labtypes[0], pretypes[0])
                 
         valid_tqdm.close()
@@ -96,11 +121,6 @@ def validModel(test_dl, model, device, logger,
         print('temporal_CdAccuracy: ', f'{round(temporalscore.getCDScore(), 4)} ({round(best_temporalscore, 4)})')
         print(f'temporal_PA: {round(temporalscore.temporal_pa, 4)}; temporal_UA: {round(temporalscore.temporal_ua, 4)}; temporal_f1: {round(temporalscore.temporal_f1, 4)}')
         
-        logger.info(f'Epoch {epoch}, Train loss: 0.0')
-        logger.info(f'mIoU: {round(mIoU, 4)}; OA: {round(Acc, 4)}; AA: {round(Acc_mean, 4)}; F1: {round(F1, 4)}; Kappa: {round(Kappa, 4)};')
-        logger.info(f'spatial_LccAccuracy: {round(spatialscore.getLccScore(), 4)}; spatial_PA: {round(spatialscore.spatial_pa, 4)}; spatial_UA: {round(spatialscore.spatial_ua, 4)}; spatial_F1: {round(spatial_f1, 4)}')
-        logger.info(f'temporal_CdAccuracy: {round(temporalscore.getCDScore(), 4)}; temporal_PA: {round(temporalscore.temporal_pa, 4)}; temporal_UA: {round(temporalscore.temporal_ua, 4)}; temporal_F1: {round(temporalscore.temporal_f1, 4)}')
-        
         confusion_matrix = evaluator.confusion_matrix  # current epoch's confusion matrix
         confusion_matrix_str = np.array2string(
             confusion_matrix, 
@@ -108,16 +128,28 @@ def validModel(test_dl, model, device, logger,
             suppress_small=True,
             separator='\t'
         )
+        # >>> MODIFIED: Retrieve and log Change Type Metrics (PA, UA, F1)
+        ct_metrics = change_type_eval.get_metrics_matrices()
+        
+        def format_matrix(mat):
+            return np.array2string(mat, precision=4, suppress_small=True, separator='\t')
+        
+        logger.info(f'Epoch {epoch}, Train loss: 0.0')
+        logger.info(f'mIoU: {round(mIoU, 4)}; OA: {round(Acc, 4)}; AA: {round(Acc_mean, 4)}; F1: {round(F1, 4)}; Kappa: {round(Kappa, 4)};')
+        logger.info(f'spatial_LccAccuracy: {round(spatialscore.getLccScore(), 4)}; spatial_PA: {round(spatialscore.spatial_pa, 4)}; spatial_UA: {round(spatialscore.spatial_ua, 4)}; spatial_F1: {round(spatial_f1, 4)}; weighted_F1: {round(ct_metrics['Weighted_F1'], 4)}')
+        logger.info(f'temporal_CdAccuracy: {round(temporalscore.getCDScore(), 4)}; temporal_PA: {round(temporalscore.temporal_pa, 4)}; temporal_UA: {round(temporalscore.temporal_ua, 4)}; temporal_F1: {round(temporalscore.temporal_f1, 4)}')
+        
         logger.info(f'Confusion Matrix\n {confusion_matrix_str[1:-1]}')
-        change_type_acc = change_type_eval.get_accuracy_matrix()
-        change_type_acc_str = np.array2string(
-            change_type_acc, 
-            precision=4,
-            suppress_small=True,
-            separator='\t'
-        )
-        logger.info(f'Change Type Accuracy Matrix\n {change_type_acc_str[1:-1]}')
+
+        logger.info(f"Change Type PA (Recall) Matrix\n {format_matrix(ct_metrics['PA'])}")
+        logger.info(f"Change Type UA (Precision) Matrix\n {format_matrix(ct_metrics['UA'])}")
+        logger.info(f"Change Type F1 Matrix\n {format_matrix(ct_metrics['F1'])}")
+        
         logger.info(f'Epoch {epoch} saved.')
+        
+        # Calculate Macro Event F1 for summary (Optional but useful)
+        macro_event_f1 = np.nanmean(ct_metrics['F1'][ct_metrics['GT_Counts']>0])
+        
         best_acc = mIoU
         best_spatialscore = spatialscore.getLccScore()
         best_temporalscore = temporalscore.getCDScore()
@@ -130,7 +162,6 @@ def validModel(test_dl, model, device, logger,
                     'mIoU': round(mIoU, 4),
                     'spatial_LccAccuracy': round(spatialscore.getLccScore(), 4),
                     'temporal_CdAccuracy': round(temporalscore.getCDScore(), 4),
-                    
                     'OA': round(Acc, 4),
                     'AA': round(Acc_mean, 4),
                     'Acc_class': [round(i, 4) for i in Acc_class],
@@ -141,8 +172,12 @@ def validModel(test_dl, model, device, logger,
                     'spatial_F1': round(spatial_f1, 4),
                     'temporal_PA': round(temporalscore.temporal_pa, 4),
                     'temporal_UA': round(temporalscore.temporal_ua, 4),
-                    'temporal_F1': round(temporalscore.temporal_f1, 4)
+                    'temporal_F1': round(temporalscore.temporal_f1, 4),
+                    # >>> ADDED: Include Change Type F1 Summary
+                    'Macro_F1': round(macro_event_f1, 4),
+                    'Weighted_F1': round(ct_metrics['Weighted_F1'], 4)
                 }
+
 def independent_evaluate_main_model(model, model_name='TSSCD_Unet', model_idx=1036, is_opt_only=False, k=1):
     """
     Regional accuracy evaluation function - performs single accuracy evaluation for each region
@@ -258,12 +293,10 @@ def evaluateRegionalAccuracy(model, model_name='TSSCD_Unet', model_idx=1036, is_
         # Clean up province logger
         logger.removeHandler(file_handler)
         file_handler.close()
-# =============================================================================
-# MODIFIED MAIN PROGRAM: Regional Evaluation Mode
-# =============================================================================
+
 if __name__ == '__main__':
     # MODIFICATION: Changed to regional evaluation mode
-    model_idx = 1037
+    model_idx = 1038
     model_save_name = str(model_idx)
     k_random_permutation = 5
     

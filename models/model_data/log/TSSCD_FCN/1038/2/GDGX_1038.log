@@ -1,17 +1,29 @@
-2025-11-25 16:57:04,339 - INFO - Epoch 0, Train loss: 0.0
-2025-11-25 16:57:04,339 - INFO - mIoU: 1.0; OA: 1.0; AA: 1.0; F1: 1.0; Kappa: nan;
-2025-11-25 16:57:04,339 - INFO - spatial_LccAccuracy: 1.0; spatial_PA: 0.75; spatial_UA: 0.75; spatial_F1: 0.75
-2025-11-25 16:57:04,339 - INFO - temporal_CdAccuracy: 1.0; temporal_PA: 0.75; temporal_UA: 0.75; temporal_F1: 0.75
-2025-11-25 16:57:04,340 - INFO - Confusion Matrix
+2026-01-22 16:52:20,902 - INFO - Epoch 0, Train loss: 0.0
+2026-01-22 16:52:20,902 - INFO - mIoU: 0.2; OA: 1.0; AA: 0.2; F1: 0.2; Kappa: 0.0;
+2026-01-22 16:52:20,903 - INFO - spatial_LccAccuracy: 1.0; spatial_PA: 0.75; spatial_UA: 0.75; spatial_F1: 0.75; weighted_F1: 0.0
+2026-01-22 16:52:20,903 - INFO - temporal_CdAccuracy: 1.0; temporal_PA: 0.75; temporal_UA: 0.75; temporal_F1: 0.75
+2026-01-22 16:52:20,903 - INFO - Confusion Matrix
  [   0.	   0.	   0.	   0.	   0.]
  [   0.	   0.	   0.	   0.	   0.]
  [   0.	   0.	   0.	   0.	   0.]
  [   0.	   0.	   0.	   0.	   0.]
  [   0.	   0.	   0.	   0.	6780.]
-2025-11-25 16:57:04,340 - INFO - Change Type Accuracy Matrix
+2026-01-22 16:52:20,903 - INFO - Change Type PA (Recall) Matrix
+ [[0.	0.	0.	0.	0.]
  [0.	0.	0.	0.	0.]
  [0.	0.	0.	0.	0.]
  [0.	0.	0.	0.	0.]
+ [0.	0.	0.	0.	0.]]
+2026-01-22 16:52:20,904 - INFO - Change Type UA (Precision) Matrix
+ [[0.	0.	0.	0.	0.]
  [0.	0.	0.	0.	0.]
  [0.	0.	0.	0.	0.]
-2025-11-25 16:57:04,341 - INFO - Epoch 0 saved.
+ [0.	0.	0.	0.	0.]
+ [0.	0.	0.	0.	0.]]
+2026-01-22 16:52:20,905 - INFO - Change Type F1 Matrix
+ [[0.	0.	0.	0.	0.]
+ [0.	0.	0.	0.	0.]
+ [0.	0.	0.	0.	0.]
+ [0.	0.	0.	0.	0.]
+ [0.	0.	0.	0.	0.]]
+2026-01-22 16:52:20,905 - INFO - Epoch 0 saved.

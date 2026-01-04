@@ -1,17 +1,29 @@
-2025-11-25 16:56:49,858 - INFO - Epoch 0, Train loss: 0.0
-2025-11-25 16:56:49,858 - INFO - mIoU: 0.9594; OA: 0.9804; AA: 0.9807; F1: 0.9791; Kappa: 0.964;
-2025-11-25 16:56:49,859 - INFO - spatial_LccAccuracy: 0.9018; spatial_PA: 1.0; spatial_UA: 1.0; spatial_F1: 1.0
-2025-11-25 16:56:49,859 - INFO - temporal_CdAccuracy: 0.6741; temporal_PA: 0.9562; temporal_UA: 0.9281; temporal_F1: 0.9419
-2025-11-25 16:56:49,860 - INFO - Confusion Matrix
+2026-01-22 16:52:02,345 - INFO - Epoch 0, Train loss: 0.0
+2026-01-22 16:52:02,345 - INFO - mIoU: 0.7675; OA: 0.9804; AA: 0.7845; F1: 0.7833; Kappa: 0.964;
+2026-01-22 16:52:02,345 - INFO - spatial_LccAccuracy: 0.8438; spatial_PA: 1.0; spatial_UA: 1.0; spatial_F1: 1.0; weighted_F1: 0.8989
+2026-01-22 16:52:02,346 - INFO - temporal_CdAccuracy: 0.8438; temporal_PA: 0.9562; temporal_UA: 0.9281; temporal_F1: 0.9419
+2026-01-22 16:52:02,346 - INFO - Confusion Matrix
  [7076.	  93.	   0.	   2.	   0.]
  [ 123.	5385.	  22.	   0.	   0.]
  [   0.	  23.	 585.	   0.	   0.]
  [   0.	   0.	   0.	 131.	   0.]
  [   0.	   0.	   0.	   0.	   0.]
-2025-11-25 16:56:49,860 - INFO - Change Type Accuracy Matrix
- [0.    	0.9444	0.    	1.    	0.    ]
+2026-01-22 16:52:02,346 - INFO - Change Type PA (Recall) Matrix
+ [[0.    	0.9444	0.    	1.    	0.    ]
  [0.9348	0.    	0.8947	0.    	0.    ]
  [0.    	0.8947	0.    	0.    	0.    ]
  [0.    	0.    	0.    	0.    	0.    ]
+ [0.    	0.    	0.    	0.    	0.    ]]
+2026-01-22 16:52:02,348 - INFO - Change Type UA (Precision) Matrix
+ [[0.    	0.9189	0.    	1.    	0.    ]
+ [0.7544	0.    	0.7907	0.    	0.    ]
+ [0.    	0.8947	0.    	0.    	0.    ]
  [0.    	0.    	0.    	0.    	0.    ]
-2025-11-25 16:56:49,861 - INFO - Epoch 0 saved.
+ [0.    	0.    	0.    	0.    	0.    ]]
+2026-01-22 16:52:02,348 - INFO - Change Type F1 Matrix
+ [[0.    	0.9315	0.    	1.    	0.    ]
+ [0.835 	0.    	0.8395	0.    	0.    ]
+ [0.    	0.8947	0.    	0.    	0.    ]
+ [0.    	0.    	0.    	0.    	0.    ]
+ [0.    	0.    	0.    	0.    	0.    ]]
+2026-01-22 16:52:02,349 - INFO - Epoch 0 saved.
