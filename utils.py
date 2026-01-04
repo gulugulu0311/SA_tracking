@@ -440,63 +440,79 @@ def extract_accuracy_from_log(file_path):
             log_content = file.read()
 
         epoch_info = dict()
+        # 匹配 Epoch 和 Loss
         epoch_pattern = re.compile(r'Epoch (\d+), Train loss: ([\d.]+)')
+        # 匹配普通的指标 (OA: 0.9822)
         metric_pattern = re.compile(r'(\w+): ([\d.]+)')
-        confusion_matrix_pattern = re.compile(r'Confusion Matrix\s*\n((?:\s*\[.*?\]\s*\n?)+)', re.DOTALL)
-        change_type_acc_pattern = re.compile(r'Change Type Accuracy Matrix\s*\n((?:\s*\[.*?\]\s*\n?)+)', re.DOTALL)
+        
+        # >>> MODIFIED: 定义多种矩阵的正则匹配模式
+        # 使用 re.DOTALL 让 . 可以匹配换行符，匹配形如 [ ... ] 的块
+        matrix_patterns = {
+            'confusion_matrix': re.compile(r'Confusion Matrix\s*\n((?:\s*\[.*?\]\s*\n?)+)', re.DOTALL),
+            'ct_pa': re.compile(r'Change Type PA \(Recall\) Matrix\s*\n((?:\s*\[.*?\]\s*\n?)+)', re.DOTALL),
+            'ct_ua': re.compile(r'Change Type UA \(Precision\) Matrix\s*\n((?:\s*\[.*?\]\s*\n?)+)', re.DOTALL),
+            'ct_f1': re.compile(r'Change Type F1 Matrix\s*\n((?:\s*\[.*?\]\s*\n?)+)', re.DOTALL),
+        }
+        
         last_saved_pattern = re.compile(r'last saved epoch: (\d+)')
 
         last_saved_epoch = 0
-        # Epoch 100, Train loss: 0.002951946808025241
+        
+        # 遍历每一个 Epoch 块
         for epoch_match in epoch_pattern.finditer(log_content):
             epoch_num = int(epoch_match.group(1))
             train_loss = float(epoch_match.group(2)[:-1])
-            metrics = {'pth': pth,
-                       'train_loss': train_loss}
+            metrics = {'pth': pth, 'train_loss': train_loss}
+            
+            # 确定当前 Epoch 的文本范围
             start_index = epoch_match.end()
             next_epoch_start = log_content.find('Epoch', start_index)
             if next_epoch_start == -1:
                 next_epoch_start = len(log_content)
-
             metric_text = log_content[start_index:next_epoch_start]
             
-            # metric ———— mIoU: 0.9537; OA: 0.9822; AA: 0.9681; F1: 0.9761; Kappa: 0.9693;
+            # 1. 提取普通数值指标
             for metric_match in metric_pattern.finditer(metric_text):
                 metric_name = metric_match.group(1)
                 metric_value = float(metric_match.group(2))
                 metrics[metric_name] = metric_value
             
-            # extract confusion matrix
-            cm_match, ct_acc_match = confusion_matrix_pattern.search(metric_text), \
-                                     change_type_acc_pattern.search(metric_text)
-            for cm_, cm_name in zip([cm_match, ct_acc_match], ['confusion_matrix', 'change_type_acc']):
-                if cm_:
-                    cm_block = cm_.group(1)
+            # 2. 提取各类矩阵
+            for name, pattern in matrix_patterns.items():
+                match = pattern.search(metric_text)
+                if match:
+                    cm_block = match.group(1)
                     rows = list()
+                    # 解析矩阵文本为数值列表
                     for line in cm_block.strip().splitlines():
-                        if not line.strip():
-                            continue
+                        if not line.strip(): continue
+                        # 提取行中的所有数字 (支持科学计数法)
                         nums = re.findall(r'[-+]?\d*\.?\d+(?:[eE][-+]?\d+)?', line)
                         if nums:
                             row = [float(x) for x in nums]
                             rows.append(row)
                     if rows:
-                        import numpy as _np
-                        cm = _np.array(rows, dtype=float)
-                        if _np.all(cm == _np.floor(cm)):
+                        cm = np.array(rows, dtype=float)
+                        # 如果是标准混淆矩阵（计数），转换为整数
+                        if name == 'confusion_matrix' and np.all(cm == np.floor(cm)):
                             cm = cm.astype(int)
-                        metrics[cm_name] = cm
+                        metrics[name] = cm
             
+            # 提取 last saved epoch
             last_saved_match = last_saved_pattern.search(metric_text)
             if last_saved_match:
                 last_saved_epoch = int(last_saved_match.group(1))
+                
             epoch_info[epoch_num] = metrics
+            
         return epoch_info, last_saved_epoch, pth
 
     except FileNotFoundError:
-        print('file not found')
+        print(f'File not found: {file_path}')
+        return None, 0, None
     except Exception as e:
-        raise Exception(f'Error: {e}')
+        print(f'Error processing {file_path}: {e}')
+        raise e
 
 def delete_files_in_folder(folder_path):
     """ delete all files in folder_path(list type) """

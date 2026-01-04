@@ -166,7 +166,7 @@ def main(province, model, temporal_filter_size=3, mode=None, is_spatial_filter=F
                     interpolated_pixels = np.apply_along_axis(interpolate_1d, axis=2, arr=pixel2interp)
                     model_input_data[has_zero_pixels] = interpolated_pixels
                 # ===================================
-                model_input_data = standarlization(model_input_data)    # standarlization
+                model_input_data, _ = standarlization(model_input_data)    # standarlization
                 model_input_data = torch.Tensor(model_input_data).to(device)
                 
                 batch_sub_size = int(batch_size / 4) # split batch for inference...
@@ -308,7 +308,7 @@ def main(province, model, temporal_filter_size=3, mode=None, is_spatial_filter=F
     
 if __name__ == '__main__':
     # load model
-    model_name, model_idx = 'TSSCD_TransEncoder', '1038'
+    model_name, model_idx = 'TSSCD_TransEncoder', '1035'
     # which model to classify
     confirm_model_idx = input(f'Current model is {model_name}_{model_idx}. Continue? (y/n)\t')
     if confirm_model_idx != 'y':    exit()
@@ -331,12 +331,15 @@ if __name__ == '__main__':
         mode = {
             # 'centroid': [121.5687, 29.20109],    # ZJ 三门湾
             # 'centroid': [120.47601, 33.84997],   # JS sheyangRiver
+            # 'centroid': [120.6993, 33.43275],   # JS YCSouth
+            # 'centroid': [120.94047, 32.91291],   # JS CDBay
+            'centroid': [121.74934, 32.01608],   # JS QDNorth
             # 'centroid': [118.64617, 24.82697],    # FJ QZBay
-            'centroid': [120.92863, 32.93204],    # JS YCSouth
+            # 'centroid': [120.92863, 32.93204],    # JS YCSouth
             'radius': 5000,
-            'region': 'JS_YCSouth',
-            # 'dates': ['2020-09', '2021-08', '2023-05', '2023-09', '2023-11', '2024-07']
-            'dates': ['2024-11']
+            'region': 'JS_QDNorth',
+            'dates': ['2023-07', '2023-08'],
+            # 'dates': ['2024-07', '2024-08', '2024-09', '2024-11', '2021-09', '2023-08', '2023-09', '2020-09']
 
         }
         main('JS', model, mode=mode, temporal_filter_size=3,

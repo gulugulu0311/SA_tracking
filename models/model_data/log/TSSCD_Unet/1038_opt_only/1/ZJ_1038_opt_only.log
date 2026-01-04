@@ -1,17 +1,29 @@
-2025-11-25 16:57:27,555 - INFO - Epoch 0, Train loss: 0.0
-2025-11-25 16:57:27,556 - INFO - mIoU: 0.7608; OA: 0.9751; AA: 0.9766; F1: 0.9746; Kappa: 0.9542;
-2025-11-25 16:57:27,556 - INFO - spatial_LccAccuracy: 0.8884; spatial_PA: 1.0; spatial_UA: 1.0; spatial_F1: 1.0
-2025-11-25 16:57:27,556 - INFO - temporal_CdAccuracy: 0.6473; temporal_PA: 0.9281; temporal_UA: 0.8851; temporal_F1: 0.9061
-2025-11-25 16:57:27,556 - INFO - Confusion Matrix
+2025-12-13 21:54:23,728 - INFO - Epoch 0, Train loss: 0.0
+2025-12-13 21:54:23,729 - INFO - mIoU: 0.7608; OA: 0.9751; AA: 0.7813; F1: 0.7797; Kappa: 0.9542;
+2025-12-13 21:54:23,729 - INFO - spatial_LccAccuracy: 0.8884; spatial_PA: 1.0; spatial_UA: 1.0; spatial_F1: 1.0
+2025-12-13 21:54:23,729 - INFO - temporal_CdAccuracy: 0.7946; temporal_PA: 0.9281; temporal_UA: 0.8851; temporal_F1: 0.9061
+2025-12-13 21:54:23,730 - INFO - Confusion Matrix
  [7012.	 158.	   0.	   1.	   0.]
  [ 116.	5381.	  32.	   0.	   1.]
  [   0.	  27.	 581.	   0.	   0.]
  [   0.	   0.	   0.	 131.	   0.]
  [   0.	   0.	   0.	   0.	   0.]
-2025-11-25 16:57:27,557 - INFO - Change Type Accuracy Matrix
- [0.    	0.9611	0.5   	1.    	0.    ]
+2025-12-13 21:54:23,731 - INFO - Change Type PA (Recall) Matrix
+ [[0.    	0.9611	0.5   	1.    	0.    ]
  [0.9348	0.    	0.8158	0.    	0.    ]
  [0.    	1.    	0.    	0.    	0.    ]
  [0.    	0.    	0.    	0.    	0.    ]
+ [0.    	0.    	0.    	0.    	0.    ]]
+2025-12-13 21:54:23,732 - INFO - Change Type UA (Precision) Matrix
+ [[0.    	0.8918	1.    	1.    	0.    ]
+ [0.6825	0.    	0.8158	0.    	0.    ]
+ [0.    	0.8261	0.    	0.    	0.    ]
  [0.    	0.    	0.    	0.    	0.    ]
-2025-11-25 16:57:27,557 - INFO - Epoch 0 saved.
+ [0.    	0.    	0.    	0.    	0.    ]]
+2025-12-13 21:54:23,732 - INFO - Change Type F1 Matrix
+ [[0.    	0.9251	0.6667	1.    	0.    ]
+ [0.789 	0.    	0.8158	0.    	0.    ]
+ [0.    	0.9048	0.    	0.    	0.    ]
+ [0.    	0.    	0.    	0.    	0.    ]
+ [0.    	0.    	0.    	0.    	0.    ]]
+2025-12-13 21:54:23,733 - INFO - Epoch 0 saved.
