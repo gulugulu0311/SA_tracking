@@ -140,6 +140,15 @@ def validModel(test_dl, model, device, logger,
         logger.info(f'temporal_CdAccuracy: {round(temporalscore.getCDScore(), 4)}; temporal_PA: {round(temporalscore.temporal_pa, 4)}; temporal_UA: {round(temporalscore.temporal_ua, 4)}; temporal_F1: {round(temporalscore.temporal_f1, 4)}')
         
         logger.info(f'Confusion Matrix\n {confusion_matrix_str[1:-1]}')
+<<<<<<< HEAD
+=======
+        
+        # >>> MODIFIED: Retrieve and log Change Type Metrics (PA, UA, F1)
+        ct_metrics = change_type_eval.get_metrics_matrices()
+        
+        def format_matrix(mat):
+            return np.array2string(mat, precision=4, suppress_small=True, separator='\t')
+>>>>>>> 93175a06c110e941919a0524e265707df6271051
 
         logger.info(f"Change Type PA (Recall) Matrix\n {format_matrix(ct_metrics['PA'])}")
         logger.info(f"Change Type UA (Precision) Matrix\n {format_matrix(ct_metrics['UA'])}")
@@ -174,8 +183,12 @@ def validModel(test_dl, model, device, logger,
                     'temporal_UA': round(temporalscore.temporal_ua, 4),
                     'temporal_F1': round(temporalscore.temporal_f1, 4),
                     # >>> ADDED: Include Change Type F1 Summary
+<<<<<<< HEAD
                     'Macro_F1': round(macro_event_f1, 4),
                     'Weighted_F1': round(ct_metrics['Weighted_F1'], 4)
+=======
+                    'Macro_Event_F1': round(macro_event_f1, 4)
+>>>>>>> 93175a06c110e941919a0524e265707df6271051
                 }
 
 def independent_evaluate_main_model(model, model_name='TSSCD_Unet', model_idx=1036, is_opt_only=False, k=1):

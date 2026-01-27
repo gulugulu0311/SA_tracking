@@ -104,6 +104,7 @@ class SpatialChangeDetectScore(object):
         self.spatial_ua = (self.spatial_ua_change + self.spatial_ua_Nochange) / 2
         self.spatial_f1 = 2 * self.spatial_pa * self.spatial_ua / (self.spatial_pa + self.spatial_ua + eps)
         
+<<<<<<< HEAD
     # def addLccValue(self, pretypes, labeltypes):
     #     # S-SMA Logic: Exact match of the entire sequence of types
     #     if np.array_equal(pretypes, labeltypes):
@@ -133,6 +134,13 @@ class SpatialChangeDetectScore(object):
         else:
             self.lcc_nume += 1
             self.lcc_deno += 1
+=======
+    def addLccValue(self, pretypes, labeltypes):
+        # S-SMA Logic: Exact match of the entire sequence of types
+        if np.array_equal(pretypes, labeltypes):
+            self.lcc_nume += 1
+        self.lcc_deno += 1
+>>>>>>> 93175a06c110e941919a0524e265707df6271051
     
     def getLccScore(self):
         return self.lcc_nume / self.lcc_deno
@@ -327,6 +335,7 @@ class ChangeTypeAccuracyMatrix:
         sum_paua = pa_matrix + ua_matrix
         mask_f1 = (sum_paua > 0)
         f1_matrix[mask_f1] = 2 * pa_matrix[mask_f1] * ua_matrix[mask_f1] / sum_paua[mask_f1]
+<<<<<<< HEAD
         
         total_gt_samples = np.sum(self.gt_counts)
         if total_gt_samples > 0:
@@ -336,12 +345,19 @@ class ChangeTypeAccuracyMatrix:
         else:
             weighted_f1 = 0.0
         
+=======
+
+>>>>>>> 93175a06c110e941919a0524e265707df6271051
         return {
             "PA": pa_matrix,
             "UA": ua_matrix,
             "F1": f1_matrix,
             "TP_Counts": self.numer,
             "GT_Counts": self.gt_counts,
+<<<<<<< HEAD
             "Pred_Counts": self.pred_counts,
             "Weighted_F1": weighted_f1
+=======
+            "Pred_Counts": self.pred_counts
+>>>>>>> 93175a06c110e941919a0524e265707df6271051
         }

@@ -404,8 +404,12 @@ if __name__ == '__main__':
        'spatial_LccAccuracy': 'S-SMA',
        'spatial_PA': 'S-PA', 'spatial_UA': 'S-UA', 'spatial_F1': 'S-F1',
        'temporal_PA': 'T-PA', 'temporal_UA': 'T-UA', 'temporal_F1': 'T-F1',
+<<<<<<< HEAD
        'Macro_Event_F1': 'Macro-F1',
        'Weighted_F1': 'Weighted-F1'
+=======
+       'Macro_Event_F1': 'Macro-F1'
+>>>>>>> 93175a06c110e941919a0524e265707df6271051
     }
     
     for model_idx in model_idxs:
