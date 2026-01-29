@@ -1,17 +1,29 @@
-2025-11-25 17:11:35,263 - INFO - Epoch 0, Train loss: 0.0
-2025-11-25 17:11:35,263 - INFO - mIoU: 0.9968; OA: 0.9991; AA: 0.9974; F1: 0.9984; Kappa: 0.9973;
-2025-11-25 17:11:35,263 - INFO - spatial_LccAccuracy: 0.9946; spatial_PA: 0.9983; spatial_UA: 0.9929; spatial_F1: 0.9956
-2025-11-25 17:11:35,263 - INFO - temporal_CdAccuracy: 0.9865; temporal_PA: 0.9987; temporal_UA: 0.9975; temporal_F1: 0.9981
-2025-11-25 17:11:35,264 - INFO - Confusion Matrix
+2026-01-29 17:02:00,937 - INFO - Epoch 0, Train loss: 0.0
+2026-01-29 17:02:00,937 - INFO - mIoU: 0.9968; OA: 0.9991; AA: 0.9974; F1: 0.9984; Kappa: 0.9973;
+2026-01-29 17:02:00,938 - INFO - spatial_LccAccuracy: 0.9946; spatial_PA: 0.9983; spatial_UA: 0.9929; spatial_F1: 0.9956; weighted_F1: 0.9964
+2026-01-29 17:02:00,938 - INFO - temporal_CdAccuracy: 0.9946; temporal_PA: 0.9987; temporal_UA: 0.9975; temporal_F1: 0.9981
+2026-01-29 17:02:00,938 - INFO - Confusion Matrix
  [18128.	    1.	    0.	    0.	    0.]
  [   15.	 2982.	    0.	    0.	    0.]
  [    0.	    0.	    0.	    0.	    0.]
  [    2.	    1.	    0.	 1071.	    0.]
  [    0.	    0.	    0.	    0.	    0.]
-2025-11-25 17:11:35,264 - INFO - Change Type Accuracy Matrix
- [0.    	1.    	0.    	0.9941	0.    ]
+2026-01-29 17:02:00,939 - INFO - Change Type PA (Recall) Matrix
+ [[0.    	1.    	0.    	0.9941	0.    ]
  [1.    	0.    	0.    	0.    	0.    ]
  [0.    	0.    	0.    	0.    	0.    ]
  [0.    	1.    	0.    	0.    	0.    ]
+ [0.    	0.    	0.    	0.    	0.    ]]
+2026-01-29 17:02:00,940 - INFO - Change Type UA (Precision) Matrix
+ [[0.    	0.9924	0.    	1.    	0.    ]
+ [0.8   	0.    	0.    	0.    	0.    ]
  [0.    	0.    	0.    	0.    	0.    ]
-2025-11-25 17:11:35,265 - INFO - Epoch 0 saved.
+ [0.    	1.    	0.    	0.    	0.    ]
+ [0.    	0.    	0.    	0.    	0.    ]]
+2026-01-29 17:02:00,941 - INFO - Change Type F1 Matrix
+ [[0.    	0.9962	0.    	0.9971	0.    ]
+ [0.8889	0.    	0.    	0.    	0.    ]
+ [0.    	0.    	0.    	0.    	0.    ]
+ [0.    	1.    	0.    	0.    	0.    ]
+ [0.    	0.    	0.    	0.    	0.    ]]
+2026-01-29 17:02:00,941 - INFO - Epoch 0 saved.

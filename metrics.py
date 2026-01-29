@@ -18,21 +18,21 @@ class Evaluator(object):
 
     def Class_Accuracy(self):
         # Recall per class (Producer's Accuracy for pixels)
-        Acc_classes = np.diag(self.confusion_matrix) / (self.confusion_matrix.sum(axis=1) + eps)
+        Acc_classes = np.diag(self.confusion_matrix) / self.confusion_matrix.sum(axis=1)
         Acc = np.nanmean(Acc_classes)
         return Acc_classes, Acc
 
     def Mean_Intersection_over_Union(self):
         MIoU = np.diag(self.confusion_matrix) / (
                 np.sum(self.confusion_matrix, axis=1) + np.sum(self.confusion_matrix, axis=0) -
-                np.diag(self.confusion_matrix) + eps)
+                np.diag(self.confusion_matrix))
         MIoU = np.nanmean(MIoU)
         return MIoU
 
     def F1(self):
-        precision = np.diag(self.confusion_matrix) / (np.sum(self.confusion_matrix, axis=0) + eps)
-        recall = np.diag(self.confusion_matrix) / (np.sum(self.confusion_matrix, axis=1) + eps)
-        f1 = 2 * precision * recall / (precision + recall + eps)
+        precision = np.diag(self.confusion_matrix) / (np.sum(self.confusion_matrix, axis=0))
+        recall = np.diag(self.confusion_matrix) / (np.sum(self.confusion_matrix, axis=1))
+        f1 = 2 * precision * recall / (precision + recall)
         f1 = np.nanmean(f1)
         return f1
 
@@ -40,8 +40,8 @@ class Evaluator(object):
         p_o = self.Pixel_Accuracy()
         pre = np.sum(self.confusion_matrix, axis=0)
         label = np.sum(self.confusion_matrix, axis=1)
-        p_e = (pre * label).sum() / (self.confusion_matrix.sum() * self.confusion_matrix.sum() + eps)
-        kappa = (p_o - p_e) / (1 - p_e + eps)
+        p_e = (pre * label).sum() / (self.confusion_matrix.sum() * self.confusion_matrix.sum())
+        kappa = (p_o - p_e) / (1 - p_e)
         return kappa
 
     def _generate_matrix(self, gt_image, pre_image):
@@ -102,9 +102,8 @@ class SpatialChangeDetectScore(object):
 
         self.spatial_pa = (self.spatial_pa_change + self.spatial_pa_Nochange) / 2
         self.spatial_ua = (self.spatial_ua_change + self.spatial_ua_Nochange) / 2
-        self.spatial_f1 = 2 * self.spatial_pa * self.spatial_ua / (self.spatial_pa + self.spatial_ua + eps)
+        self.spatial_f1 = 2 * self.spatial_pa * self.spatial_ua / (self.spatial_pa + self.spatial_ua)
         
-<<<<<<< HEAD
     # def addLccValue(self, pretypes, labeltypes):
     #     # S-SMA Logic: Exact match of the entire sequence of types
     #     if np.array_equal(pretypes, labeltypes):
@@ -134,13 +133,6 @@ class SpatialChangeDetectScore(object):
         else:
             self.lcc_nume += 1
             self.lcc_deno += 1
-=======
-    def addLccValue(self, pretypes, labeltypes):
-        # S-SMA Logic: Exact match of the entire sequence of types
-        if np.array_equal(pretypes, labeltypes):
-            self.lcc_nume += 1
-        self.lcc_deno += 1
->>>>>>> 93175a06c110e941919a0524e265707df6271051
     
     def getLccScore(self):
         return self.lcc_nume / self.lcc_deno
@@ -211,7 +203,7 @@ class TemporalChangeDetectScore(object):
         self.temporal_pa = (self.temporal_pa_change + self.temporal_pa_Nochange) / 2
         self.temporal_ua = (self.temporal_ua_change + self.temporal_ua_Nochange) / 2
 
-        self.temporal_f1 = 2 * self.temporal_pa * self.temporal_ua / (self.temporal_pa + self.temporal_ua + eps)
+        self.temporal_f1 = 2 * self.temporal_pa * self.temporal_ua / (self.temporal_pa + self.temporal_ua)
     
     def getCDScore(self):
         return self.cd_nume / self.cd_deno
@@ -335,7 +327,6 @@ class ChangeTypeAccuracyMatrix:
         sum_paua = pa_matrix + ua_matrix
         mask_f1 = (sum_paua > 0)
         f1_matrix[mask_f1] = 2 * pa_matrix[mask_f1] * ua_matrix[mask_f1] / sum_paua[mask_f1]
-<<<<<<< HEAD
         
         total_gt_samples = np.sum(self.gt_counts)
         if total_gt_samples > 0:
@@ -345,19 +336,12 @@ class ChangeTypeAccuracyMatrix:
         else:
             weighted_f1 = 0.0
         
-=======
-
->>>>>>> 93175a06c110e941919a0524e265707df6271051
         return {
             "PA": pa_matrix,
             "UA": ua_matrix,
             "F1": f1_matrix,
             "TP_Counts": self.numer,
             "GT_Counts": self.gt_counts,
-<<<<<<< HEAD
             "Pred_Counts": self.pred_counts,
             "Weighted_F1": weighted_f1
-=======
-            "Pred_Counts": self.pred_counts
->>>>>>> 93175a06c110e941919a0524e265707df6271051
         }

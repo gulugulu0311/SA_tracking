@@ -359,7 +359,7 @@ def process_regional_data(log_dir, model_idx, model_name, metircs_rename, classe
                 acc_dict['Macro_Event_F1'] = macro_f1
 
             for metric, value in acc_dict.items():
-                if metric in ['pth', 'pth_idx', 'train_loss', 'F1', 'mIoU', 'is_opt']: continue
+                if metric in ['pth', 'pth_idx', 'train_loss', 'mIoU', 'is_opt']: continue
                 
                 # 绘制普通混淆矩阵 (仍然保存在 log/confusion_matrix 下，保持原样)
                 if metric == 'confusion_matrix':
@@ -394,7 +394,7 @@ if __name__ == '__main__':
     classes = ['SA', 'BF', 'WB', 'HL', 'OV']
     target_dir = 'models\\model_data\\log'
     
-    model_idxs = ['1038'] 
+    model_idxs = ['1038', '1037'] 
     print(f'Current model indices: {model_idxs}')
           
     models_name = ['TSSCD_TransEncoder', 'TSSCD_Unet', 'TSSCD_FCN']
@@ -404,12 +404,8 @@ if __name__ == '__main__':
        'spatial_LccAccuracy': 'S-SMA',
        'spatial_PA': 'S-PA', 'spatial_UA': 'S-UA', 'spatial_F1': 'S-F1',
        'temporal_PA': 'T-PA', 'temporal_UA': 'T-UA', 'temporal_F1': 'T-F1',
-<<<<<<< HEAD
        'Macro_Event_F1': 'Macro-F1',
        'Weighted_F1': 'Weighted-F1'
-=======
-       'Macro_Event_F1': 'Macro-F1'
->>>>>>> 93175a06c110e941919a0524e265707df6271051
     }
     
     for model_idx in model_idxs:
@@ -459,7 +455,7 @@ if __name__ == '__main__':
                     
                     # 3. 收集其他指标
                     for metric, value in acc_dict.items():
-                        if metric in ['pth', 'train_loss', 'F1', 'mIoU']: continue
+                        if metric in ['pth', 'train_loss', 'mIoU']: continue
                         
                         # 普通混淆矩阵单独绘制
                         if metric == 'confusion_matrix':
