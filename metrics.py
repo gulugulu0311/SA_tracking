@@ -35,7 +35,29 @@ class Evaluator(object):
         f1 = 2 * precision * recall / (precision + recall)
         f1 = np.nanmean(f1)
         return f1
+    def Weighted_F1(self):
+        """
+        Weighted F1-score (weighted by GT pixel count).
+        """
+        cm = self.confusion_matrix.astype(np.float64)
 
+        # Per-class precision and recall
+        precision = np.diag(cm) / (np.sum(cm, axis=0) + eps)
+        recall    = np.diag(cm) / (np.sum(cm, axis=1) + eps)
+
+        f1 = 2 * precision * recall / (precision + recall + eps)
+
+        # Weights: GT pixel counts
+        weights = np.sum(cm, axis=1)  # GT count per class
+
+        # Avoid division by zero
+        valid = weights > 0
+        if not np.any(valid):
+            return 0.0
+
+        weighted_f1 = np.sum(f1[valid] * weights[valid]) / np.sum(weights[valid])
+        return weighted_f1
+    
     def Kappa(self):
         p_o = self.Pixel_Accuracy()
         pre = np.sum(self.confusion_matrix, axis=0)

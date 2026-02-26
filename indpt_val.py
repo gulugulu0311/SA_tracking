@@ -106,7 +106,8 @@ def validModel(test_dl, model, device, logger,
         print('OA:', round(Acc, 4))
         print('AA:', round(Acc_mean, 4), '; Acc_class:', [round(i, 4) for i in Acc_class])
         F1 = evaluator.F1()
-        print('F1:', round(F1, 4))
+        cls_weighted_F1 = evaluator.Weighted_F1()
+        print('F1:', round(F1, 4), '; cls_weighted_F1:', round(cls_weighted_F1, 4))
         Kappa = evaluator.Kappa()
         print('Kappa:', round(Kappa, 4))
         mIoU = evaluator.Mean_Intersection_over_Union()
@@ -135,7 +136,7 @@ def validModel(test_dl, model, device, logger,
             return np.array2string(mat, precision=4, suppress_small=True, separator='\t')
         
         logger.info(f'Epoch {epoch}, Train loss: 0.0')
-        logger.info(f'mIoU: {round(mIoU, 4)}; OA: {round(Acc, 4)}; AA: {round(Acc_mean, 4)}; F1: {round(F1, 4)}; Kappa: {round(Kappa, 4)};')
+        logger.info(f'mIoU: {round(mIoU, 4)}; OA: {round(Acc, 4)}; AA: {round(Acc_mean, 4)}; F1: {round(F1, 4)}; cls_weighted_F1: {round(cls_weighted_F1, 4)}; Kappa: {round(Kappa, 4)};')
         logger.info(f'spatial_LccAccuracy: {round(spatialscore.getLccScore(), 4)}; spatial_PA: {round(spatialscore.spatial_pa, 4)}; spatial_UA: {round(spatialscore.spatial_ua, 4)}; spatial_F1: {round(spatial_f1, 4)}; weighted_F1: {round(ct_metrics['Weighted_F1'], 4)}')
         logger.info(f'temporal_CdAccuracy: {round(temporalscore.getCDScore(), 4)}; temporal_PA: {round(temporalscore.temporal_pa, 4)}; temporal_UA: {round(temporalscore.temporal_ua, 4)}; temporal_F1: {round(temporalscore.temporal_f1, 4)}')
         
@@ -218,6 +219,25 @@ def independent_evaluate_main_model(model, model_name='TSSCD_Unet', model_idx=10
     # Load regional test data
     regional_npy = f'test.npy' if not is_opt_only else f'test_opt_only.npy'
     test_data = np.load(os.path.join('./models/model_data/dataset', str(model_idx), str(k), regional_npy))
+    print('test data shape before added.', test_data.shape)
+    if is_opt_only:
+        test_data = np.concatenate([
+            test_data, 
+            np.load('./additional_FJ_dataset/FJ_test_opt_only.npy'),
+            np.load('./additional_FJ_dataset/FJ_tralid_opt_only.npy'),
+            np.load('./additional_FJ_dataset/SD_test_opt_only.npy'),
+            np.load('./additional_FJ_dataset/SD_tralid_opt_only.npy'),
+            ], axis=0)
+    else:
+        test_data = np.concatenate([
+            test_data, 
+            np.load('./additional_FJ_dataset/FJ_test.npy'),
+            np.load('./additional_FJ_dataset/FJ_tralid.npy'),
+            np.load('./additional_FJ_dataset/SD_test.npy'),
+            np.load('./additional_FJ_dataset/SD_tralid.npy'),
+            ], axis=0)
+    print('test data shape after added.', test_data.shape)
+    
     print(f'Loading test data from: {os.path.join("./models/model_data/dataset", str(model_idx), str(k), regional_npy)}')
     # Create data loader for the region
     test_dl = make_dataloader(test_data, type='test', is_shuffle=False, batch_size=64)
@@ -278,6 +298,35 @@ def evaluateRegionalAccuracy(model, model_name='TSSCD_Unet', model_idx=1036, is_
         # Load regional test data
         regional_npy = f'{province}_test.npy' if not is_opt_only else f'{province}_test_opt_only.npy'
         test_data = np.load(os.path.join('./models/model_data/dataset', str(model_idx), str(k), regional_npy))
+        print('FJ test data shape before added.', test_data.shape)
+        if province == 'FJ':
+            if is_opt_only:
+                test_data = np.concatenate([
+                    test_data, 
+                    np.load('./additional_FJ_dataset/FJ_test_opt_only.npy'),
+                    np.load('./additional_FJ_dataset/FJ_tralid_opt_only.npy'),
+                    ], axis=0)
+            else:
+                test_data = np.concatenate([
+                    test_data, 
+                    np.load('./additional_FJ_dataset/FJ_test.npy'),
+                    np.load('./additional_FJ_dataset/FJ_tralid.npy'),
+                    ], axis=0)
+        if province == 'SD':
+            if is_opt_only:
+                test_data = np.concatenate([
+                    test_data, 
+                    np.load('./additional_FJ_dataset/SD_test_opt_only.npy'),
+                    np.load('./additional_FJ_dataset/SD_tralid_opt_only.npy')
+                    ], axis=0)
+            else:
+                test_data = np.concatenate([
+                    test_data, 
+                    np.load('./additional_FJ_dataset/SD_test.npy'),
+                    np.load('./additional_FJ_dataset/SD_tralid.npy')
+                    ], axis=0)
+        print('FJ test data shape after added.', test_data.shape)
+        
         print(f'Loading {province} test data from: {os.path.join("./models/model_data/dataset", str(model_idx), str(k), regional_npy)}')
         # Create data loader for the region
         test_dl = make_dataloader(test_data, type='test', is_shuffle=False, batch_size=64)

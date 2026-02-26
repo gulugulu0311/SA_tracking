@@ -1,29 +1,29 @@
-2026-01-29 17:04:34,989 - INFO - Epoch 0, Train loss: 0.0
-2026-01-29 17:04:34,990 - INFO - mIoU: 0.608; OA: 0.9791; AA: 0.8351; F1: 0.879; Kappa: 0.9555;
-2026-01-29 17:04:34,990 - INFO - spatial_LccAccuracy: 0.8; spatial_PA: 0.9826; spatial_UA: 0.9896; spatial_F1: 0.9861; weighted_F1: 0.9196
-2026-01-29 17:04:34,990 - INFO - temporal_CdAccuracy: 0.8; temporal_PA: 0.9481; temporal_UA: 0.9282; temporal_F1: 0.938
-2026-01-29 17:04:34,991 - INFO - Confusion Matrix
- [11684.	  414.	    0.	    0.	    0.]
- [  200.	20262.	    9.	    0.	    0.]
- [    0.	   58.	   72.	    0.	    1.]
+2026-02-22 20:07:33,806 - INFO - Epoch 0, Train loss: 0.0
+2026-02-22 20:07:33,807 - INFO - mIoU: 0.5909; OA: 0.974; AA: 0.8241; F1: 0.8595; cls_weighted_F1: 0.9734; Kappa: 0.9467;
+2026-02-22 20:07:33,807 - INFO - spatial_LccAccuracy: 0.7492; spatial_PA: 0.9827; spatial_UA: 0.9898; spatial_F1: 0.9862; weighted_F1: 0.909
+2026-02-22 20:07:33,807 - INFO - temporal_CdAccuracy: 0.7492; temporal_PA: 0.9187; temporal_UA: 0.9057; temporal_F1: 0.9121
+2026-02-22 20:07:33,807 - INFO - Confusion Matrix
+ [13496.	  468.	    0.	    0.	    0.]
+ [  218.	20791.	   53.	    0.	    0.]
+ [    0.	  179.	  194.	    0.	    1.]
  [    0.	    0.	    0.	    0.	    0.]
  [    0.	    0.	    0.	    0.	    0.]
-2026-01-29 17:04:34,992 - INFO - Change Type PA (Recall) Matrix
- [[0.    	0.9423	0.    	0.    	0.    ]
- [0.9441	0.    	0.6   	0.    	0.    ]
+2026-02-22 20:07:33,807 - INFO - Change Type PA (Recall) Matrix
+ [[0.    	0.9457	0.    	0.    	0.    ]
+ [0.9441	0.    	0.9   	0.    	0.    ]
  [0.    	0.    	0.    	0.    	0.    ]
  [0.    	0.    	0.    	0.    	0.    ]
  [0.    	0.    	0.    	0.    	0.    ]]
-2026-01-29 17:04:34,992 - INFO - Change Type UA (Precision) Matrix
- [[0.    	0.9305	0.    	0.    	0.    ]
- [0.8588	0.    	0.3   	0.    	0.    ]
+2026-02-22 20:07:33,807 - INFO - Change Type UA (Precision) Matrix
+ [[0.    	0.9321	0.    	0.    	0.    ]
+ [0.8539	0.    	0.8333	0.    	0.    ]
  [0.    	0.    	0.    	0.    	0.    ]
  [0.    	0.    	0.    	0.    	0.    ]
  [0.    	0.    	0.    	0.    	0.    ]]
-2026-01-29 17:04:34,994 - INFO - Change Type F1 Matrix
- [[0.    	0.9363	0.    	0.    	0.    ]
- [0.8994	0.    	0.4   	0.    	0.    ]
+2026-02-22 20:07:33,807 - INFO - Change Type F1 Matrix
+ [[0.    	0.9389	0.    	0.    	0.    ]
+ [0.8968	0.    	0.8654	0.    	0.    ]
  [0.    	0.    	0.    	0.    	0.    ]
  [0.    	0.    	0.    	0.    	0.    ]
  [0.    	0.    	0.    	0.    	0.    ]]
-2026-01-29 17:04:34,994 - INFO - Epoch 0 saved.
+2026-02-22 20:07:33,807 - INFO - Epoch 0 saved.

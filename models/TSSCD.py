@@ -1,13 +1,15 @@
 import os
 import sys
-import time
-import re
 sys.path.append('.')
 import math
 import torch
-import matplotlib.pyplot as plt
+
 import numpy as np
 import pandas as pd
+
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
 
 from utils import *
 from torch import nn, Tensor
@@ -16,7 +18,6 @@ from typing import Optional
 plt.rcParams['font.family'] = ['Arial']
 plt.rcParams['font.weight'] = 'bold'
 plt.rcParams['axes.unicode_minus'] = False
-
 # ================= Configuration & Model Classes (保持不变) =================
 class Configs():
     def __init__(self, is_opt_only=False):
@@ -186,7 +187,6 @@ def plot_confusion_matrix(cm, classes, save_path, normalize=True,
         cmap = plt.cm.Purples
         plt.imshow(cm_display, interpolation='nearest', cmap=cmap, vmin=0, vmax=1)
     elif normalize:
-        # cm_display = cm.astype('float') / (cm.sum(axis=0)[:, np.newaxis] + 1e-6)
         cm_display = cm.astype('float') / (cm.sum(axis=1, keepdims=True) + 1e-6)
         cmap = dual_gamma_norm
         plt.imshow(cm_display.T.copy(), interpolation='nearest', cmap=plt.cm.Reds, norm=dual_gamma_norm)
@@ -261,7 +261,7 @@ def plot_confusion_matrix(cm, classes, save_path, normalize=True,
                 else:
                     value_text = f"{int(cm[i, j])}"
                 
-                plt.text(j, i, value_text,
+                plt.text(i, j, value_text,
                          horizontalalignment="center",
                          verticalalignment="center",
                          fontsize=font_size,
@@ -340,15 +340,15 @@ def process_regional_data(log_dir, model_idx, model_name, metircs_rename, classe
                 # 文件名: SD.png 或 SD_opt.png
                 fname = f"{province_name}_opt.png" if is_opt else f"{province_name}.png"
                 
-                plot_confusion_matrix(
-                    cm=acc_dict['ct_f1'], 
-                    classes=classes,
-                    save_path=os.path.join(vis_save_dir, fname),
-                    normalize=False,
-                    pa_mat=acc_dict['ct_pa'],
-                    ua_mat=acc_dict['ct_ua'],
-                    title=None
-                )
+                # plot_confusion_matrix(
+                #     cm=acc_dict['ct_f1'], 
+                #     classes=classes,
+                #     save_path=os.path.join(vis_save_dir, fname),
+                #     normalize=False,
+                #     pa_mat=acc_dict['ct_pa'],
+                #     ua_mat=acc_dict['ct_ua'],
+                #     title=None
+                # )
             
             # 2. 处理普通指标汇总
             if 'ct_f1' in acc_dict:
@@ -366,7 +366,7 @@ def process_regional_data(log_dir, model_idx, model_name, metircs_rename, classe
                     cm_save_path = os.path.join(f'models\\model_data\\log\\{metric}\\', model_idx, model_name, pth_idx)
                     if not os.path.exists(cm_save_path): os.makedirs(cm_save_path)
                     fname = f"{province_name}_opt.png" if is_opt else f"{province_name}.png"
-                    plot_confusion_matrix(value, classes, os.path.join(cm_save_path, fname), normalize=True)
+                    # plot_confusion_matrix(value, classes, os.path.join(cm_save_path, fname), normalize=True)
                     continue
                 
                 if metric in ['ct_f1', 'ct_pa', 'ct_ua']: continue # 跳过矩阵数据
@@ -381,7 +381,10 @@ def process_regional_data(log_dir, model_idx, model_name, metircs_rename, classe
             df = pd.DataFrame(columns=_columns).astype(object)
             _row = {'model': province_name}
             for metric, values in metric_values.items():
-                _row[metric] = f'{np.mean(values)*100:.1f}±{np.std(values)*100:.2f}'
+                if metric == 'Kappa':
+                    _row[metric] = f'{np.mean(values):.3f}±{np.std(values):.5f}'
+                else:
+                    _row[metric] = f'{np.mean(values)*100:.1f}±{np.std(values)*100:.2f}'
             df.loc[0] = _row
             df.rename(columns=metircs_rename, inplace=True)
             province_dfs[province_name] = df
@@ -394,7 +397,7 @@ if __name__ == '__main__':
     classes = ['SA', 'BF', 'WB', 'HL', 'OV']
     target_dir = 'models\\model_data\\log'
     
-    model_idxs = ['1038', '1037'] 
+    model_idxs = ['1038'] 
     print(f'Current model indices: {model_idxs}')
           
     models_name = ['TSSCD_TransEncoder', 'TSSCD_Unet', 'TSSCD_FCN']
@@ -437,15 +440,15 @@ if __name__ == '__main__':
                         # 文件名: 1.png 或 1_opt_only.png
                         fname = f"{pth_idx}_opt_only.png" if is_opt_only else f"{pth_idx}.png"
                         
-                        plot_confusion_matrix(
-                            cm=acc_dict['ct_f1'], 
-                            classes=classes,
-                            save_path=os.path.join(vis_save_dir, fname),
-                            normalize=False,
-                            pa_mat=acc_dict['ct_pa'],
-                            ua_mat=acc_dict['ct_ua'],
-                            title=None
-                        )
+                        # plot_confusion_matrix(
+                        #     cm=acc_dict['ct_f1'], 
+                        #     classes=classes,
+                        #     save_path=os.path.join(vis_save_dir, fname),
+                        #     normalize=False,
+                        #     pa_mat=acc_dict['ct_pa'],
+                        #     ua_mat=acc_dict['ct_ua'],
+                        #     title=None
+                        # )
 
                     # 2. 计算 Macro-F1
                     if 'ct_f1' in acc_dict:
@@ -462,7 +465,7 @@ if __name__ == '__main__':
                             cm_save_path = os.path.join(f'models\\model_data\\log\\{metric}\\', model_idx, model_name, pth_idx)
                             if not os.path.exists(cm_save_path): os.makedirs(cm_save_path)
                             fname = f"{pth_idx}_opt_only.png" if is_opt_only else f"{pth_idx}.png"
-                            plot_confusion_matrix(value, classes, os.path.join(cm_save_path, fname), normalize=True)
+                            # plot_confusion_matrix(value, classes, os.path.join(cm_save_path, fname), normalize=True)
                             continue
                         
                         if metric in ['ct_f1', 'ct_pa', 'ct_ua']: continue # 矩阵不放入 metric_values
@@ -481,7 +484,10 @@ if __name__ == '__main__':
                 
                 _row = {'model': _model_name_disp}
                 for metric, values in metric_values.items():
-                    _row[metric] = f'{np.mean(values)*100:.1f}±{np.std(values)*100:.2f}'
+                    if metric == 'Kappa':
+                        _row[metric] = f'{np.mean(values):.3f}±{np.std(values):.5f}'
+                    else:
+                        _row[metric] = f'{np.mean(values)*100:.1f}±{np.std(values)*100:.2f}'
                 
                 df_4_csv.loc[_row_idx] = _row
                
@@ -528,7 +534,8 @@ if __name__ == '__main__':
         
         excel_path = os.path.join(target_dir, f'model accs.xlsx')
         mode = 'a' if os.path.exists(excel_path) else 'w'
-        with pd.ExcelWriter(excel_path, engine='openpyxl', mode=mode, if_sheet_exists='replace') as writer:
+        # with pd.ExcelWriter(excel_path, engine='openpyxl', mode=mode, if_sheet_exists='replace') as writer:
+        with pd.ExcelWriter(excel_path, engine='openpyxl', mode='w') as writer:
             df_4_csv.to_excel(writer, index=False, sheet_name=f'{model_idx}')
             if not combined_province_df.empty:
                 sheet_name = f"{model_idx}_province_data"
