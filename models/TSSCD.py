@@ -340,15 +340,15 @@ def process_regional_data(log_dir, model_idx, model_name, metircs_rename, classe
                 # 文件名: SD.png 或 SD_opt.png
                 fname = f"{province_name}_opt.png" if is_opt else f"{province_name}.png"
                 
-                # plot_confusion_matrix(
-                #     cm=acc_dict['ct_f1'], 
-                #     classes=classes,
-                #     save_path=os.path.join(vis_save_dir, fname),
-                #     normalize=False,
-                #     pa_mat=acc_dict['ct_pa'],
-                #     ua_mat=acc_dict['ct_ua'],
-                #     title=None
-                # )
+                plot_confusion_matrix(
+                    cm=acc_dict['ct_f1'], 
+                    classes=classes,
+                    save_path=os.path.join(vis_save_dir, fname),
+                    normalize=False,
+                    pa_mat=acc_dict['ct_pa'],
+                    ua_mat=acc_dict['ct_ua'],
+                    title=None
+                )
             
             # 2. 处理普通指标汇总
             if 'ct_f1' in acc_dict:
@@ -366,7 +366,7 @@ def process_regional_data(log_dir, model_idx, model_name, metircs_rename, classe
                     cm_save_path = os.path.join(f'models\\model_data\\log\\{metric}\\', model_idx, model_name, pth_idx)
                     if not os.path.exists(cm_save_path): os.makedirs(cm_save_path)
                     fname = f"{province_name}_opt.png" if is_opt else f"{province_name}.png"
-                    # plot_confusion_matrix(value, classes, os.path.join(cm_save_path, fname), normalize=True)
+                    plot_confusion_matrix(value, classes, os.path.join(cm_save_path, fname), normalize=True)
                     continue
                 
                 if metric in ['ct_f1', 'ct_pa', 'ct_ua']: continue # 跳过矩阵数据
@@ -394,10 +394,10 @@ def process_regional_data(log_dir, model_idx, model_name, metircs_rename, classe
 # ================= Main Execution =================
 if __name__ == '__main__':
     batch_size, seq_len, device = 64, 60, torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    classes = ['SA', 'BF', 'WB', 'HL', 'OV']
+    classes = ['SA', 'BF', 'WB', 'HL', 'RV']
     target_dir = 'models\\model_data\\log'
     
-    model_idxs = ['1038'] 
+    model_idxs = ['1040'] 
     print(f'Current model indices: {model_idxs}')
           
     models_name = ['TSSCD_TransEncoder', 'TSSCD_Unet', 'TSSCD_FCN']
@@ -440,15 +440,15 @@ if __name__ == '__main__':
                         # 文件名: 1.png 或 1_opt_only.png
                         fname = f"{pth_idx}_opt_only.png" if is_opt_only else f"{pth_idx}.png"
                         
-                        # plot_confusion_matrix(
-                        #     cm=acc_dict['ct_f1'], 
-                        #     classes=classes,
-                        #     save_path=os.path.join(vis_save_dir, fname),
-                        #     normalize=False,
-                        #     pa_mat=acc_dict['ct_pa'],
-                        #     ua_mat=acc_dict['ct_ua'],
-                        #     title=None
-                        # )
+                        plot_confusion_matrix(
+                            cm=acc_dict['ct_f1'], 
+                            classes=classes,
+                            save_path=os.path.join(vis_save_dir, fname),
+                            normalize=False,
+                            pa_mat=acc_dict['ct_pa'],
+                            ua_mat=acc_dict['ct_ua'],
+                            title=None
+                        )
 
                     # 2. 计算 Macro-F1
                     if 'ct_f1' in acc_dict:
@@ -465,7 +465,7 @@ if __name__ == '__main__':
                             cm_save_path = os.path.join(f'models\\model_data\\log\\{metric}\\', model_idx, model_name, pth_idx)
                             if not os.path.exists(cm_save_path): os.makedirs(cm_save_path)
                             fname = f"{pth_idx}_opt_only.png" if is_opt_only else f"{pth_idx}.png"
-                            # plot_confusion_matrix(value, classes, os.path.join(cm_save_path, fname), normalize=True)
+                            plot_confusion_matrix(value, classes, os.path.join(cm_save_path, fname), normalize=True)
                             continue
                         
                         if metric in ['ct_f1', 'ct_pa', 'ct_ua']: continue # 矩阵不放入 metric_values
@@ -491,8 +491,6 @@ if __name__ == '__main__':
                 
                 df_4_csv.loc[_row_idx] = _row
                
-                # 处理分省数据（并在函数内部绘制分省的 CT 图）
-                # 注意：这里需要传入 classes 列表以供绘图
                 province_dfs = process_regional_data(log_dir, model_idx, model_name, metircs_rename, classes)
                 if province_dfs:
                     model_key = f"{model_name}_{'opt_only' if is_opt_only else 'full'}"

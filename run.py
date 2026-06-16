@@ -308,7 +308,7 @@ def main(province, model, temporal_filter_size=3, mode=None, is_spatial_filter=F
     
 if __name__ == '__main__':
     # load model
-    model_name, model_idx = 'TSSCD_TransEncoder', '1035'
+    model_name, model_idx = 'TSSCD_TransEncoder', '1040'
     # which model to classify
     confirm_model_idx = input(f'Current model is {model_name}_{model_idx}. Continue? (y/n)\t')
     if confirm_model_idx != 'y':    exit()
@@ -326,6 +326,7 @@ if __name__ == '__main__':
     model.eval()
     
     province_list = [ 'JS', 'SD', 'FJ', 'ZJ', 'SH', 'GDGX']
+    # province_list = ['GDGX']
     
     if input(f'Is mode? (y/n)\n') == 'y':
         mode = {

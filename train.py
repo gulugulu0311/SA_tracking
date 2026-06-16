@@ -248,7 +248,7 @@ def validModel(test_dl, model, device, logger, saveModel=True,
 
 if __name__ == '__main__':
     iter_num, batch_size = 800, 64
-    k_random_permutation = 5
+    k_random_permutation = 10
     def training_set(model_name):
         '''
             continue (pass) when return True
@@ -261,7 +261,7 @@ if __name__ == '__main__':
             return False
         
     # load dataset
-    model_idx = 1038
+    model_idx = 1040
     model_save_name = str(model_idx)
     confirm_model_idx = input(f'Current model index is {model_save_name}. Continue? (y/n)\n')
     if confirm_model_idx == 'y':
@@ -322,7 +322,7 @@ if __name__ == '__main__':
                 is_early_stopping=True
             )
             
-    # # Test dataset —— traid for training & test for validation
+    # Test dataset —— traid for training & test for validation
     # for model_name, model in generate_model_instances(is_opt_only=False, model_idx=model_idx):
     #     if training_set(model_name):  continue
     #     model = model.to(device=device)

@@ -350,9 +350,9 @@ def evaluateRegionalAccuracy(model, model_name='TSSCD_Unet', model_idx=1036, is_
 
 if __name__ == '__main__':
     # MODIFICATION: Changed to regional evaluation mode
-    model_idx = 1038
+    model_idx = 1040
     model_save_name = str(model_idx)
-    k_random_permutation = 5
+    k_random_permutation = 10
     
     # MODIFICATION: User confirmation for regional evaluation
     confirm_eval = input(f'Start regional accuracy evaluation, model index: {model_save_name}. Continue? (y/n)\n')
